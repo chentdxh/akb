@@ -24,7 +24,7 @@
 
             <div class="box-tools">
 
-                <a type="button" class="btn   btn-default   pull-right">添加</a>
+                <a type="button" class="btn   btn-default btn-sm  pull-right">添加</a>
 
 
 
