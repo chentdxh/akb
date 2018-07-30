@@ -60,7 +60,7 @@
     <link rel="stylesheet" href="/css/custom.css">
 @stop
 
-@section('js')
+@section('vuejs')
     <script>
 
         var app = new Vue({
