@@ -72,7 +72,11 @@
     methods:{
         show_token:function(token)
         {
-            swal({type:"info",title:token})
+            swal({ input: 'textarea', inputAttributes: {
+                    value: token,
+                    readonly: true,
+                     
+                }  })
         }
     }
 
