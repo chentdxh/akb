@@ -1,0 +1,6 @@
+*.pb.*
+proto.desc
+
+base_define.proto
+chat_msg.hpp
+*.swp

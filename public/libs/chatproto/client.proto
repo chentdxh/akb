@@ -1,0 +1,150 @@
+syntax = "proto2";
+option optimize_for = LITE_RUNTIME;
+
+package chat.client;
+
+// Login
+
+enum LoginStatus {
+    kDefault    = 0;
+    kChecking   = 1;  // Unused
+    kHasLogged  = 2;  // Unused
+    kExpired    = 3;  // Token expired, require client relink to game server,
+    kInvalid    = 4;  // Invalid login, invalid appid, invalid token, invalid uid
+    kNetError   = 5;  // Used by client local, indicating an network error for first time link
+}
+
+message LoginReq{
+    optional string appid = 1;
+    optional string token = 2;
+    optional string uid = 3;
+    optional string extra = 4;
+}
+
+message LoginRsp{
+    optional string appid = 1;
+    optional string uid = 2;  // server send back
+    optional LoginStatus status = 3;
+}
+
+// Channel
+
+enum ChannelType {
+    kChannelTypePreserved = 0x00;
+    kChannelTypeNormal    = 0x10;
+    kChannelTypeGlobal    = 0x20;
+}
+
+enum ChannelModifyType {
+    kChannelModifyTypeAdd   = 0x00;
+    kChannelModifyTypeDel   = 0x01;
+}
+
+message ChannelChangeMemberReq {
+    optional string appid = 1;
+    optional uint32 channel_type = 2;
+    optional string cid = 3;
+    optional ChannelModifyType change_type = 4;
+    repeated string change_id_list = 5;
+}
+
+message ChannelChangeMemberRsp {
+    optional bool result = 1;
+    optional string appid = 2;
+    optional uint32 channel_type = 3;
+    optional string cid = 4;
+    optional ChannelModifyType change_type = 5;
+}
+
+// Message
+
+enum MsgType{
+    kMsgTypeRoot          = 0x00;
+    kMsgTypeText          = 0x01;
+    kMsgTypeAudio         = 0x02;
+}
+
+enum ToType{
+    kToTypePerson         = 0x00;
+    kToTypeNormalChannel  = 0x10;  // Integer: [1, 16]
+    kToTypeGlobalChannel  = 0x20;  // Integer: [17, 32]
+}
+
+enum AckStatus {
+    kOk         = 0;
+    kTooLong    = 1;
+    kTooQuick   = 2;
+    kError      = 3;
+}
+
+message MsgData {
+    optional uint64 mid = 1;
+    optional MsgType msg_type = 2;
+    optional string from_uid = 3;
+    optional uint64 create_time = 4;
+    optional string content = 5;
+    optional string extra = 6;
+}
+
+message MsgInfo {
+    optional string guid = 1;    // Copy to MsgDataServerAck->guid, used by client to identify MsgInfo
+    optional uint32 to_type = 2;
+    optional string to_id = 3;
+    optional MsgData data = 4;
+}
+
+message MsgInfoList {
+    optional uint32 to_type = 1;
+    optional string to_id = 2;
+    repeated MsgData data_list = 3;
+}
+
+// Client Send to Server
+message MsgDataClientAck {
+    optional string uid = 1;
+    optional uint32 to_type = 2;
+    optional string to_id = 3;
+    optional uint64 mid = 4;
+}
+
+// Server Send to Client
+message MsgDataServerAck {
+    optional string guid = 1;
+    optional AckStatus status = 2;
+    optional string content = 3;
+}
+
+enum NetStatus {
+    kDisconnect = 0;
+    kConnect    = 1;
+    kTryConnect = 2;
+    kKicked     = 3;   // Client kicked by server, client don't perform reconnect action.
+}
+
+message NetStatusClient {
+    optional NetStatus status = 1;
+}
+
+message MsgHistoryReq {
+    optional string appid = 1;
+    optional string uid = 2;
+    optional uint32 to_type = 3;    // 频道类型
+    optional string cid_uid = 4;    // 频道 id / 好友 id
+    optional uint64 before_mid = 5;
+    optional uint32 num = 6;
+}
+
+message MsgHistoryRsp {
+    optional uint32 to_type = 1;
+    optional string cid_uid = 2;
+    repeated MsgData data_list = 3;
+}
+
+message MsgListenReq {
+    optional string uid = 1;
+    optional string pattern = 2;
+}
+
+message MsgListenRsp {
+    optional bool result = 1;
+}

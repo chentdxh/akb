@@ -1,0 +1,78 @@
+syntax = "proto2";
+option optimize_for = LITE_RUNTIME;
+
+package chat.http;
+
+message GetTokenReq {
+    optional string appid = 1;
+    optional string appsecret = 2;
+    optional string uid = 3;
+    optional bool dynamic = 4;
+}
+
+message GetTokenRsp {
+    optional string token = 1;
+}
+
+message CidList
+{
+    optional string cid = 1;
+    optional uint32 type = 2;
+    optional uint32 time = 3;
+}
+
+message ForbidTalkReq {
+    optional uint64 session_id = 1;
+    optional string appid = 2;
+    optional string uid = 3;
+    repeated CidList cid_list = 4;
+}
+
+message ForbidTalkRsp {
+    optional uint64 session_id = 1;
+    optional uint32 result = 2;
+}
+
+message BroadcastReq {
+    optional uint64 session_id = 1;
+    optional string appid = 2;
+    optional uint32 type = 3;
+    optional string cid = 4;
+    optional string msg = 5;
+}
+
+message BroadcastRsp {
+    optional uint64 session_id = 1;
+    optional uint32 result = 2;
+}
+
+enum ChannelModifyType {
+    kChannelModifyTypeAdd = 0x00;
+    kChannelModifyTypeDel = 0x01;
+}
+
+message ChangeMemberReq {
+    optional uint64 session_id = 1;
+    optional string appid = 2;
+    optional uint32 type = 3;
+    optional string cid = 4;
+    optional uint32 change_type = 5;
+    repeated string member_uids = 6;
+}
+
+message ChangeMemberRsp {
+    optional uint64 session_id = 1;
+    optional uint32 result = 2;
+}
+
+message RegisterUserReq {
+    optional uint64 session_id = 1;
+    optional string appid = 2;
+    optional string uid = 3;
+}
+
+message RegisterUserRsp {
+    optional uint32 result = 1;
+    optional uint64 session_id = 2;
+    optional string user_token = 3;
+}

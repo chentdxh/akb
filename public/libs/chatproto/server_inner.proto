@@ -1,0 +1,16 @@
+syntax = "proto2";
+option optimize_for = LITE_RUNTIME;
+
+package chat.server;
+
+message LoginExtra {
+    optional string appid = 1;
+    optional string uid = 2;
+    optional uint32 area_id = 3;
+    optional uint32 group_id = 4;
+    optional string mid = 5;
+    optional uint32 character_level = 6;
+    optional string channel_id = 7;
+    optional uint32 platform = 8;
+    optional string sub_channel_id = 9;
+}

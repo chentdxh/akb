@@ -1,0 +1,31 @@
+syntax = "proto2";
+option optimize_for = LITE_RUNTIME;
+
+package chat.common;
+
+message Ping {
+}
+
+enum ServiceType {
+    kServiceTypeGate = 0x00;
+    kServiceTypeAgent = 0x01;
+    kServiceTypeLogin = 0x02;
+    kServiceTypeChat = 0x03;
+    kServiceTypeHttp = 0x04;
+    kServiceTypeMsg = 0x05;
+    kServiceTypeWebSocket = 0x06;
+
+}
+
+message PipeShakeHandReq {
+    optional ServiceType type = 1;
+    optional uint32 server_id = 2;
+}
+
+message PipeShakeHandRsp {
+    optional uint32 pipe_id = 1;
+}
+
+message ForceOfflineUserReq {
+    optional uint32 session_id = 1;
+}
