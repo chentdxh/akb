@@ -48,6 +48,7 @@ class AppController extends Controller
         $appUser = new AppUser();
         $appUser->appid = $appId;
         $appUser->uid = $uid;
+        $appUser->token = $this->create_app_user_token($appId,$uid);
         $appUser->name = $name;
         $appUser->save();
 
@@ -70,6 +71,19 @@ class AppController extends Controller
         ->setNotBefore(time() + 60) // Configures the time that the token can be used (nbf claim)
         ->setExpiration(time() + 3600) // Configures the expiration time of the token (exp claim)
         ->set('appid', $appId) // Configures a new claim, called "uid"
+        ->getToken(); // Retrieves the generated token
+
+        return $token;
+    }
+
+    public function create_app_user_token($appid,$uid)
+    {
+        $token = (new Builder())->setIssuer('http://sdo.com') // Configures the issuer (iss claim)
+        ->setIssuedAt(time()) // Configures the time that the token was issue (iat claim)
+        ->setNotBefore(time() + 60) // Configures the time that the token can be used (nbf claim)
+        ->setExpiration(time() + 3600) // Configures the expiration time of the token (exp claim)
+        ->set('appid', $appid) // Configures a new claim, called "uid"
+            ->set("uid",$uid)
         ->getToken(); // Retrieves the generated token
 
         return $token;
