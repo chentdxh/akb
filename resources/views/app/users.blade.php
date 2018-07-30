@@ -137,7 +137,7 @@
 
                             <div class="form-group">
                                 <label for="inputAppId">AppId</label>
-                                <select class="form-control" id="inputAppId">
+                                <select class="form-control" id="inputAppId" name="appid">
                                     @foreach($apps as $appInfo)
                                         <option value="{{$appInfo->appid}}">{{$appInfo->appid}}</option>
                                     @endforeach
