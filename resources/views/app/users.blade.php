@@ -130,11 +130,27 @@
                 <div class="modal-body">
                     <form id="userForm">
 
-                        <input type="hidden" name="appid" value="{{$app_info->appid}}" />
+
                         <div class="form-group">
                             <label for="inputUid">uid</label>
                             <input type="text" name="uid" class="form-control" id="inputUid" placeholder="Uid">
                         </div>
+                        @if(empty($app_info))
+                            <div class="form-group">
+                                <label for="inputAppId">AppId</label>
+                                <select class="form-control" id="inputAppId">
+                                    @foreach($apps as $appInfo)
+                                       <option value="{{$appInfo->appid}}">{{$appInfo->appid}}</option>
+                                    @endforeach
+
+                                </select>
+                            </div>
+                        @else
+
+                            <input type="hidden" name="appid" value="{{$app_info->appid}}" />
+
+
+                            @endif
 
                         <div class="form-group">
                             <label for="inputName">name</label>

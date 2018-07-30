@@ -72,6 +72,8 @@ class HomeController extends Controller
 
         $data['app_info'] = $appInfo;
 
+        $data['apps'] = AppInfo::get();
+
         $users = AppUser::paginate(20);
         $data['users'] = $users;
         return view("app.users",$data);
