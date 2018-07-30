@@ -44,7 +44,7 @@
                 @foreach($users as $user )
                 <tr>
                     <td>{{$user->id}}.</td>
-                    <td>{{$user->name}}</td>
+                    <td>{{$user->appid}}</td>
                     <td>{{$user->name}}</td>
                     <td>
                         <a href="#" v-on:click="show_token('{{$user->token}}')">{{substr($user->token,0,8)}}</a>
