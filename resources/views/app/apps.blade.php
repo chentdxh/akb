@@ -87,6 +87,7 @@
                 inputAttributes: {
                     value: token,
                     readonly: true,
+                    rows:10,
                     resize: "none"
 
                 }  })
