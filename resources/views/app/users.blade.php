@@ -39,7 +39,7 @@
                     <td>{{$user->name}}</td>
                     <td>{{$user->name}}</td>
                     <td>
-                       {{$user->token}}
+                        <a href="#" v-on:click="show_token('{{$user->token}}')">{{substr($user->token,0,8)}}</a>
                     </td>
                     <td>{{$user->created_at}}</td>
                 </tr>
@@ -114,6 +114,20 @@
     <script >
         const app = new Vue({ el: '#app',
             methods:{
+                show_token:function(token)
+                {
+                    swal({ input: 'textarea',
+                        title:"token 信息",
+
+                        inputValue:token,
+                        inputAttributes: {
+                            value: token,
+                            readonly: true,
+                            rows:10,
+                            resize: "none"
+
+                        }  })
+                },
                 add_user:function()
                 {
                     $.ajax({
