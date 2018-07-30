@@ -17,6 +17,7 @@ class AppController extends Controller
         $appId = $request->input("appid");
         $name =  $request->input("name");
 
+
         $existApp = AppInfo::where("appid",$appId)->first();
         if (!empty($existApp))
         {
@@ -26,6 +27,7 @@ class AppController extends Controller
         $appInfo = new AppInfo();
         $appInfo->appid = $appId;
         $appInfo->name = $name;
+        $appInfo->token = $token;
         $appInfo->uid = $user->uid;
         $appInfo->save();
 

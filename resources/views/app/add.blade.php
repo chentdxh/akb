@@ -36,13 +36,7 @@
                 </div>
 
 
-                <div class="form-group">
-                    <label for="inputToken" class="col-sm-2 control-label">Token</label>
 
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputToken" name="token" placeholder="App Token">
-                    </div>
-                </div>
                 {{--<div class="form-group">--}}
                     {{--<div class="col-sm-offset-2 col-sm-10">--}}
                         {{--<div class="checkbox">--}}
