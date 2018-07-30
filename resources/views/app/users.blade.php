@@ -35,6 +35,9 @@
                     <dt>Name</dt>
                     <dd>{{$app_info->name}}</dd>
 
+                    <dt>Owner</dt>
+                    <dd>{{$app_info->uid}}</dd>
+
                     <dt>Created At</dt>
                     <dd>{{$app_info->created_at}}</dd>
 
