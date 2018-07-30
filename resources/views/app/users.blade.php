@@ -7,6 +7,14 @@
 @section('content_header')
     <h1>App 用户管理</h1>
 @stop
+@section("css")
+
+    <style type="text/css">
+        textarea {
+            resize: none;
+        }
+    </style>
+@stop
 
 @section('content')
     <div class="box">
