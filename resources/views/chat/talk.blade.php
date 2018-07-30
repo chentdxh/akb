@@ -146,16 +146,21 @@
 
     <script>
 
+
+
         var  kMsgList = [];
 
-        var app = new Vue({
-            el: '#app',
+        app.messages = kMsgList;
 
-            data: {
-                messages:kMsgList,
-
-            }
-        })
+        //
+        // var app = new Vue({
+        //     el: '#app',
+        //
+        //     data: {
+        //         messages:kMsgList,
+        //
+        //     }
+        // })
 
 
 
