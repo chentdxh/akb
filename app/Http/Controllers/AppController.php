@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\AppInfo;
 use Illuminate\Http\Request;
+use Tymon\JWTAuth\Facades\JWTFactory;
+use Tymon\JWTAuth\JWTAuth;
+
 
 class AppController extends Controller
 {
@@ -27,10 +30,23 @@ class AppController extends Controller
         $appInfo = new AppInfo();
         $appInfo->appid = $appId;
         $appInfo->name = $name;
-        $appInfo->token = $token;
+        $appInfo->token = $this->create_app_token();
         $appInfo->uid = $user->uid;
         $appInfo->save();
 
         return $this->json_return(0,"success");
     }
+
+
+    public function create_app_token()
+    {
+        $customClaims = ['appid' => '123456' ];
+
+        $payload = JWTFactory::make($customClaims);
+
+        $token = JWTAuth::encode($payload);
+
+        return $token;
+    }
+
 }
