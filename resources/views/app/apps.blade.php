@@ -31,7 +31,7 @@
                     <td>{{$appInfo->id}}.</td>
                     <td>{{$appInfo->name}}</td>
                     <td>
-                       {{$appInfo->appid}}
+                        <a href="#" v-on:click="show_token('{{$appInfo->appid}}')">{{substr($appInfo->appid,0,8)}}...</a>
                     </td>
                     <td>{{$appInfo->token}}</td>
                     <td>{{$appInfo->status}}</td>
@@ -65,6 +65,20 @@
 @stop
 
 
+@section("vuejs")
+    <script >
+    const app = new Vue({ el: '#app',
+    methods:{
+        show_token:function(token)
+        {
+            swal({type:"info",title:token})
+        }
+    }
 
+
+    });
+
+    </script>
+@stop
 
 
