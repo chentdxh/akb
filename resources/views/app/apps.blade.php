@@ -22,6 +22,7 @@
                     <th style="width: 10px">#</th>
                     <th>名称</th>
                     <th>AppId</th>
+                    <th>Token</th>
                     <th>状态</th>
                     <th  >创建时间</th>
                 </tr>
@@ -32,6 +33,7 @@
                     <td>
                        {{$appInfo->appid}}
                     </td>
+                    <td>{{$appInfo->token}}</td>
                     <td>{{$appInfo->status}}</td>
                     <td>{{$appInfo->created_at}}</td>
                 </tr>
