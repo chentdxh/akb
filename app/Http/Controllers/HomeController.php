@@ -71,6 +71,14 @@ class HomeController extends Controller
         return view("app.users",$data);
     }
 
+    public function app_detail(Request $request)
+    {
+        $appId = $request->input("appid");
+        $appInfo = AppInfo::where("appid",$appId)->first();
+        $data['app_info'] = $appInfo;
+        return view("app.app_detail",$data);
+    }
+
 
     public function add_app(Request $request)
     {

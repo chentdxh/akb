@@ -85,15 +85,17 @@
                     <h4 class="modal-title">Add App User</h4>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form id="userForm">
+
+                        <input type="hidden" name="appid" value="{{$app}}"
                         <div class="form-group">
-                            <label for="inputEmail">uid</label>
-                            <input type="text" class="form-control" id="inputEmail" placeholder="Uid">
+                            <label for="inputUid">uid</label>
+                            <input type="text" name="uid" class="form-control" id="inputUid" placeholder="Uid">
                         </div>
 
                         <div class="form-group">
                             <label for="inputName">name</label>
-                            <input type="text" class="form-control" id="inputName" placeholder="Name">
+                            <input type="text" name="name" class="form-control" id="inputName" placeholder="Name">
                         </div>
                     </form>
                 </div>
@@ -143,6 +145,7 @@
             $.ajax({
                 url:"/serve/app/user/add",
                 type:"post",
+                data:$("#userForm").serialize(),
                 success:function (res) {
                     
                 },
