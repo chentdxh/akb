@@ -135,21 +135,21 @@
                             <label for="inputUid">uid</label>
                             <input type="text" name="uid" class="form-control" id="inputUid" placeholder="Uid">
                         </div>
-                        @if(empty($app_info))
+                        @if(!empty($app_info))
+                            <input type="hidden" name="appid" value="{{$app_info->appid}}" />
+                        @else
+
+
+
                             <div class="form-group">
                                 <label for="inputAppId">AppId</label>
                                 <select class="form-control" id="inputAppId">
                                     @foreach($apps as $appInfo)
-                                       <option value="{{$appInfo->appid}}">{{$appInfo->appid}}</option>
+                                        <option value="{{$appInfo->appid}}">{{$appInfo->appid}}</option>
                                     @endforeach
 
                                 </select>
                             </div>
-                        @else
-
-                            <input type="hidden" name="appid" value="{{$app_info->appid}}" />
-
-
                             @endif
 
                         <div class="form-group">
