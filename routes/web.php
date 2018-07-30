@@ -42,13 +42,6 @@ Route::get("/app/add","HomeController@add_app");
 
 
 
-
-
-
-
-
-
-
 Route::any("/serve/app/add","AppController@add_app");
 
 

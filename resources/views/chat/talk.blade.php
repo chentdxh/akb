@@ -150,7 +150,7 @@
 
         var  kMsgList = [];
 
-        app.messages = kMsgList;
+        app.prototype.messages = kMsgList;
 
         //
         // var app = new Vue({
