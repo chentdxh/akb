@@ -4,6 +4,15 @@
 
 @section('title', 'Dashboard')
 
+@section("css")
+
+    <style type="text/css">
+        textarea {
+            resize: vertical;
+        }
+    </style>
+    @stop
+
 @section('content_header')
     <h1>App 管理</h1>
 @stop
