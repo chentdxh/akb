@@ -32,7 +32,7 @@ class AppController extends Controller
         $appInfo = new AppInfo();
         $appInfo->appid = $appId;
         $appInfo->name = $name;
-        $appInfo->token = $this->create_app_token();
+        $appInfo->token = $this->create_app_token($appId);
         $appInfo->uid = $user->uid;
         $appInfo->save();
 
