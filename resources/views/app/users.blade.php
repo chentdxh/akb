@@ -82,7 +82,7 @@
                     <td>{{$user->appid}}</td>
                     <td>{{$user->name}}</td>
                     <td>
-                        <a href="#" v-on:click="show_token('{{$user->token}}')">{{substr($user->token,0,8)}}</a>
+                        <a href="#" v-on:click="show_token('{{$user->token}}')">{{substr($user->token,0,8)}}...</a>
                     </td>
                     <td>{{$user->created_at}}</td>
                     <td>
