@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Tymon\JWTAuth\Facades\JWTFactory;
 use Tymon\JWTAuth\JWTAuth;
 
+use Lcobucci\JWT\Builder;
+
 
 class AppController extends Controller
 {
@@ -38,13 +40,23 @@ class AppController extends Controller
     }
 
 
-    public function create_app_token()
+    public function create_app_token($appId)
     {
-        $customClaims = ['appid' => '123456' ];
+//        $customClaims = ['appid' => '123456' ];
+//
+//        $payload = JWTFactory::make($customClaims);
+//
+//        $token = JWTAuth::encode($payload);
+//
+//        return $token;
 
-        $payload = JWTFactory::make($customClaims);
 
-        $token = JWTAuth::encode($payload);
+        $token = (new Builder())->setIssuer('http://sdo.com') // Configures the issuer (iss claim)
+        ->setIssuedAt(time()) // Configures the time that the token was issue (iat claim)
+        ->setNotBefore(time() + 60) // Configures the time that the token can be used (nbf claim)
+        ->setExpiration(time() + 3600) // Configures the expiration time of the token (exp claim)
+        ->set('appid', $appId) // Configures a new claim, called "uid"
+        ->getToken(); // Retrieves the generated token
 
         return $token;
     }
