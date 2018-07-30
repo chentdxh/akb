@@ -24,7 +24,7 @@
 
             <div class="box-tools">
 
-                <a type="button" class="btn   btn-default btn-sm  pull-right" data-toggle="modal" data-target="#addAppUserDialog">添加</a>
+                <a type="button" class="btn   btn-default btn-sm  pull-right" data-toggle="modal" data-target="#addAppDialog">添加</a>
 
 
 
@@ -76,21 +76,20 @@
 
 
 
-    <div class="modal fade" id="addAppUserDialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal fade" id="addAppDialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Add App User</h4>
+                    <h4 class="modal-title">Add App </h4>
                 </div>
                 <div class="modal-body">
-                    <form id="userForm">
+                    <form id="appForm"> 
 
-                        <input type="hidden" name="appid" value="{{$app}}"
                         <div class="form-group">
-                            <label for="inputUid">uid</label>
-                            <input type="text" name="uid" class="form-control" id="inputUid" placeholder="Uid">
+                            <label for="inputAppId">appid</label>
+                            <input type="text" name="appid" class="form-control" id="inputAppId" placeholder="AppId">
                         </div>
 
                         <div class="form-group">
@@ -118,7 +117,7 @@
 @stop
 
 @section('js')
-    <script> console.log('Hi!'); </script>
+
 @stop
 
 
@@ -140,12 +139,12 @@
 
                 }  })
         },
-        save_app_user:function(){
+        add_app:function(){
 
             $.ajax({
                 url:"/serve/app/user/add",
                 type:"post",
-                data:$("#userForm").serialize(),
+                data:$("#appForm").serialize(),
                 success:function (res) {
                     
                 },
