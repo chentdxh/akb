@@ -53,3 +53,6 @@ Route::any("/serve/app/add","AppController@add_app");
 
 
 Route::any("/test","HomeController@test");
+
+
+Route::any("/demo","HomeController@demo");

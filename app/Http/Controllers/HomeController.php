@@ -81,4 +81,10 @@ class HomeController extends Controller
     {
         return view("test");
     }
+
+
+    public function demo(Request $request)
+    {
+        return view("demo");
+    }
 }
