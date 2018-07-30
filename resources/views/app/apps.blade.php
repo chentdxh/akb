@@ -137,6 +137,19 @@
                     resize: "none"
 
                 }  })
+        },
+        save_app_user:function(){
+
+            $.ajax({
+                url:"/serve/app/user/add",
+                type:"post",
+                success:function (res) {
+                    
+                },
+                error:function (res) {
+                    
+                }
+            })
         }
     }
 

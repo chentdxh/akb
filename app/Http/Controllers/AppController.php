@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\AppInfo;
+use App\AppUser;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Facades\JWTFactory;
 use Tymon\JWTAuth\JWTAuth;
@@ -39,6 +40,19 @@ class AppController extends Controller
         return $this->json_return(0,"success");
     }
 
+    public function add_app_user(Request $request)
+    {
+        $appId = $request->input("appid");
+        $uid = $request->input("uid");
+        $name = $request->input("name");
+        $appUser = new AppUser();
+        $appUser->appid = $appId;
+        $appUser->uid = $uid;
+        $appUser->name = $name;
+        $appUser->save();
+
+        return $this->json_return(0,"success");
+    }
 
     public function create_app_token($appId)
     {

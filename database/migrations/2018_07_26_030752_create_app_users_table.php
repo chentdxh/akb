@@ -17,6 +17,7 @@ class CreateAppUsersTable extends Migration
             $table->increments('id');
             $table->string("appid");
             $table->string("uid");
+            $table->string("name")->nullable();
             $table->string("token")->nullable();
             $table->string("metas")->nullable();
             $table->timestamps();
