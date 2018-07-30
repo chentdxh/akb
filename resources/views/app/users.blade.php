@@ -87,7 +87,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-primary" v-on:click="add_user">Save</button>
                 </div>
             </div>
             <!-- /.modal-content -->
@@ -114,7 +114,7 @@
     <script >
         const app = new Vue({ el: '#app',
             methods:{
-                add_user:function(token)
+                add_user:function()
                 {
                     $.ajax({
                         url:"/serve/app/user/add",
