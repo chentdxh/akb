@@ -43,6 +43,7 @@
                     <th>Token</th>
                     <th>状态</th>
                     <th  >创建时间</th>
+                    <th>操作</th>
                 </tr>
                 @foreach($apps as $appInfo )
                 <tr>
@@ -55,6 +56,19 @@
 
                     <td>{{$appInfo->status}}</td>
                     <td>{{$appInfo->created_at}}</td>
+                    <td>
+
+                        <div class="dropdown">
+                            <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Dropdown trigger
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dLabel">
+                                <li>Add User</li>
+                            </ul>
+                        </div>
+
+                    </td>
                 </tr>
                 @endforeach
 
