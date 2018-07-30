@@ -82,21 +82,19 @@
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">添加App用户</h4>
+                    <h4 class="modal-title">Add App User</h4>
                 </div>
                 <div class="modal-body">
                     <form>
                         <div class="form-group">
-                            <label for="exampleInputEmail1">uid</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                            <label for="inputEmail">uid</label>
+                            <input type="text" class="form-control" id="inputEmail" placeholder="Uid">
                         </div>
+
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                            <label for="inputName">name</label>
+                            <input type="text" class="form-control" id="inputName" placeholder="Name">
                         </div>
-
-
-                        <button type="submit" class="btn btn-default">Submit</button>
                     </form>
                 </div>
                 <div class="modal-footer">
