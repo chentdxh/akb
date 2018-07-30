@@ -36,7 +36,7 @@
 
                 <tr>
                     <th style="width: 10px">#</th>
-                    <th>App</th>
+                    <th>AppId</th>
                     <th>用户</th>
                     <th>Token</th>
                     <th  >创建时间</th>
