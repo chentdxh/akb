@@ -1,4 +1,4 @@
-@extends('adminlte::page')
+@extends('layouts.app')
 
 @section('title', 'AdminLTE')
 
@@ -10,5 +10,8 @@
     <p>You are logged in!</p>
 
 
+
     <example-component></example-component>
+
+    <test-component></test-component>
 @stop
