@@ -75,7 +75,7 @@
             swal({ input: 'textarea', inputAttributes: {
                     value: token,
                     readonly: true,
-                    resize: false
+                    resize: "none"
 
                 }  })
         }
