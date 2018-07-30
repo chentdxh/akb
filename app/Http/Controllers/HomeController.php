@@ -77,6 +77,11 @@ class HomeController extends Controller
         return view("app.add");
     }
 
+    public function add_app_user(Request $request)
+    {
+        return view("app.add_user");
+    }
+
     public function test(Request $request)
     {
         return view("test");

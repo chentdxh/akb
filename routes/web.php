@@ -39,6 +39,7 @@ Route::get("/app/users","HomeController@app_users");
 
 Route::get("/app/add","HomeController@add_app");
 
+Route::get("/app/user/add","HomeController@add_app_user");
 
 
 
