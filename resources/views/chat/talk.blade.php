@@ -137,8 +137,6 @@
     <script src="/libs/template-web.js"></script>
 
 
-    <script src="/libs/vue-2.5.16/dist/vue.min.js"></script>
-
     <script src="/js/gchat.js"></script>
 
 
