@@ -81,7 +81,10 @@
     methods:{
         show_token:function(token)
         {
-            swal({ input: 'textarea', inputAttributes: {
+            swal({ input: 'textarea',
+
+                inputValue:token,
+                inputAttributes: {
                     value: token,
                     readonly: true,
                     resize: "none"
