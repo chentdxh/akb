@@ -19,7 +19,7 @@
 
 @section('content')
     <div class="box">
-        <div class="box-header with-border">
+        <div class="box-header ">
             <h3 class="box-title">App列表</h3>
         </div>
         <!-- /.box-header -->
