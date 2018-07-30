@@ -73,7 +73,7 @@
                 <div class="modal-body">
                     <form id="userForm">
 
-                        <input type="hidden" name="appid" value="{{$app}}" />
+                        {{--<input type="hidden" name="appid" value="{{$app_info->appid}}" />--}}
                         <div class="form-group">
                             <label for="inputUid">uid</label>
                             <input type="text" name="uid" class="form-control" id="inputUid" placeholder="Uid">

@@ -66,6 +66,7 @@ class HomeController extends Controller
 
     public function app_users(Request $request)
     {
+
         $users = AppUser::paginate(20);
         $data['users'] = $users;
         return view("app.users",$data);

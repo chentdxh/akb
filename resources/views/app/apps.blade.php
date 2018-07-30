@@ -85,7 +85,7 @@
                     <h4 class="modal-title">Add App </h4>
                 </div>
                 <div class="modal-body">
-                    <form id="appForm"> 
+                    <form id="appForm">
 
                         <div class="form-group">
                             <label for="inputAppId">appid</label>
