@@ -23,7 +23,7 @@
 
         <div class="box box-solid">
             <div class="box-header with-border">
-                <i class="fa fa-text-width"></i>
+                <i class="fa fa-info"></i>
 
                 <h3 class="box-title">App Description</h3>
             </div>
@@ -46,7 +46,7 @@
 
     @endif
 
-    
+
     <div class="box">
         <div class="box-header with-border">
             <h3 class="box-title">用户列表</h3>
