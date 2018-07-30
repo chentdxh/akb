@@ -8,7 +8,7 @@
 
     <style type="text/css">
         textarea {
-            resize: vertical;
+            resize: none;
         }
     </style>
     @stop
