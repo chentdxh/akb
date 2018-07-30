@@ -129,12 +129,6 @@
                 </div>
                 <div class="modal-body">
                     <form id="userForm">
-
-
-                        <div class="form-group">
-                            <label for="inputUid">uid</label>
-                            <input type="text" name="uid" class="form-control" id="inputUid" placeholder="Uid">
-                        </div>
                         @if(!empty($app_info))
                             <input type="hidden" name="appid" value="{{$app_info->appid}}" />
                         @else
@@ -150,7 +144,13 @@
 
                                 </select>
                             </div>
-                            @endif
+                        @endif
+
+                        <div class="form-group">
+                            <label for="inputUid">uid</label>
+                            <input type="text" name="uid" class="form-control" id="inputUid" placeholder="Uid">
+                        </div>
+
 
                         <div class="form-group">
                             <label for="inputName">name</label>
