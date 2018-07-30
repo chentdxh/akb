@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 2',
+    'title' => 'Game Man',
 
     'title_prefix' => '',
 
@@ -30,9 +30,9 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
+    'logo' => '<b>Game</b>MAN',
 
-    'logo_mini' => '<b>A</b>LT',
+    'logo_mini' => '<b>G</b>MA',
 
     /*
     |--------------------------------------------------------------------------
@@ -45,7 +45,7 @@ return [
     |
     */
 
-    'skin' => 'blue',
+    'skin' => 'black-light',
 
     /*
     |--------------------------------------------------------------------------
@@ -121,17 +121,39 @@ return [
             'label'       => 4,
             'label_color' => 'success',
         ],
-        'ACCOUNT SETTINGS',
+        'APP SETTINGS',
         [
-            'text' => 'Profile',
-            'url'  => 'admin/settings',
+            'text' => 'App列表',
+            'url'  => 'app/list',
             'icon' => 'user',
         ],
         [
-            'text' => 'Change Password',
-            'url'  => 'admin/settings',
+            'text' => '聊天管理',
+            'url'  => 'talk',
             'icon' => 'lock',
         ],
+        [
+            'text'    => 'App管理',
+            'icon'    => 'share',
+            'submenu' => [
+                [
+                    'text' => 'App列表',
+                    'url'  => '/app/list',
+                ],
+
+                [
+                    'text' => 'App用户',
+                    'url'  => '/app/users',
+                ],
+
+
+                [
+                    'text' => '添加App',
+                    'url'  => '/app/add',
+                ],
+            ],
+        ],
+
         [
             'text'    => 'Multilevel',
             'icon'    => 'share',
