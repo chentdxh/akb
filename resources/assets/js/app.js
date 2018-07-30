@@ -5,9 +5,6 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require("jquery"); 
-require("jquery-slimscroll");
-
 require('./bootstrap');
 
 window.Vue = require('vue');
