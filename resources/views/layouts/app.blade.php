@@ -78,6 +78,6 @@
     <script src="{{ asset('js/app.js') }}"></script>
 
 
-    @yield("vuejs","<script>const app = new Vue({ el: '#app' });</script>")
+    @yield("vuejs", new Illuminate\Support\HtmlString("<script>const app = new Vue({ el: '#app' });</script>"))
 </body>
 </html>
