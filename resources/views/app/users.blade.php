@@ -21,7 +21,7 @@
 
     @if(!empty($app_info))
 
-        <div class="box box-solid">
+        <div class="box ">
             <div class="box-header with-border">
                 <i class="fa fa-info"></i>
 
