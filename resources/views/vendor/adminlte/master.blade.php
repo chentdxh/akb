@@ -74,5 +74,7 @@
 
 @yield('adminlte_js')
 
+@yield("vuejs","<script>const app = new Vue({ el: '#app' });</script>")
+
 </body>
 </html>

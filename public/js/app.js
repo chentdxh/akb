@@ -11474,9 +11474,10 @@ window.swal = __webpack_require__(42);
 Vue.component('example-component', __webpack_require__(43));
 
 Vue.component('test-component', __webpack_require__(46));
-var app = new Vue({
-  el: '#app'
-});
+
+// const app = new Vue({
+//     el: '#app'
+// });
 
 /***/ }),
 /* 13 */

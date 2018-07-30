@@ -144,6 +144,11 @@
     <script src="/libs/moment-with-locales.js"></script>
 
 
+@stop
+
+@section('vuejs')
+
+
     <script>
 
 
@@ -152,15 +157,15 @@
 
         Vue.prototype.messages = kMsgList;
 
-        //
-        // var app = new Vue({
-        //     el: '#app',
-        //
-        //     data: {
-        //         messages:kMsgList,
-        //
-        //     }
-        // })
+
+        var app = new Vue({
+            el: '#app',
+
+            data: {
+                messages:kMsgList,
+
+            }
+        })
 
 
 
@@ -188,4 +193,5 @@
 
         })
     </script>
+
 @stop

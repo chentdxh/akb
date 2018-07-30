@@ -76,5 +76,8 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+
+
+    @yield("vuejs","<script>const app = new Vue({ el: '#app' });</script>")
 </body>
 </html>

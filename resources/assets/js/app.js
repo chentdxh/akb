@@ -25,6 +25,8 @@ window.swal = require('sweetalert2');
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 
 Vue.component('test-component', require('./components/testcomponent.vue'));
-const app = new Vue({
-    el: '#app'
-});
+
+
+// const app = new Vue({
+//     el: '#app'
+// });
