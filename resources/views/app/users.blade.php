@@ -40,6 +40,7 @@
                     <th>用户</th>
                     <th>Token</th>
                     <th  >创建时间</th>
+                    <th>操作</th>
                 </tr>
                 @foreach($users as $user )
                 <tr>
@@ -50,6 +51,20 @@
                         <a href="#" v-on:click="show_token('{{$user->token}}')">{{substr($user->token,0,8)}}</a>
                     </td>
                     <td>{{$user->created_at}}</td>
+                    <td>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Action <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+
+
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">删除</a></li>
+                            </ul>
+                        </div>
+
+                    </td>
                 </tr>
                 @endforeach
 
