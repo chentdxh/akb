@@ -99,7 +99,7 @@
 @stop
 
 @section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
+    <link rel="stylesheet" href="/css/custom.css">
 @stop
 
 @section('js')
@@ -108,5 +108,36 @@
 
 
 
+
+
+@section("vuejs")
+    <script >
+        const app = new Vue({ el: '#app',
+            methods:{
+                add_user:function(token)
+                {
+                    $.ajax({
+                        url:"/serve/app/user/add",
+                        type:"post",
+                        data:$("#userForm").serialize(),
+                        success:function (res) {
+                            if (res.code ==0)
+                            {
+                                swal({type:"success",title:"Add User Success"})
+                            }
+                        },
+                        error:function (res) {
+
+                        }
+                    })
+                }
+
+            }
+
+
+        });
+
+    </script>
+@stop
 
 
