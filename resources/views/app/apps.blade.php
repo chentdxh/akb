@@ -30,10 +30,11 @@
                 <tr>
                     <td>{{$appInfo->id}}.</td>
                     <td>{{$appInfo->name}}</td>
+                    <td>{{$appInfo->appid}}</td>
                     <td>
-                        <a href="#" v-on:click="show_token('{{$appInfo->appid}}')">{{substr($appInfo->appid,0,8)}}...</a>
+                        <a href="#" v-on:click="show_token('{{$appInfo->token}}')">{{substr($appInfo->token,0,8)}}...</a>
                     </td>
-                    <td>{{$appInfo->token}}</td>
+
                     <td>{{$appInfo->status}}</td>
                     <td>{{$appInfo->created_at}}</td>
                 </tr>
