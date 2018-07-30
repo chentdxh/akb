@@ -43,7 +43,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 <body class="hold-transition @yield('body_class')">
-
+<div id="app">
 @yield('body')
 
 <script src="{{ asset('vendor/adminlte/vendor/jquery/dist/jquery.min.js') }}"></script>
@@ -68,6 +68,6 @@
 @endif
 
 @yield('adminlte_js')
-
+</div>
 </body>
 </html>
