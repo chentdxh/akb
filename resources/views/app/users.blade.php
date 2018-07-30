@@ -31,6 +31,33 @@
         </div>
         <!-- /.box-header -->
         <div class="box-body">
+
+            @if(!empty($app_info))
+
+                <div class="box box-solid">
+                    <div class="box-header with-border">
+                        <i class="fa fa-text-width"></i>
+
+                        <h3 class="box-title">App Description</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <dl class="dl-horizontal">
+                            <dt>AppId </dt>
+                            <dd>{{$app_info->appid}}</dd>
+                            <dt>Name</dt>
+                            <dd>{{$app_info->name}}</dd>
+
+                            <dt>Created At</dt>
+                            <dd>{{$app_info->created_at}}</dd>
+
+                        </dl>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+
+
+                @endif
             <table class="table table-bordered">
                 <tbody>
 
