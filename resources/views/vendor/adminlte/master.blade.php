@@ -74,7 +74,10 @@
 
 @yield('adminlte_js')
 
-@yield("vuejs",e("<script>const app = new Vue({ el: '#app' });</script>"))
+@section("vuejs")
+    <script>const app = new Vue({ el: '#app' });</script>
+    @stop
+{{--@yield("vuejs",e("<script>const app = new Vue({ el: '#app' });</script>"))--}}
 
 </body>
 </html>
