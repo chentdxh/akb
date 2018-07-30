@@ -11,7 +11,6 @@ window.Vue = require('vue');
 
 window.toastr = require('toastr');
 
-
 window.swal = require('sweetalert2');
 
 /**

@@ -53,7 +53,9 @@
 
 <!-- Scripts -->
 {{--<script src="{{ asset('js/app.js') }}" defer></script>--}}
-<script src="{{ asset('js/app.js') }}" ></script>
+
+<script src="{{ asset('js/app.js') }}"></script>
+
 @if(config('adminlte.plugins.select2'))
     <!-- Select2 -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
