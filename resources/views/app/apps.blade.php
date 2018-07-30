@@ -82,6 +82,7 @@
         show_token:function(token)
         {
             swal({ input: 'textarea',
+                title:"token 信息",
 
                 inputValue:token,
                 inputAttributes: {
