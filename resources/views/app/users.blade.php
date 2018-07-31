@@ -229,27 +229,6 @@
 
                     })
 
-
-                    // $.ajax({
-                    //     url:"/serve/app/user/token/update",
-                    //     type:"post",
-                    //     data:{appid:appid,uid:uid},
-                    //     success:function (res) {
-                    //         if (res.code == 0)
-                    //         {
-                    //             swal({type:"success",title:"Update User Token Success"})
-                    //                 .then((result) => {
-                    //                     if (result.value) {
-                    //                         window.location.reload();
-                    //                     }
-                    //                 })
-                    //         }
-                    //     },
-                    //     error:function (res) {
-                    //
-                    //         swal({type:"error",title:res.msg})
-                    //     }
-                    // })
                 },
                 del_user:function (appid,uid) {
 

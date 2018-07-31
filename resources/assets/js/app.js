@@ -50,6 +50,12 @@ window.show_success_dialog = function(title,callback)
     })
 }
 
+window.show_error_dialog  = function(title,callback){
+    swal({type:"error",title:title}).then((result)=>{
+        callback(result);
+    })
+}
+
 window.post_request = function (url,data,success,fail,error) {
 
     var errorCB = function(res){
