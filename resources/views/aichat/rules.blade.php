@@ -48,7 +48,7 @@
                                 Action <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a href="/app/edit?id={{$rule->id}}">编辑</a></li>
+                                {{--<li><a href="/app/edit?id={{$rule->id}}">编辑</a></li>--}}
                                 <li><a href="#" v-on:click="del_rule('{{$rule->rule}}')">删除</a></li>
                             </ul>
                         </div>
