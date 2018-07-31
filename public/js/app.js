@@ -11454,6 +11454,12 @@ console.log(__WEBPACK_IMPORTED_MODULE_0__custom_js__["a" /* show_delete_dialog *
 
 window.show_delete_dialog = __WEBPACK_IMPORTED_MODULE_0__custom_js__["a" /* show_delete_dialog */];
 
+window.show_success_dialog = function (title, callback) {
+    swal({ type: "success", title: title }).then(function (result) {
+        callback(result);
+    });
+};
+
 window.post_request = function (url, data, success, fail, error) {
 
     var errorCB = function errorCB(res) {
