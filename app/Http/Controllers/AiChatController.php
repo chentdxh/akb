@@ -108,12 +108,12 @@ class AiChatController extends Controller
     public function del_rule(Request $request)
     {
         $rule = $request->input("rule");
-
+        $appId = $request->input("appid","default");
 
         $client = new Client(['base_uri' => $this->base_uri]);
 
         $response = $client->post('/aicheck/add_app_escape_str', [
-            RequestOptions::JSON => ['app_id' => '1212', 'escape_str'=>$rule,'remove'=>true]
+            RequestOptions::JSON => ['app_id' => $appId, 'escape_str'=>$rule,'remove'=>true]
         ]);
 
         logger($response->getBody());
