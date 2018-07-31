@@ -34,43 +34,53 @@ window.swal = require('sweetalert2');
 
 
 
-window.show_confirm_dialog = function (url,data,config={}) {
+window.show_confirm_dialog = function (config,confirm,cancel) {
+
+    const  defConfig = {
+        title:"确定",
+        text:"请选择",
+        type:"info",
+        cancel_text:"取消",
+        confirm_text:"确定",
+        confirm:function (val) {
+            console.log("confirm");
+        },
+        cancel:function () {
+            console.log("cancel");
+        }
+    };
+
+    var dlgCfg = defConfig;
+    if (config && _.isObject(config))
+    {
+        dlgCfg = Object.assign(defConfig, config);
+    }
+    if (confirm && _.isFunction(confirm))
+    {
+        dlgCfg.confirm = confirm;
+    }
+    if (cancel && _.isFunction(cancel))
+    {
+        dlgCfg.cancel = cancel;
+    }
 
     swal({
-        title: '确定删除？',
-        text: "删除后不可恢复",
-        type: 'warning',
+        title: dlgCfg.title,
+        text: dlgCfg.text,
+        type: dlgCfg.type,
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        cancelButtonText:"取消",
-        confirmButtonText: '确认'
+        cancelButtonColor: '#52d9dd',
+        cancelButtonText:dlgCfg.cancel_text,
+        confirmButtonText: dlgCfg.confirm_text
     }).then((result) => {
         if (result.value) {
 
-            $.ajax({
-                url:url,
-                data:data,
-                type:"post",
-                success:function (response) {
+            dlgCfg.confirm(result.value);
 
-                    if (response.code == 0)
-                    {
-                        swal({type:"success",title:"删除成功!" }).then((result) => {
-
-                            window.location.reload();
-                        });
-                    }else
-                    {
-                        swal({type:"error",title:"删除失败!" })
-                    }
-                },
-                error:function (response) {
-
-                    swal({type:"error",title:"删除失败!" })
-                }
-            });
-
+        }else
+        {
+            dlgCfg.cancel();
         }
     })
 }
