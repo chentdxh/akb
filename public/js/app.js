@@ -11485,13 +11485,22 @@ window.show_delete_dialog = __WEBPACK_IMPORTED_MODULE_0__custom_js__["a" /* show
 
 window.show_success_dialog = function (title, callback) {
     swal({ type: "success", title: title }).then(function (result) {
-        callback(result);
+
+        if (_.isFunction(callback)) {
+            callback(result);
+        } else if (callback == "reload") {
+            window.location.reload();
+        }
     });
 };
 
 window.show_error_dialog = function (title, callback) {
     swal({ type: "error", title: title }).then(function (result) {
-        callback(result);
+        if (_.isFunction(callback)) {
+            callback(result);
+        } else if (callback == "reload") {
+            window.location.reload();
+        }
     });
 };
 

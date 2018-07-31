@@ -46,13 +46,27 @@ window.show_delete_dialog = show_delete_dialog;
 window.show_success_dialog = function(title,callback)
 {
     swal({type:"success",title:title}).then((result)=>{
-        callback(result);
+
+        if (_.isFunction(callback))
+        {
+            callback(result);
+        }else if (callback == "reload")
+        {
+            window.location.reload();
+        }
+
     })
 }
 
 window.show_error_dialog  = function(title,callback){
     swal({type:"error",title:title}).then((result)=>{
-        callback(result);
+        if (_.isFunction(callback))
+        {
+            callback(result);
+        }else if (callback == "reload")
+        {
+            window.location.reload();
+        }
     })
 }
 
