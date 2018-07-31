@@ -250,7 +250,7 @@
                 },
                 del_user:function (appid,uid) {
 
-                    show_delete_dialog("/serve/app/user/del",{appid:appid,uid:uid}); 
+                    show_delete_dialog("/serve/app/user/del",{appid:appid,uid:uid});
 
                     // swal({
                     //     title: '确定删除？',
