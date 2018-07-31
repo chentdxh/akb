@@ -74,14 +74,20 @@ class AiChatController extends Controller
 
     public function complain_list(Request $request)
     {
+        $appId = $request->input("appid","");
+
         $client = new Client(['base_uri' => $this->base_uri]);
 
         $response = $client->post('/aicheck/complain_list', [
-            RequestOptions::JSON => ['app_id' => '1212']
+            RequestOptions::JSON => ['app_id' => $appId]
         ]);
-
         logger($response->getBody());
-        return view("aichat.complains");
+
+        $jRst = json_decode($response->getBody());
+        $data['complains'] = $jRst->data->list;
+
+
+        return view("aichat.complains",$data);
 
     }
 
@@ -108,7 +114,7 @@ class AiChatController extends Controller
     public function del_rule(Request $request)
     {
         $rule = $request->input("rule");
-        $appId = $request->input("appid","default");
+        $appId = $request->input("appid","");
 
         $client = new Client(['base_uri' => $this->base_uri]);
 
