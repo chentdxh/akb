@@ -48,7 +48,7 @@ class AppController extends Controller
         {
             $appInfo->delete();
         }
-        return $this->json_return(0,"success"); 
+        return $this->json_return(0,"success");
 
     }
     public function add_app_user(Request $request)
@@ -64,6 +64,20 @@ class AppController extends Controller
         $appUser->save();
 
         return $this->json_return(0,"success");
+    }
+
+    public function del_app_user(Request $request)
+    {
+        $appid = $request->input("appid");
+        $uid = $request->input("uid");
+        $appUser = AppUser::where("appid",$appid)->where("uid",$uid)->first();
+        if (!empty($appUser))
+        {
+            $appUser->delete();
+            return $this->json_return(0,"success");
+        }
+        return $this->json_return(-1,"user not found");
+
     }
 
 
