@@ -45,7 +45,7 @@
                                 Action <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a href="/app/review?id={{$complain->id}}">审核</a></li>
+                                <li><a href="#" v-on:click="verify_complain('{{$complain->id}}')">审核</a></li>
 
                             </ul>
                         </div>
@@ -86,11 +86,14 @@
         const app = new Vue({ el: '#app',
             methods:{
 
-                verify_complain:function(id,result){
+                verify_complain:function(id){
 
-                    post_request("/aicheck/review_complain",{id:id,label:result},function (res) {
-                        show_success_dialog("Verify Complain Success","reload")
+                    show_confirm_dialog({},function () {
+                        post_request("/aicheck/review_complain",{id:id,label:1},function (res) {
+                            show_success_dialog("Verify Complain Success","reload")
+                        })
                     })
+
 
 
                 },
