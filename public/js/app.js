@@ -11478,9 +11478,6 @@ __webpack_require__(44);
 
 
 
-console.log("show global functions");
-console.log(__WEBPACK_IMPORTED_MODULE_0__custom_js__["a" /* show_delete_dialog */]);
-
 window.show_delete_dialog = __WEBPACK_IMPORTED_MODULE_0__custom_js__["a" /* show_delete_dialog */];
 
 window.show_success_dialog = function (title, callback) {
