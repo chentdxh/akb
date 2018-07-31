@@ -170,7 +170,10 @@ return [
                     'url'  => '/aichat/apps'
                 ],
 
-
+                [
+                    'text' => 'AiChat Complains',
+                    'url'  => '/aichat/complains'
+                ],
             ],
         ],
 
