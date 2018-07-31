@@ -137,7 +137,7 @@
 
                 },
                 del_rule:function (rule) {
-                   show_delete_dialog("/serve/aichat/rule/del",{rule:rule},"reload");
+                   show_delete_dialog("/serve/aichat/rule/del",{appid:"{{$appid}}",rule:rule},"reload");
 
                 },
                 del_app:function (appid) {
