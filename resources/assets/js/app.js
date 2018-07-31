@@ -43,6 +43,13 @@ console.log(show_delete_dialog);
 window.show_delete_dialog = show_delete_dialog; 
 
 
+window.show_success_dialog = function(title,callback)
+{
+    swal({type:"success",title:title}).then((result)=>{
+        callback(result);
+    })
+}
+
 window.post_request = function (url,data,success,fail,error) {
 
     var errorCB = function(res){ console.log(res)}

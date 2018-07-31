@@ -208,27 +208,16 @@
                 },
                 add_user:function()
                 {
-                    // $.ajax({
-                    //     url:"/serve/app/user/add",
-                    //     type:"post",
-                    //     data:$("#userForm").serialize(),
-                    //     success:function (res) {
-                    //         if (res.code ==0)
-                    //         {
-                    //             swal({type:"success",title:"Add User Success"}).then((result)=>{
-                    //                 window.location.reload();
-                    //             })
-                    //         }
-                    //     },
-                    //     error:function (res) {
-                    //
-                    //     }
-                    // })
+
                     
                     post_request("/serve/app/user/add",$("#userForm").serialize(),function (res) {
-                              swal({type:"success",title:"Add User Success"}).then((result)=>{
-                                            window.location.reload();
-                                        })
+                              // swal({type:"success",title:"Add User Success"}).then((result)=>{
+                              //               window.location.reload();
+                              //           });
+                        show_success_dialog("Add User Success",function () {
+
+                            window.location.reload();
+                        })
                         
                     })
                 },update_token:function (appid,uid) {
