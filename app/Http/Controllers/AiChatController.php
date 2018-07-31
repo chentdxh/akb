@@ -28,7 +28,13 @@ class AiChatController extends Controller
 
         $jRst = json_decode($response->getBody());
 
-        $data['rules'] = $jRst->data->list;
+        $rules= [];
+
+        if ($jRst->code == 0)
+        {
+            $rules = $jRst->data->list;
+        }
+        $data['rules'] = $rules;
         return view("aichat.rules",$data);
     }
 
