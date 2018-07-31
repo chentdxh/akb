@@ -160,6 +160,31 @@ return [
             ],
         ],
 
+
+        [
+            'text'    => 'AiChat',
+            'icon'    => 'msg',
+            'submenu' => [
+                [
+                    'text' => 'Rule List',
+                    'url'  => '/aichat/rules',
+                ],
+
+                [
+                    'text' => 'App用户',
+                    'url'  => '/app/users',
+                ],
+
+
+                [
+                    'text' => '添加App',
+                    'url'  => '/app/add',
+                ],
+            ],
+        ],
+
+
+
         [
             'text'    => 'Multilevel',
             'icon'    => 'share',
