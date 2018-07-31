@@ -99,7 +99,7 @@
                                 <li role="separator" class="divider"></li>
                                 <li><a href="#">删除</a></li>
 
-                                <li><a href="#" v-on:click="update_token('{{$user->appid}}','{{$user->uid}}')">删除</a></li>
+                                <li><a href="#" v-on:click="update_token('{{$user->appid}}','{{$user->uid}}')">Update Token</a></li>
                             </ul>
                         </div>
 
