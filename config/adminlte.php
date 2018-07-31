@@ -169,21 +169,11 @@ return [
                     'text' => 'AiChat Apps',
                     'url'  => '/aichat/apps'
                 ],
-                [
-                    'text' => 'Rule List',
-                    'url'  => '/aichat/rules',
-                ],
-
-                [
-                    'text' => 'App用户',
-                    'url'  => '/app/users',
-                ],
 
 
-                [
-                    'text' => '添加App',
-                    'url'  => '/app/add',
-                ],
+
+
+        
             ],
         ],
 
