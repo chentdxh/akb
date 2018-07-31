@@ -164,7 +164,10 @@
                 success:function (res) {
                     if (res.code == 0)
                     {
-                        swal({type:"success",title:"Add App Success"})
+                        swal({type:"success",title:"Add App Success"}).then((result)=>function () {
+
+                            window.location.reload(); 
+                        })
                     }
                 },
                 error:function (res) {
