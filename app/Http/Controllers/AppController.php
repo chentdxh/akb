@@ -6,7 +6,7 @@ use App\AppInfo;
 use App\AppUser;
 use Illuminate\Http\Request;
 use Lcobucci\JWT\Signer\Hmac\Sha256;
-use Namshi\JOSE\Signer\OpenSSL\HS256;
+
 use Tymon\JWTAuth\Facades\JWTFactory;
 use Tymon\JWTAuth\JWTAuth;
 
