@@ -24,7 +24,6 @@
         "npm": "^6.2.0",
         "promise-polyfill": "8.0.0",
         "sweetalert2": "^7.26.9",
-        "toastr": "^2.1.4",
-        "underscore": "^1.9.1"
+        "toastr": "^2.1.4"
     }
 }
