@@ -33,7 +33,7 @@
                 @foreach($rules as $rule )
                 <tr>
                     <td>{{$rule->id}}.</td>
-                    <td>{{$rule->name}}</td>
+                    <td>{{$rule->rule}}</td>
                     <td>
                        {{$rule->appid}}
                     </td>
