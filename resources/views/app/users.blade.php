@@ -209,11 +209,8 @@
                 add_user:function()
                 {
 
-                    
                     post_request("/serve/app/user/add",$("#userForm").serialize(),function (res) {
-                              // swal({type:"success",title:"Add User Success"}).then((result)=>{
-                              //               window.location.reload();
-                              //           });
+
                         show_success_dialog("Add User Success",function () {
 
                             window.location.reload();
@@ -223,26 +220,36 @@
                 },update_token:function (appid,uid) {
 
 
-                    $.ajax({
-                        url:"/serve/app/user/token/update",
-                        type:"post",
-                        data:{appid:appid,uid:uid},
-                        success:function (res) {
-                            if (res.code == 0)
-                            {
-                                swal({type:"success",title:"Update User Token Success"})
-                                    .then((result) => {
-                                        if (result.value) {
-                                            window.location.reload();
-                                        }
-                                    })
-                            }
-                        },
-                        error:function (res) {
+                    post_request("/serve/app/user/token/update",{appid:appid,uid:uid},function (res) {
 
-                            swal({type:"error",title:res.msg})
-                        }
+                        show_success_dialog("Update User Token Success",function () {
+
+                            window.location.reload();
+                        })
+
                     })
+
+
+                    // $.ajax({
+                    //     url:"/serve/app/user/token/update",
+                    //     type:"post",
+                    //     data:{appid:appid,uid:uid},
+                    //     success:function (res) {
+                    //         if (res.code == 0)
+                    //         {
+                    //             swal({type:"success",title:"Update User Token Success"})
+                    //                 .then((result) => {
+                    //                     if (result.value) {
+                    //                         window.location.reload();
+                    //                     }
+                    //                 })
+                    //         }
+                    //     },
+                    //     error:function (res) {
+                    //
+                    //         swal({type:"error",title:res.msg})
+                    //     }
+                    // })
                 },
                 del_user:function (appid,uid) {
 

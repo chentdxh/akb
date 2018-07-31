@@ -52,13 +52,20 @@ window.show_success_dialog = function(title,callback)
 
 window.post_request = function (url,data,success,fail,error) {
 
-    var errorCB = function(res){ console.log(res)}
+    var errorCB = function(res){
+        console.log(res)
+
+        swal({type:"error",title:"Service Error"})
+    }
     if (typeof error != "undefined")
     {
         errorCB = error;
     }
 
-    var failCB = function(res) { console.log(res);    }
+    var failCB = function(res) {
+        console.log(res);
+        swal({type:"error",title:res.msg})
+    }
 
     if (typeof fail != "undefined")
     {
