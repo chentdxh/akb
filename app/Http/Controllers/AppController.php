@@ -59,8 +59,6 @@ class AppController extends Controller
     public function update_app_token(Request $request)
     {
 
-
-
         $appId = $request->input("appid");
         $appInfo = AppInfo::where("appid",$appId)->first();
         $token = (new Builder())->setIssuer('http://sdo.com') // Configures the issuer (iss claim)
@@ -78,6 +76,34 @@ class AppController extends Controller
         }
 
         return $this->json_return(-1,"update token failed");
+    }
+
+
+    public function update_app_user_token(Request $request)
+    {
+        $appid = $request->input("appid");
+        $uid = $request->input("uid");
+
+        $appUser = AppUser::where("appid",$appid)->where("uid",$uid)->first();
+
+        if (!empty($appUser))
+        {
+            $token = (new Builder())->setIssuer('http://sdo.com') // Configures the issuer (iss claim)
+            ->setIssuedAt(time()) // Configures the time that the token was issue (iat claim)
+            ->setNotBefore(time() + 60) // Configures the time that the token can be used (nbf claim)
+            ->setExpiration(time() + 3600) // Configures the expiration time of the token (exp claim)
+            ->set('appid', $appid) // Configures a new claim, called "uid"
+            ->set("uid",$uid)
+                ->getToken(); // Retrieves the generated token
+
+
+            $appUser->token = $token;
+            $appUser->save();
+            return $this->json_return(0,"success");
+
+        }
+
+        return $this->json_return(-1,"user not found");
     }
 
     public function create_app_token($appId)

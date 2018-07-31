@@ -98,6 +98,8 @@
 
                                 <li role="separator" class="divider"></li>
                                 <li><a href="#">删除</a></li>
+
+                                <li><a href="#" v-on:click="update_token('{{$user->appid}}','{{$user->uid}}')">删除</a></li>
                             </ul>
                         </div>
 
@@ -218,6 +220,27 @@
                         },
                         error:function (res) {
 
+                        }
+                    })
+                },update_token:function (appid,uid) {
+
+
+                    $.ajax({
+                        url:"/serve/app/user/token/update",
+                        type:"post",
+                        data:{appid:appid,uid:uid},
+                        success:function (res) {
+                            if (res.code == 0)
+                            {
+                                swal({type:"success",title:"Update User Token Success"}).then((result)=>function () {
+
+                                    window.location.reload();
+                                })
+                            }
+                        },
+                        error:function (res) {
+
+                            swal({type:"error",title:res.msg})
                         }
                     })
                 }
