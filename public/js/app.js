@@ -11449,6 +11449,9 @@ var Promise = __webpack_require__(42).default;
 
 
 
+console.log("show global functions");
+console.log(__WEBPACK_IMPORTED_MODULE_0__custom_js__["a" /* show_delete_dialog */]);
+
 /***/ }),
 /* 13 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -47897,10 +47900,10 @@ Promise._unhandledRejectionFn = function _unhandledRejectionFn(err) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* unused harmony export show_delete_dialog */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return show_delete_dialog; });
 
 
-function show_delete_dialog(url, data) {
+var show_delete_dialog = function show_delete_dialog(url, data) {
 
     swal({
         title: '确定删除？',
@@ -47936,9 +47939,7 @@ function show_delete_dialog(url, data) {
             });
         }
     });
-}
-
-
+};
 
 /***/ }),
 /* 45 */
