@@ -211,10 +211,7 @@
 
                     post_request("/serve/app/user/add",$("#userForm").serialize(),function (res) {
 
-                        show_success_dialog("Add User Success",function () {
-
-                            window.location.reload();
-                        })
+                        show_success_dialog("Add User Success","reload")
                         
                     })
                 },update_token:function (appid,uid) {
