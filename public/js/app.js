@@ -11464,6 +11464,8 @@ window.post_request = function (url, data, success, fail, error) {
 
     var errorCB = function errorCB(res) {
         console.log(res);
+
+        swal({ type: "error", title: "Service Error" });
     };
     if (typeof error != "undefined") {
         errorCB = error;
@@ -11471,6 +11473,7 @@ window.post_request = function (url, data, success, fail, error) {
 
     var failCB = function failCB(res) {
         console.log(res);
+        swal({ type: "error", title: res.msg });
     };
 
     if (typeof fail != "undefined") {
