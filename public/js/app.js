@@ -11454,6 +11454,45 @@ console.log(__WEBPACK_IMPORTED_MODULE_0__custom_js__["a" /* show_delete_dialog *
 
 window.show_delete_dialog = __WEBPACK_IMPORTED_MODULE_0__custom_js__["a" /* show_delete_dialog */];
 
+window.post_request = function (url, data, success, fail, error) {
+
+    var errorCB = function errorCB(res) {
+        console.log(res);
+    };
+    if (typeof error != "undefined") {
+        errorCB = error;
+    }
+
+    var failCB = function failCB(res) {
+        console.log(res);
+    };
+
+    if (typeof fail != "undefined") {
+        failCB = fail;
+    }
+
+    var successCB = function successCB(res) {
+        console.log(res);
+    };
+
+    if (typeof success != "undefined") {
+        successCB = success;
+    }
+    $.ajax({
+        url: url,
+        type: "post",
+        data: data,
+        success: function success(res) {
+            if (res.code == 0) {
+                successCB(res);
+            } else {
+                failCB(res);
+            }
+        },
+        error: errorCB
+    });
+};
+
 /***/ }),
 /* 13 */
 /***/ (function(module, exports, __webpack_require__) {
