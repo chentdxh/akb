@@ -61,7 +61,7 @@
                                 Action <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a href="/aichat/apps?appid={{$appInfo->appid}}">App Rules</a></li>
+                                <li><a href="/aichat/rules?appid={{$appInfo->appid}}">App Rules</a></li>
 
                                 {{--<li role="separator" class="divider"></li>--}}
                                 <li><a href="#" v-on:click="update_token('{{$appInfo->appid}}')">Update Token</a></li>
