@@ -50,6 +50,8 @@ Route::any("/serve/app/add","AppController@add_app");
 Route::any("/serve/app/user/add","AppController@add_app_user");
 
 
+Route::any("/serve/app/token/update","AppController@update_app_token");
+
 Route::any("/test","HomeController@test");
 
 

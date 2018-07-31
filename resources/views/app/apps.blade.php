@@ -67,7 +67,7 @@
                                 <li><a href="/app/users?appid={{$appInfo->appid}}">App Detail</a></li>
 
                                 {{--<li role="separator" class="divider"></li>--}}
-                                {{--<li><a href="#">Separated link</a></li>--}}
+                                <li><a href="#" v-on:click="update_token('{{$appInfo->appid}}')">Update Token</a></li>
                             </ul>
                         </div>
                     </td>
@@ -171,7 +171,31 @@
                     }
                 },
                 error:function (res) {
-                    
+                    swal({type:"error",title:"Service Error"})
+                }
+            })
+        },
+        update_token:function (appid) {
+
+
+
+
+            $.ajax({
+                url:"/serve/app/token/update",
+                type:"post",
+                data:{appid:appid},
+                success:function (res) {
+                    if (res.code == 0)
+                    {
+                        swal({type:"success",title:"Update App Token Success"}).then((result)=>function () {
+
+                            window.location.reload();
+                        })
+                    }
+                },
+                error:function (res) {
+
+                    swal({type:"error",title:"Service Error"})
                 }
             })
         }

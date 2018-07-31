@@ -55,6 +55,22 @@ class AppController extends Controller
         return $this->json_return(0,"success");
     }
 
+
+    public function update_app_token(Request $request)
+    {
+
+
+        $appId = $request->input("appid");
+        $token = (new Builder())->setIssuer('http://sdo.com') // Configures the issuer (iss claim)
+        ->setIssuedAt(time()) // Configures the time that the token was issue (iat claim)
+        ->setNotBefore(time() + 60) // Configures the time that the token can be used (nbf claim)
+        ->setExpiration(time() + 3600) // Configures the expiration time of the token (exp claim)
+        ->set('appid', $appId) // Configures a new claim, called "uid"
+        ->getToken(); // Retrieves the generated token
+
+        return $token;
+    }
+
     public function create_app_token($appId)
     {
 //        $customClaims = ['appid' => '123456' ];
