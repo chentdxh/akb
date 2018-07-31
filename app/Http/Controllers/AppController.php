@@ -77,7 +77,7 @@ class AppController extends Controller
             return $this->json_return(0,"success");
         }
 
-        return $this->json_return(-1,"update token failed"); 
+        return $this->json_return(-1,"update token failed");
     }
 
     public function create_app_token($appId)
