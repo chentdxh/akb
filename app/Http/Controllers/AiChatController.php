@@ -28,7 +28,7 @@ class AiChatController extends Controller
         }
 
         $data['apps'] = $apps;
-        return view("app.apps",$data);
+        return view("aichat.apps",$data);
 
     }
 
