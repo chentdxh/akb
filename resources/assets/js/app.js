@@ -16,6 +16,9 @@ window.toastr = require('toastr');
 
 window.swal = require('sweetalert2');
 
+var Promise = require('promise-polyfill').default;
+
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
