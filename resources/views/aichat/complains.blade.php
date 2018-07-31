@@ -89,7 +89,7 @@
                 verify_complain:function(id){
 
                     show_confirm_dialog({},function () {
-                        post_request("/aicheck/review_complain",{id:id,label:1},function (res) {
+                        post_request("/serve/aichat/complain/review",{id:id,label:1},function (res) {
                             show_success_dialog("Verify Complain Success","reload")
                         })
                     })
