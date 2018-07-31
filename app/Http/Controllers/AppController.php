@@ -170,7 +170,7 @@ class AppController extends Controller
 //        ->setExpiration(time() + 3600) // Configures the expiration time of the token (exp claim)
         ->set('appid', $appid) // Configures a new claim, called "uid"
             ->set("uid",$uid)
-            ->sign(,"&^!s0,1k3ted!^&!")
+            ->sign($signer,"&^!s0,1k3ted!^&!")
         ->getToken(); // Retrieves the generated token
 
         return $token;
