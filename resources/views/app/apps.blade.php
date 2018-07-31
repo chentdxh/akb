@@ -158,7 +158,7 @@
         add_app:function(){
 
             $.ajax({
-                url:"/serve/app/user/add",
+                url:"/serve/app/add",
                 type:"post",
                 data:$("#appForm").serialize(),
                 success:function (res) {
