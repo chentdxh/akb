@@ -161,18 +161,14 @@
         add_app:function(){
 
             post_request("/serve/app/add",$("#appForm").serialize(),function (res) {
-                show_success_dialog("Add App Success",function (res) {
-                    window.location.reload();
-                })
+                show_success_dialog("Add App Success","reload")
             })
 
 
         },
         update_token:function (appid) {
             post_request("/serve/app/token/update",{appid:appid},function (res) {
-                show_success_dialog("Update App Token Success",function (res) {
-                    window.location.reload();
-                })
+                show_success_dialog("Update App Token Success","reload")
             })
 
         },

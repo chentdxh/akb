@@ -1,8 +1,6 @@
-
-
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'App User Manager')
 
 @section('content_header')
     <h1>App 用户管理</h1>
@@ -216,16 +214,10 @@
                     })
                 },update_token:function (appid,uid) {
 
-
                     post_request("/serve/app/user/token/update",{appid:appid,uid:uid},function (res) {
 
-                        show_success_dialog("Update User Token Success",function () {
-
-                            window.location.reload();
-                        })
-
+                        show_success_dialog("Update User Token Success","reload")
                     })
-
                 },
                 del_user:function (appid,uid) {
 
