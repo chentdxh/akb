@@ -49,7 +49,7 @@
                             </button>
                             <ul class="dropdown-menu">
                                 <li><a href="/app/edit?id={{$rule->id}}">编辑</a></li>
-                                <li><a href="#" v-on:click="del_rule('{{$rule}}')">删除</a></li>
+                                <li><a href="#" v-on:click="del_rule('{{$rule->rule}}')">删除</a></li>
                             </ul>
                         </div>
 
@@ -137,7 +137,7 @@
 
                 },
                 del_rule:function (rule) {
-                   show_delete_dialog("/serve/aichat/rule/del",{escape_str:rule,remove:true},"reload");
+                   show_delete_dialog("/serve/aichat/rule/del",{rule:rule},"reload");
 
                 },
                 del_app:function (appid) {
