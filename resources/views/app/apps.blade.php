@@ -64,10 +64,10 @@
                                 Action <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a href="/app/users?appid={{$appInfo->appid}}">add User</a></li>
+                                <li><a href="/app/users?appid={{$appInfo->appid}}">App Detail</a></li>
 
-                                <li role="separator" class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
+                                {{--<li role="separator" class="divider"></li>--}}
+                                {{--<li><a href="#">Separated link</a></li>--}}
                             </ul>
                         </div>
                     </td>
