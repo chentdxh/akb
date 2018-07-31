@@ -60,7 +60,9 @@ class AppController extends Controller
     {
 
 
+
         $appId = $request->input("appid");
+        $appInfo = AppInfo::where("appid",$appId)->first();
         $token = (new Builder())->setIssuer('http://sdo.com') // Configures the issuer (iss claim)
         ->setIssuedAt(time()) // Configures the time that the token was issue (iat claim)
         ->setNotBefore(time() + 60) // Configures the time that the token can be used (nbf claim)
@@ -68,7 +70,14 @@ class AppController extends Controller
         ->set('appid', $appId) // Configures a new claim, called "uid"
         ->getToken(); // Retrieves the generated token
 
-        return $token;
+        if (!empty($appInfo))
+        {
+            $appInfo->token = $token;
+            $appInfo->save();
+            return $this->json_return(0,"success");
+        }
+
+        return $this->json_return(-1,"update token failed"); 
     }
 
     public function create_app_token($appId)
