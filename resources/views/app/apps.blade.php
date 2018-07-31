@@ -166,7 +166,7 @@
                     {
                         swal({type:"success",title:"Add App Success"}).then((result)=>function () {
 
-                            window.location.reload(); 
+                            window.location.reload();
                         })
                     }
                 },

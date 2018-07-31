@@ -41,6 +41,9 @@
                     <dt>Created At</dt>
                     <dd>{{$app_info->created_at}}</dd>
 
+                    <dt>Token</dt>
+                    <dd>{{$app_info->token}}</dd>
+
                 </dl>
             </div>
             <!-- /.box-body -->
