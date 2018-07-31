@@ -105,7 +105,7 @@
 
                         <div class="form-group">
                             <label for="inputAppId">appid</label>
-                            <input type="text" name="appid" class="form-control" id="inputAppId" placeholder="AppId" value="{{$appid or ""}}" {{$appid==""?"":"readonly"}}>
+                            <input type="text" name="appid" class="form-control" id="inputAppId" placeholder="AppId" value="{{$appid or ""}}" {{empty($appid)?"":"readonly"}}>
                         </div>
 
                         <div class="form-group">
