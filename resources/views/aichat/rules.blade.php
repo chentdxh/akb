@@ -128,7 +128,7 @@
 
                 add_rule:function(){
 
-                    post_request("/serve/aichat/rule/del",$("#ruleForm").serialize(),function (res) {
+                    post_request("/serve/aichat/rule/add",$("#ruleForm").serialize(),function (res) {
                         show_success_dialog("Add Rule Success","reload")
                     })
 
