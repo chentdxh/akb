@@ -163,7 +163,7 @@ return [
 
         [
             'text'    => 'AiChat',
-            'icon'    => 'msg',
+            'icon'    => 'share',
             'submenu' => [
                 [
                     'text' => 'AiChat Apps',
