@@ -74,7 +74,14 @@ class HomeController extends Controller
 
         $data['apps'] = AppInfo::get();
 
-        $users = AppUser::where("appid",$appId)->paginate(20);
+        if (empty($appId))
+        {
+            $users = AppUser::paginate(20);
+        }else
+        {
+            $users = AppUser::where("appid",$appId)->paginate(20);
+        }
+
 
         $data['users'] = $users;
         return view("app.users",$data);
