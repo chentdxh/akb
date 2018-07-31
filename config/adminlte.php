@@ -166,6 +166,10 @@ return [
             'icon'    => 'msg',
             'submenu' => [
                 [
+                    'text' => 'AiChat Apps',
+                    'url'  => '/aichat/apps'
+                ],
+                [
                     'text' => 'Rule List',
                     'url'  => '/aichat/rules',
                 ],

@@ -13,6 +13,26 @@ class AiChatController extends Controller
 
     private   $base_uri = 'http://116.211.26.84:18888/';
 
+    public function apps(Request $request)
+    {
+
+        $user = $this->get_user();
+        if ($user->role == "super")
+        {
+            $apps = AppInfo::orderBy("created_at","desc")->paginate(10);
+
+        }else
+        {
+            $apps = AppInfo::where("uid",$user->uid)->orderBy("created_at","desc")->paginate(10);
+        }
+
+        $data['apps'] = $apps;
+        return view("app.apps",$data);
+
+    }
+
+
+
     //http://61.152.101.39:3000/Services/AICheck/src/master/doc/protocol.md
 
     public function rules(Request $request)

@@ -12,6 +12,8 @@
 /**************AICHAT*****************/
 Route::get("/aichat/rules","AiChatController@rules");
 
+Route::get("/aichat/apps","AiChatController@apps");
+
 
 Route::any("/serve/aichat/rule/add","AiChatController@add_rule");
 Route::any("/serve/aichat/rule/del","AiChatController@del_rule");
