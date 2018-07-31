@@ -45,7 +45,7 @@
                                 Action <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a href="/app/review?id={{$complain->id}}">编辑</a></li>
+                                <li><a href="/app/review?id={{$complain->id}}">审核</a></li>
 
                             </ul>
                         </div>
@@ -78,6 +78,29 @@
 
 @section('js')
     <script> console.log('Hi!'); </script>
+@stop
+
+
+@section("vuejs")
+    <script >
+        const app = new Vue({ el: '#app',
+            methods:{
+
+                verify_complain:function(id,result){
+
+                    post_request("/aicheck/review_complain",{id:id,label:result},function (res) {
+                        show_success_dialog("Verify Complain Success","reload")
+                    })
+
+
+                },
+
+            }
+
+
+        });
+
+    </script>
 @stop
 
 
