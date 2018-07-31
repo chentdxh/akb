@@ -5,13 +5,13 @@
 @section('title', 'Ai Rules')
 
 @section('content_header')
-    <h1>App 管理</h1>
+    <h1>App Rule 管理</h1>
 @stop
 
 @section('content')
     <div class="box">
         <div class="box-header with-border">
-            <h3 class="box-title">App列表</h3>
+            <h3 class="box-title">AiChat Rules</h3>
 
             <div class="box-tools">
 
