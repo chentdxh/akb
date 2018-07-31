@@ -3,7 +3,7 @@
 
 
 
-function show_delete_dialog(url,data) {
+export const show_delete_dialog = function (url,data) {
 
     swal({
         title: '确定删除？',
@@ -46,4 +46,3 @@ function show_delete_dialog(url,data) {
 
 
 
-export { show_delete_dialog };
