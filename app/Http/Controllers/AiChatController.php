@@ -6,6 +6,7 @@ use App\AiChatRule;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use GuzzleHttp\RequestOptions;
+use App\AppInfo;
 
 class AiChatController extends Controller
 {
