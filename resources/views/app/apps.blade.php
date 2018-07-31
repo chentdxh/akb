@@ -160,86 +160,100 @@
         },
         add_app:function(){
 
-            $.ajax({
-                url:"/serve/app/add",
-                type:"post",
-                data:$("#appForm").serialize(),
-                success:function (res) {
-                    if (res.code == 0)
-                    {
-                        swal({type:"success",title:"Add App Success"}).then((result)=>  {
-
-                            window.location.reload();
-                        })
-                    }else {
-                        swal({type:"error",title:res.msg})
-                    }
-                },
-                error:function (res) {
-                    swal({type:"error",title:"Service Error"})
-                }
+            post_request("/serve/app/add",$("#appForm").serialize(),function (res) {
+                show_success_dialog("Add App Success",function (res) {
+                    window.location.reload();
+                })
             })
+
+            // $.ajax({
+            //     url:"/serve/app/add",
+            //     type:"post",
+            //     data:$("#appForm").serialize(),
+            //     success:function (res) {
+            //         if (res.code == 0)
+            //         {
+            //             swal({type:"success",title:"Add App Success"}).then((result)=>  {
+            //
+            //                 window.location.reload();
+            //             })
+            //         }else {
+            //             swal({type:"error",title:res.msg})
+            //         }
+            //     },
+            //     error:function (res) {
+            //         swal({type:"error",title:"Service Error"})
+            //     }
+            // })
         },
         update_token:function (appid) {
-            $.ajax({
-                url:"/serve/app/token/update",
-                type:"post",
-                data:{appid:appid},
-                success:function (res) {
-                    if (res.code == 0)
-                    {
-                        swal({type:"success",title:"Update App Token Success"}).then((result)=> {
-
-                            window.location.reload();
-                        })
-                    }
-                },
-                error:function (res) {
-
-                    swal({type:"error",title:res.msg})
-                }
+            post_request("/serve/app/token/update",{appid:appid},function (res) {
+                show_success_dialog("Update App Token Success",function (res) {
+                    window.location.reload();
+                })
             })
+            // $.ajax({
+            //     url:"/serve/app/token/update",
+            //     type:"post",
+            //     data:{appid:appid},
+            //     success:function (res) {
+            //         if (res.code == 0)
+            //         {
+            //             swal({type:"success",title:"Update App Token Success"}).then((result)=> {
+            //
+            //                 window.location.reload();
+            //             })
+            //         }
+            //     },
+            //     error:function (res) {
+            //
+            //         swal({type:"error",title:res.msg})
+            //     }
+            // })
         },
         del_app:function (appid) {
 
-            swal({
-                title: '确定删除？',
-                text: "删除后不可恢复",
-                type: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                cancelButtonText:"取消",
-                confirmButtonText: '确认'
-            }).then((result) => {
-                if (result.value) {
+            show_delete_dialog("/serve/app/del",{appid:appid});
 
-                    $.ajax({
-                        url:"/serve/app/del",
-                        data:{appid:appid},
-                        type:"post",
-                        success:function (response) {
-
-                            if (response.code == 0)
-                            {
-                                swal({type:"success",title:"删除成功!" }).then((result) => {
-
-                                    window.location.reload();
-                                });
-                            }else
-                            {
-                                swal({type:"error",title:"删除失败!" })
-                            }
-                        },
-                        error:function (response) {
-
-                            swal({type:"error",title:"删除失败!" })
-                        }
-                    });
-
-
-                }
-            })
+            //
+            // swal({
+            //     title: '确定删除？',
+            //     text: "删除后不可恢复",
+            //     type: 'warning',
+            //     showCancelButton: true,
+            //     confirmButtonColor: '#3085d6',
+            //     cancelButtonColor: '#d33',
+            //     cancelButtonText:"取消",
+            //     confirmButtonText: '确认'
+            // }).then((result) => {
+            //     if (result.value) {
+            //
+            //         $.ajax({
+            //             url:"/serve/app/del",
+            //             data:{appid:appid},
+            //             type:"post",
+            //             success:function (response) {
+            //
+            //                 if (response.code == 0)
+            //                 {
+            //                     swal({type:"success",title:"删除成功!" }).then((result) => {
+            //
+            //                         window.location.reload();
+            //                     });
+            //                 }else
+            //                 {
+            //                     swal({type:"error",title:"删除失败!" })
+            //                 }
+            //             },
+            //             error:function (response) {
+            //
+            //                 swal({type:"error",title:"删除失败!" })
+            //             }
+            //         });
+            //
+            //
+            //     }
+            // })
         }
     }
 

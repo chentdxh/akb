@@ -78,7 +78,10 @@ window.post_request = function (url,data,success,fail,error) {
         failCB = fail;
     }
 
-    var successCB = function(res){ console.log(res) }
+    var successCB = function(res){
+        console.log(res)
+        window.location.reload();
+    }
 
 
     if (typeof success != "undefined")
