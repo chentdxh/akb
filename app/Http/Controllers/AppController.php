@@ -133,24 +133,24 @@ class AppController extends Controller
 
     public function create_app_token($appId)
     {
-//        $customClaims = ['appid' => '123456' ];
-//
-//        $payload = JWTFactory::make($customClaims);
-//
-//        $token = JWTAuth::encode($payload);
-//
-//        return $token;
+        $customClaims = ['appid' => $appId ];
 
+        $payload = JWTFactory::make($customClaims);
 
-        $token = (new Builder())
-//            ->setIssuer('http://sdo.com') // Configures the issuer (iss claim)
-//        ->setIssuedAt(time()) // Configures the time that the token was issue (iat claim)
-//        ->setNotBefore(time() + 60) // Configures the time that the token can be used (nbf claim)
-//        ->setExpiration(time() + 3600) // Configures the expiration time of the token (exp claim)
-        ->set('appid', $appId) // Configures a new claim, called "uid"
-        ->getToken(); // Retrieves the generated token
+        $token = JWTAuth::encode($payload);
 
         return $token;
+
+
+//        $token = (new Builder())
+////            ->setIssuer('http://sdo.com') // Configures the issuer (iss claim)
+////        ->setIssuedAt(time()) // Configures the time that the token was issue (iat claim)
+////        ->setNotBefore(time() + 60) // Configures the time that the token can be used (nbf claim)
+////        ->setExpiration(time() + 3600) // Configures the expiration time of the token (exp claim)
+//        ->set('appid', $appId) // Configures a new claim, called "uid"
+//        ->getToken(); // Retrieves the generated token
+//
+//        return $token;
     }
 
     public function create_app_user_token($appid,$uid)
