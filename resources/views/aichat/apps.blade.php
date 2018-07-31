@@ -64,7 +64,7 @@
                                 <li><a href="/aichat/rules?appid={{$appInfo->appid}}">App Rules</a></li>
 
                                 {{--<li role="separator" class="divider"></li>--}}
-                                <li><a href="#" v-on:click="update_token('{{$appInfo->appid}}')">Update Token</a></li>
+                                {{--<li><a href="#" v-on:click="update_token('{{$appInfo->appid}}')">Update Token</a></li>--}}
 
 
                                 <li><a href="#" v-on:click="del_app('{{$appInfo->appid}}')">Delete</a></li>
