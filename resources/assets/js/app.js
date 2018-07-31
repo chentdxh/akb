@@ -17,7 +17,7 @@ window.toastr = require('toastr');
 window.swal = require('sweetalert2');
 
 var Promise = require('promise-polyfill').default;
-
+require("underscore");
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -80,14 +80,24 @@ window.post_request = function (url,data,success,fail,error) {
 
     var successCB = function(res){
         console.log(res)
-        window.location.reload();
+
     }
 
 
     if (typeof success != "undefined")
     {
-        successCB = success;
+        if (_.isFunction(success))
+        {
+            successCB = success;
+        }else if (success == "reload")
+        {
+            successCB = function (res) {
+                window.location.reload();
+            }
+        }
     }
+
+
     $.ajax({
         url:url,
         type:"post",
