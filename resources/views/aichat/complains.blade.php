@@ -31,7 +31,7 @@
                     <td>{{$complain->id}}.</td>
                     <td>{{$complain->server_id}}</td>
                     <td>
-                       {{$complain->appid}}
+                       {{$complain->app_id}}
                     </td>
                     <td>{{$complain->text}}</td>
                     <td>{{date("Y-m-d H:m:s",$complain->time/1000)}}</td>
