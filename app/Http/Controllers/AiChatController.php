@@ -66,6 +66,7 @@ class AiChatController extends Controller
             }
 
         }
+        $data['appid'] = $appId;
         $data['rules'] = $rules;
         return view("aichat.rules",$data);
     }
