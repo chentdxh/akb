@@ -25,9 +25,6 @@
             <div class="box-tools">
 
                 <a type="button" class="btn   btn-default btn-sm  pull-right" data-toggle="modal" data-target="#addAppDialog">添加</a>
-
-
-
             </div>
 
         </div>

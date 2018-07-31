@@ -12,6 +12,11 @@
     <div class="box">
         <div class="box-header with-border">
             <h3 class="box-title">App列表</h3>
+
+            <div class="box-tools">
+
+                <a type="button" class="btn   btn-default btn-sm  pull-right" data-toggle="modal" data-target="#addRuleDialog">添加</a>
+            </div>
         </div>
         <!-- /.box-header -->
         <div class="box-body">
@@ -79,7 +84,7 @@
                     <h4 class="modal-title">Add Rule </h4>
                 </div>
                 <div class="modal-body">
-                    <form id="appForm">
+                    <form id="ruleForm">
 
                         <div class="form-group">
                             <label for="inputAppId">appid</label>
@@ -123,8 +128,8 @@
 
                 add_rule:function(){
 
-                    post_request("/serve/app/add",$("#appForm").serialize(),function (res) {
-                        show_success_dialog("Add App Success","reload")
+                    post_request("/serve/app/add",$("#ruleForm").serialize(),function (res) {
+                        show_success_dialog("Add Rule Success","reload")
                     })
 
 
