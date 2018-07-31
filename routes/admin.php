@@ -8,4 +8,4 @@
 
 
 
-Route::get("/users","AdminController@users");
+Route::get("/system/users","AdminController@users");
