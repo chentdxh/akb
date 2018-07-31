@@ -34,7 +34,7 @@
                        {{$complain->appid}}
                     </td>
                     <td>{{$complain->text}}</td>
-                    <td>{{date("Y-m-d H:m:s",$complain->time/1000}}</td>
+                    <td>{{date("Y-m-d H:m:s",$complain->time/1000)}}</td>
                     <td>
 
                         <!-- Single button -->
