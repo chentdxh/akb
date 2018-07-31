@@ -232,10 +232,12 @@
                         success:function (res) {
                             if (res.code == 0)
                             {
-                                swal({type:"success",title:"Update User Token Success"}).then((result)=>function () {
-
-                                    window.location.reload();
-                                })
+                                swal({type:"success",title:"Update User Token Success"})
+                                    .then((result) => {
+                                        if (result.value) {
+                                            window.location.reload();
+                                        }
+                                    })
                             }
                         },
                         error:function (res) {
