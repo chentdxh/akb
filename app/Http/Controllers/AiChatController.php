@@ -43,7 +43,7 @@ class AiChatController extends Controller
         $client = new Client(['base_uri' => $this->base_uri]);
 
         $response = $client->post('/aicheck/app_escape_str_list', [
-             RequestOptions::JSON => ['app_id' => '1212']
+             RequestOptions::JSON => ['app_id' => $appId]
         ]);
 
         logger($response->getBody());
