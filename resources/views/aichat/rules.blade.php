@@ -20,10 +20,9 @@
 
                 <tr>
                     <th style="width: 10px">#</th>
-                    <th>名称</th>
+                    <th>规则</th>
                     <th>AppId</th>
-                    <th>状态</th>
-                    <th  >创建时间</th>
+
                     <th>操作</th>
                 </tr>
                 @foreach($rules as $rule )
@@ -33,8 +32,7 @@
                     <td>
                        {{$rule->appid}}
                     </td>
-                    <td>{{$rule->status}}</td>
-                    <td>{{$rule->created_at}}</td>
+
                     <td>
 
                         <!-- Single button -->
@@ -44,7 +42,7 @@
                             </button>
                             <ul class="dropdown-menu">
                                 <li><a href="/app/edit?id={{$rule->id}}">编辑</a></li>
-
+                                <li><a href="#" v-on:click="del_rule('{{$rule}}')">删除</a></li>
                             </ul>
                         </div>
 
@@ -68,6 +66,44 @@
 
         </div>
     </div>
+
+
+
+
+    <div class="modal fade" id="addRuleDialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Add Rule </h4>
+                </div>
+                <div class="modal-body">
+                    <form id="appForm">
+
+                        <div class="form-group">
+                            <label for="inputAppId">appid</label>
+                            <input type="text" name="appid" class="form-control" id="inputAppId" placeholder="AppId">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputName">name</label>
+                            <input type="text" name="escape_str" class="form-control" id="inputName" placeholder="Name">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" v-on:click="add_rule">Save</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+
 @stop
 
 @section('css')
@@ -77,6 +113,39 @@
 @section('js')
     <script> console.log('Hi!'); </script>
 @stop
+
+
+
+@section("vuejs")
+    <script >
+        const app = new Vue({ el: '#app',
+            methods:{
+
+                add_rule:function(){
+
+                    post_request("/serve/app/add",$("#appForm").serialize(),function (res) {
+                        show_success_dialog("Add App Success","reload")
+                    })
+
+
+                },
+                del_rule:function (rule) {
+                   show_delete_dialog("/serve/aichat/rule/del",{escape_str:rule,remove:true},"reload");
+
+                },
+                del_app:function (appid) {
+
+                    show_delete_dialog("/serve/app/del",{appid:appid});
+
+                }
+            }
+
+
+        });
+
+    </script>
+@stop
+
 
 
 

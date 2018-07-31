@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\AiChatRule;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use GuzzleHttp\RequestOptions;
@@ -16,6 +17,7 @@ class AiChatController extends Controller
 
     public function rules(Request $request)
     {
+        $appId = $request->input("appid","default");
 
         $client = new Client(['base_uri' => $this->base_uri]);
 
@@ -30,9 +32,17 @@ class AiChatController extends Controller
 
         $rules= [];
 
+
         if ($jRst->code == 0)
         {
-            $rules = $jRst->data->list;
+            foreach ($jRst->data->list as $rule  )
+            {
+                $aiRule = new AiChatRule();
+                $aiRule->rule = $rule;
+                $aiRule->appid = $appId;
+                array_push($rules,$aiRule);
+            }
+
         }
         $data['rules'] = $rules;
         return view("aichat.rules",$data);
