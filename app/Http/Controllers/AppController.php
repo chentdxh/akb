@@ -145,7 +145,7 @@ class AppController extends Controller
 
 
 
-        $signer = new HS256();
+        $signer = new \Lcobucci\JWT\Signer\Ecdsa\Sha256();
 
         $token = (new Builder())
 //            ->setIssuer('http://sdo.com') // Configures the issuer (iss claim)
