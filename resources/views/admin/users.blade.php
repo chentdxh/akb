@@ -56,7 +56,6 @@
                                     <li role="separator" class="divider"></li>
                                     <li><a href="#" v-on:click="del_user('{{$user->appid}}','{{$user->uid}}')">Delete</a></li>
 
-                                    <li><a href="#" v-on:click="update_token('{{$user->appid}}','{{$user->uid}}')">Update Token</a></li>
                                 </ul>
                             </div>
 

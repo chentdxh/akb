@@ -121,6 +121,12 @@ return [
             'label'       => 4,
             'label_color' => 'success',
         ],
+        'SYSTEM',
+        [
+          'text' =>'系统用户',
+          'url'  => '/system/users',
+          'icon' => 'users'
+        ],
         'APP SETTINGS',
         [
             'text' => 'App列表',
