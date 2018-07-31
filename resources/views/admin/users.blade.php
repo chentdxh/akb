@@ -30,19 +30,19 @@
 
                 <tr>
                     <th style="width: 10px">#</th>
-                    <th>AppId</th>
+
                     <th>用户</th>
-                    <th>Token</th>
+                    <th>Role</th>
                     <th  >创建时间</th>
                     <th>操作</th>
                 </tr>
                 @foreach($users as $user )
                     <tr>
                         <td>{{$user->id}}.</td>
-                        <td>{{$user->appid}}</td>
+
                         <td>{{$user->name}}</td>
                         <td>
-                            <a href="#" v-on:click="show_token('{{$user->token}}')">{{substr($user->token,0,8)}}...</a>
+                            <a href="#"  >{{$user->role}}</a>
                         </td>
                         <td>{{$user->created_at}}</td>
                         <td>
