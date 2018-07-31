@@ -164,7 +164,7 @@
                 success:function (res) {
                     if (res.code == 0)
                     {
-                        swal({type:"success",title:"Add App Success"}).then((result)=>function () {
+                        swal({type:"success",title:"Add App Success"}).then((result)=>  {
 
                             window.location.reload();
                         })
@@ -187,7 +187,7 @@
                 success:function (res) {
                     if (res.code == 0)
                     {
-                        swal({type:"success",title:"Update App Token Success"}).then((result)=>function () {
+                        swal({type:"success",title:"Update App Token Success"}).then((result)=> {
 
                             window.location.reload();
                         })
