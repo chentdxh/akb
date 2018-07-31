@@ -25,9 +25,10 @@ class AiChatController extends Controller
 
         logger($response->getBody());
 
-        
 
-        $data['rules'] = $response->json();
+        $jRst = json_decode($response->getBody());
+
+        $data['rules'] = $jRst->data->list;
         return view("aichat.rules",$data);
     }
 
