@@ -162,7 +162,10 @@
                 type:"post",
                 data:$("#appForm").serialize(),
                 success:function (res) {
-                    
+                    if (res.code == 0)
+                    {
+                        swal({type:"success",title:"Add App Success"})
+                    }
                 },
                 error:function (res) {
                     
