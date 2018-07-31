@@ -35,6 +35,7 @@ class AiChatController extends Controller
 
         if ($jRst->code == 0)
         {
+            logger("get rule list"); 
             foreach ($jRst->data->list as $rule  )
             {
                 $aiRule = new AiChatRule();
