@@ -20,8 +20,9 @@
 
                 <tr>
                     <th style="width: 10px">#</th>
-                    <th>ServerId</th>
                     <th>AppId</th>
+                    <th>ServerId</th>
+
                     <th>内容</th>
                     <th>时间</th>
                     <th>操作</th>
@@ -29,10 +30,11 @@
                 @foreach($complains as $complain )
                 <tr>
                     <td>{{$complain->id}}.</td>
-                    <td>{{$complain->server_id}}</td>
                     <td>
-                       {{$complain->app_id}}
+                        {{$complain->app_id}}
                     </td>
+                    <td>{{$complain->server_id}}</td>
+
                     <td>{{$complain->text}}</td>
                     <td>{{date("Y-m-d H:m:s",$complain->time/1000)}}</td>
                     <td>
