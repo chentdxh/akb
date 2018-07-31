@@ -216,7 +216,7 @@
                             if (res.code ==0)
                             {
                                 swal({type:"success",title:"Add User Success"}).then((result)=>{
-                                    window.location.reload(); 
+                                    window.location.reload();
                                 })
                             }
                         },

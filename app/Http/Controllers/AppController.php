@@ -40,6 +40,17 @@ class AppController extends Controller
         return $this->json_return(0,"success");
     }
 
+    public function del_app(Request $request)
+    {
+        $appId = $request->input('appid');
+        $appInfo = AppInfo::where('appid',$appId)->first();
+        if (!empty($appInfo))
+        {
+            $appInfo->delete();
+        }
+        return $this->json_return(0,"success"); 
+
+    }
     public function add_app_user(Request $request)
     {
         $appId = $request->input("appid");
