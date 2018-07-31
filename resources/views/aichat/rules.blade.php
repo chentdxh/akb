@@ -45,7 +45,7 @@
                         <!-- Single button -->
                         <div class="btn-group">
                             <button type="button" class="btn-sm btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                ... <span class="caret"></span>
+                                Action <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu">
                                 <li><a href="/app/edit?id={{$rule->id}}">编辑</a></li>
