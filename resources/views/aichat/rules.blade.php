@@ -92,8 +92,8 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="inputName">name</label>
-                            <input type="text" name="escape_str" class="form-control" id="inputName" placeholder="Name">
+                            <label for="inputName">rule</label>
+                            <input type="text" name="rule" class="form-control" id="inputName" placeholder="rule">
                         </div>
                     </form>
                 </div>

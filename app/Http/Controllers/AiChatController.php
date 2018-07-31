@@ -65,14 +65,13 @@ class AiChatController extends Controller
     public function add_rule(Request $request)
     {
 
+        $appid = $request->input("appid");
         $rule = $request->input("rule");
-
-
 
         $client = new Client(['base_uri' => $this->base_uri]);
 
         $response = $client->post('/aicheck/add_app_escape_str', [
-            RequestOptions::JSON => ['app_id' => '1212', 'escape_str'=>$rule,'remove'=>false]
+            RequestOptions::JSON => ['app_id' => $appid, 'escape_str'=>$rule,'remove'=>false]
         ]);
 
         logger($response->getBody());
