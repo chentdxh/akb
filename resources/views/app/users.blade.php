@@ -250,44 +250,46 @@
                 },
                 del_user:function (appid,uid) {
 
-                    swal({
-                        title: '确定删除？',
-                        text: "删除后不可恢复",
-                        type: 'warning',
-                        showCancelButton: true,
-                        confirmButtonColor: '#3085d6',
-                        cancelButtonColor: '#d33',
-                        cancelButtonText:"取消",
-                        confirmButtonText: '确认'
-                    }).then((result) => {
-                        if (result.value) {
+                    show_delete_dialog("/serve/app/user/del",{appid:appid,uid:uid}); 
 
-                            $.ajax({
-                                url:"/serve/app/user/del",
-                                data:{appid:appid,uid:uid},
-                                type:"post",
-                                success:function (response) {
-
-                                    if (response.code == 0)
-                                    {
-                                        swal({type:"success",title:"删除成功!" }).then((result) => {
-
-                                            window.location.reload();
-                                        });
-                                    }else
-                                    {
-                                        swal({type:"error",title:"删除失败!" })
-                                    }
-                                },
-                                error:function (response) {
-
-                                    swal({type:"error",title:"删除失败!" })
-                                }
-                            });
-
-
-                        }
-                    })
+                    // swal({
+                    //     title: '确定删除？',
+                    //     text: "删除后不可恢复",
+                    //     type: 'warning',
+                    //     showCancelButton: true,
+                    //     confirmButtonColor: '#3085d6',
+                    //     cancelButtonColor: '#d33',
+                    //     cancelButtonText:"取消",
+                    //     confirmButtonText: '确认'
+                    // }).then((result) => {
+                    //     if (result.value) {
+                    //
+                    //         $.ajax({
+                    //             url:"/serve/app/user/del",
+                    //             data:{appid:appid,uid:uid},
+                    //             type:"post",
+                    //             success:function (response) {
+                    //
+                    //                 if (response.code == 0)
+                    //                 {
+                    //                     swal({type:"success",title:"删除成功!" }).then((result) => {
+                    //
+                    //                         window.location.reload();
+                    //                     });
+                    //                 }else
+                    //                 {
+                    //                     swal({type:"error",title:"删除失败!" })
+                    //                 }
+                    //             },
+                    //             error:function (response) {
+                    //
+                    //                 swal({type:"error",title:"删除失败!" })
+                    //             }
+                    //         });
+                    //
+                    //
+                    //     }
+                    // })
                     
                 }
 
