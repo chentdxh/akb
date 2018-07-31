@@ -19,7 +19,7 @@ class CreateAppUsersTable extends Migration
             $table->string("uid");
             $table->string("name")->nullable();
             $table->string("token")->nullable();
-            $table->string("status")->default("normal"); 
+            $table->string("status")->default("normal");
             $table->string("metas")->nullable();
             $table->timestamps();
         });
