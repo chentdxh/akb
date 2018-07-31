@@ -41,3 +41,43 @@ console.log("show global functions");
 console.log(show_delete_dialog);
 
 window.show_delete_dialog = show_delete_dialog; 
+
+
+window.post_request = function (url,data,success,fail,error) {
+
+    var errorCB = function(res){ console.log(res)}
+    if (typeof error != "undefined")
+    {
+        errorCB = error;
+    }
+
+    var failCB = function(res) { console.log(res);    }
+
+    if (typeof fail != "undefined")
+    {
+        failCB = fail;
+    }
+
+    var successCB = function(res){ console.log(res) }
+
+
+    if (typeof success != "undefined")
+    {
+        successCB = success;
+    }
+    $.ajax({
+        url:url,
+        type:"post",
+        data:data,
+        success:function (res) {
+            if (res.code ==0)
+            {
+                successCB(res);
+            }else
+            {
+                failCB(res);
+            }
+        },
+        error:errorCB
+    })
+}
