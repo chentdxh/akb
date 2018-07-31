@@ -37,5 +37,7 @@ var Promise = require('promise-polyfill').default;
 
 import { show_delete_dialog } from './custom.js';
 
-console.log("show global functions"); 
+console.log("show global functions");
 console.log(show_delete_dialog);
+
+window.show_delete_dialog = show_delete_dialog; 

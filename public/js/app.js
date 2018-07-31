@@ -11452,6 +11452,8 @@ var Promise = __webpack_require__(42).default;
 console.log("show global functions");
 console.log(__WEBPACK_IMPORTED_MODULE_0__custom_js__["a" /* show_delete_dialog */]);
 
+window.show_delete_dialog = __WEBPACK_IMPORTED_MODULE_0__custom_js__["a" /* show_delete_dialog */];
+
 /***/ }),
 /* 13 */
 /***/ (function(module, exports, __webpack_require__) {
