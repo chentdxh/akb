@@ -25,18 +25,20 @@
 
                 <tr>
                     <th style="width: 10px">#</th>
-                    <th>规则</th>
                     <th>AppId</th>
+
+                    <th>规则</th>
 
                     <th>操作</th>
                 </tr>
                 @foreach($rules as $rule )
                 <tr>
                     <td>{{$rule->id}}.</td>
-                    <td>{{$rule->rule}}</td>
                     <td>
-                       {{$rule->appid}}
+                        {{$rule->appid}}
                     </td>
+
+                    <td>{{$rule->rule}}</td>
 
                     <td>
 
