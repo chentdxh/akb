@@ -215,7 +215,9 @@
                         success:function (res) {
                             if (res.code ==0)
                             {
-                                swal({type:"success",title:"Add User Success"})
+                                swal({type:"success",title:"Add User Success"}).then((result)=>{
+                                    window.location.reload(); 
+                                })
                             }
                         },
                         error:function (res) {
