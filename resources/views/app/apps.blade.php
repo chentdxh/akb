@@ -168,6 +168,8 @@
 
                             window.location.reload();
                         })
+                    }else {
+                        swal({type:"error",title:res.msg})
                     }
                 },
                 error:function (res) {
@@ -176,8 +178,6 @@
             })
         },
         update_token:function (appid) {
-
-
 
 
             $.ajax({
@@ -195,7 +195,7 @@
                 },
                 error:function (res) {
 
-                    swal({type:"error",title:"Service Error"})
+                    swal({type:"error",title:res.msg})
                 }
             })
         }
