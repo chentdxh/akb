@@ -8,7 +8,7 @@
 
 
 require('./bootstrap');
-require("jquery-slimscroll");
+// require("jquery-slimscroll");
 window.Vue = require('vue');
 window.toastr = require('toastr');
 window.swal = require('sweetalert2');
