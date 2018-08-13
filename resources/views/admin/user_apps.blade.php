@@ -54,38 +54,21 @@
     <script>
 
 
-        $(document).ready(function(){
-            $('#my-select').multiSelect({
-                selectableHeader: "<div class='custom-header'>App List</div>",
-                selectionHeader: "<div class='custom-header'>User Apps</div>",
-
-                afterSelect: function(values){
-                    console.log("Select value: "+values);
-                },
-                afterDeselect: function(values){
-                    console.log("Deselect value: "+values);
-                }
-
-            })
-        })
-
-
         const app = new Vue({ el: '#app',
             methods:{
 
-                add_user:function()
+                add_user_app:function(appid,uid)
                 {
 
-                    post_request("/serve/system/user/add",$("#userForm").serialize(),function (res) {
+                    post_request("/serve/user/app/add",{appid:appid,uid:uid},function (res) {
 
                         show_success_dialog("Add System User Success","reload")
 
                     })
                 } ,
-                del_user:function (appid,uid) {
+                del_user_app:function (appid,uid) {
 
-                    show_delete_dialog("/serve/system/user/del",{uid:uid});
-
+                    show_delete_dialog("/serve/user/app/del",{appid:appid,uid:uid});
 
                 }
 
@@ -93,6 +76,27 @@
 
 
         });
+
+
+
+        $(document).ready(function(){
+            $('#my-select').multiSelect({
+                selectableHeader: "<div class='custom-header'>App List</div>",
+                selectionHeader: "<div class='custom-header'>User Apps</div>",
+
+                afterSelect: function(values){
+                    console.log("Select value: "+values);
+                    app.add_user(values);
+                },
+                afterDeselect: function(values){
+                    console.log("Deselect value: "+values);
+
+                    app.del_user(values);
+                }
+
+            })
+        })
+
 
     </script>
 @stop
