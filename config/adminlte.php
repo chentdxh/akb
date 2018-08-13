@@ -123,7 +123,7 @@ return [
 //        ],
         'SYSTEM',
         [
-            'text' =>'系统用户',
+            'text' =>'系统管理',
 
             'icon' => 'gear',
             'submenu'=>[
