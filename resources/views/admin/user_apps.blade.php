@@ -21,7 +21,7 @@
         <!-- /.box-header -->
         <div class="box-body ">
 
-            <select multiple="multiple" id="my-select" name="my-select[]">
+            <select multiple="multiple" id="appSelect" name="app-select[]">
 
                 @foreach($all_apps as $appInfo )
                 <option value='{{$appInfo->appid}}'>{{$appInfo->name}}</option>
@@ -62,7 +62,7 @@
 
                     post_request("/serve/user/app/add",{appid:appid,uid:uid},function (res) {
 
-                        show_success_dialog("Add System User Success","reload")
+                        show_success_dialog("Add User App Success","reload")
 
                     })
                 } ,
@@ -80,7 +80,7 @@
 
 
         $(document).ready(function(){
-            $('#my-select').multiSelect({
+            $('#appSelect').multiSelect({
                 selectableHeader: "<div class='custom-header'>App List</div>",
                 selectionHeader: "<div class='custom-header'>User Apps</div>",
 
