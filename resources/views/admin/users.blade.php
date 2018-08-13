@@ -48,7 +48,7 @@
                                 <ul class="dropdown-menu">
 
 
-                                    <li><a href="#">Permissions</a></li>
+                                    <li><a href="/system/user/apps?uid={{$user->uid}}">User Apps</a></li>
                                     <li role="separator" class="divider"></li>
                                     <li><a href="#" v-on:click="del_user('{{$user->appid}}','{{$user->uid}}')">Delete</a></li>
 
