@@ -39,9 +39,11 @@ class HomeController extends Controller
         return view("chat.chat");
     }
 
-    public function talk(Request $request)
+    public function talk_with(Request $request)
     {
-        return view("chat.talk");
+        $uid = $request->input("uid","a_1");
+        $data['uid'] = $uid;
+        return view("chat.talk",$data);
     }
 
 
@@ -116,4 +118,31 @@ class HomeController extends Controller
     {
         return view("demo");
     }
+
+
+
+    public function chat_users(Request $request)
+    {
+
+        $appId = $request->input("appid");
+        $appInfo = AppInfo::where("appid",$appId)->first();
+
+        $data['app_info'] = $appInfo;
+
+        $data['apps'] = AppInfo::get();
+
+        if (empty($appId))
+        {
+            $users = AppUser::paginate(20);
+        }else
+        {
+            $users = AppUser::where("appid",$appId)->paginate(20);
+        }
+
+
+        $data['users'] = $users;
+        return view("chat.users",$data);
+    }
+
+
 }

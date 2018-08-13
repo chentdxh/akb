@@ -30,10 +30,14 @@ Route::get("/profile","HomeController@profile");
 
 
 
-Route::get("/talk","HomeController@talk");
+Route::get("/chat/talk","HomeController@talk_with");
 
 
 Route::get("/chat/with","HomeController@chat_with");
+
+Route::get("/chat/users","HomeController@chat_users");
+
+
 
 Route::get("/app/list","HomeController@apps");
 
@@ -65,3 +69,8 @@ Route::any("/test","HomeController@test");
 
 
 Route::any("/demo","HomeController@demo");
+
+
+
+
+Route::any("/oss/upload","OssController@upload");

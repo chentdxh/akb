@@ -9,3 +9,8 @@
 
 
 Route::get("/system/users","AdminController@users");
+
+
+Route::any("/serve/system/user/add","UserController@add_system_user");
+
+Route::any("/serve/system/user/del","UserController@del_system_user");

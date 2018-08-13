@@ -99,7 +99,7 @@
 
                                 <li><a href="#" v-on:click="update_token('{{$user->appid}}','{{$user->uid}}')">Update Token</a></li>
 
-
+                                <li><a href="/chat/talk/?uid={{$user->uid}}" >Start Talk</a></li>
                             </ul>
                         </div>
 
@@ -160,6 +160,12 @@
                         <div class="form-group">
                             <label for="inputName">name</label>
                             <input type="text" name="name" class="form-control" id="inputName" placeholder="Name">
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="inputName">token</label>
+                            <input type="text" name="token" class="form-control" id="inputName" placeholder="Token">
                         </div>
                     </form>
                 </div>

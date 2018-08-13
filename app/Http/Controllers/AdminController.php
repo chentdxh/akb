@@ -14,6 +14,7 @@ class AdminController extends Controller
     {
         $users = User::paginate(20);
         $data['users'] = $users;
+
         return view("admin.users",$data);
     }
 }

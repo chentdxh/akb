@@ -213,10 +213,10 @@ var GChatClient = {
         talk:function (guid,type,toid,msg) {
             var MsgInfo = this.protocol.lookupType("chat.client.MsgInfo");
 
-            //var payload = {guid:guid,to_type:"0","to_id":"a_1",data:{msg_type:"1",from_uid:"arthur",content:msg}};
+            //var payload = {guid:guid,to_type:"0","to_id":myId,data:{msg_type:"1",from_uid:"arthur",content:msg}};
 
 
-            var payload = {guid:guid,toType:"0",toId:"a_1",data:{msgType:"1",fromUid:"arthur",content:msg}};
+            var payload = {guid:guid,toType:"0",toId:myId,data:{msgType:"1",fromUid:"arthur",content:msg}};
             //
             var msgHead = new Buffer(4);
             var msgInfo = MsgInfo.create(payload);

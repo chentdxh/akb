@@ -55,13 +55,16 @@ class AppController extends Controller
     }
     public function add_app_user(Request $request)
     {
+
         $appId = $request->input("appid");
         $uid = $request->input("uid");
         $name = $request->input("name");
+
+        $token = $request->input("token", $this->create_app_user_token($appId,$uid));
         $appUser = new AppUser();
         $appUser->appid = $appId;
         $appUser->uid = $uid;
-        $appUser->token = $this->create_app_user_token($appId,$uid);
+        $appUser->token = $token;
         $appUser->name = $name;
         $appUser->save();
 

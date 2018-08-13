@@ -155,6 +155,8 @@
 
         var  kMsgList = [];
 
+        var myId = "{{$uid}}";
+
         Vue.prototype.messages = kMsgList;
 
 
@@ -180,9 +182,9 @@
 
                 var content = $("#message").val();
 
-                GChatClient.talk("",0,"a_1",content);
+                GChatClient.talk("",0,"{{$uid}}",content);
 
-                app.messages.push({content:content,fromUid:"a_1"})
+                app.messages.push({content:content,fromUid:"{{$uid}}"})
 
 
                 event.preventDefault();
