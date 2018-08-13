@@ -187,12 +187,17 @@ class AppController extends Controller
         $uid = $request->input("uid");
         $appId = $request->input("appid");
 
-        $userApp = new UserApp();
-        $userApp->uid = $uid;
-        $userApp->appid = $appId;
-        $userApp->save();
+        $userApp = UserApp::where("uid",$uid)->where("appid",$appId)->first();
+        if (empty($userApp))
+        {
+            $userApp->uid = $uid;
+            $userApp->appid = $appId;
+            $userApp->save();
+        }
         return $this->json_return(0,"success");
     }
+
+
     public function del_user_app(Request $request)
     {
         $uid = $request->input("uid");
