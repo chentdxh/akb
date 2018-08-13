@@ -21,7 +21,7 @@
         <!-- /.box-header -->
         <div class="box-body">
 
-            <select id='custom-headers' multiple='multiple'>
+            <select id='userApps' multiple='multiple'>
                 <option value='elem_1'>elem 1</option>
                 <option value='elem_2'>elem 2</option>
                 <option value='elem_3'>elem 3</option>
@@ -104,6 +104,9 @@
 
 @section("vuejs")
     <script >
+
+        $("#userApps").multiSelect();
+        
         const app = new Vue({ el: '#app',
             methods:{
 
