@@ -105,7 +105,11 @@
 @section("vuejs")
     <script>
 
-        $("#userApps").multiSelect();
+
+        $(document).ready(function(){
+            $("#userApps").multiSelect();
+        })
+
 
         const app = new Vue({ el: '#app',
             methods:{
