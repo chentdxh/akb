@@ -60,10 +60,10 @@
                 selectionHeader: "<div class='custom-header'>User Apps</div>",
 
                 afterSelect: function(values){
-                    alert("Select value: "+values);
+                    console.log("Select value: "+values);
                 },
                 afterDeselect: function(values){
-                    alert("Deselect value: "+values);
+                    console.log("Deselect value: "+values);
                 }
 
             })
