@@ -29,9 +29,7 @@ class AdminController extends Controller
 
 
         $data['user_apps'] = UserApp::where("uid",$uid)->get();
-        $data['all_apps'] = AppInfo::all();
-
-
+        $data['all_apps'] = AppInfo::get();
 
         return view("admin.user_apps",$data);
     }
