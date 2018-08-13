@@ -190,8 +190,8 @@ class AppController extends Controller
         $userApp = UserApp::where("uid",$uid)->where("appid",$appId)->first();
         if (empty($userApp))
         {
-            $userApp = new UserApp(); 
-            $userApp->uid = $uid;
+            $userApp = new UserApp();
+            $userApp->uid   = $uid;
             $userApp->appid = $appId;
             $userApp->save();
         }
