@@ -17,4 +17,14 @@ class AdminController extends Controller
 
         return view("admin.users",$data);
     }
+
+
+    public function user_apps(Request $request)
+    {
+        $uid = $request->input("uid");
+        $userApps = UserApp::where("uid",$uid)->get();
+        $data['user_apps'] = $userApps;
+        return view("admin.user_apps",$data);
+    }
+
 }
