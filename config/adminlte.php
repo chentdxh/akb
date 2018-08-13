@@ -137,7 +137,7 @@ return [
                 [
                     'text' => 'User Apps',
                     'url'  => '/system/user/apps',
-                    'icon' => 'user'
+                    'icon' => 'list'
                 ],
                 ]
 
