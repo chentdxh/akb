@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\AppInfo;
 use App\User;
 use Illuminate\Http\Request;
 use App\UserApp;
@@ -25,6 +26,8 @@ class AdminController extends Controller
         $uid = $request->input("uid");
         $userApps = UserApp::where("uid",$uid)->paginate();
         $data['user_apps'] = $userApps;
+
+        $data['all_apps'] = AppInfo::all();
         return view("admin.user_apps",$data);
     }
 
