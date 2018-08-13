@@ -26,6 +26,9 @@
                 @foreach($all_apps as $appInfo )
                 <option value='{{$appInfo->appid}}'>{{$appInfo->name}}</option>
                 @endforeach
+                @foreach($user_apps as $appInfo)
+                        <option value='{{$appInfo->appid}}' selected>{{$appInfo->name}}</option>
+                    @endforeach
 
             </select>
 
