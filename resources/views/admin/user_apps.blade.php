@@ -19,7 +19,7 @@
 
         </div>
         <!-- /.box-header -->
-        <div class="box-body " style="margin: 0 auto;">
+        <div class="box-body ">
 
             <select multiple="multiple" id="my-select" name="my-select[]">
 
