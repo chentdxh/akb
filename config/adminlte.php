@@ -125,7 +125,7 @@ return [
         [
             'text' =>'系统用户',
 
-            'icon' => 'settings',
+            'icon' => 'gear',
             'submenu'=>[
 
                 [
