@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\AppInfo;
 use App\AppUser;
+use App\User;
+use App\UserApp;
 use Illuminate\Http\Request;
 use Lcobucci\JWT\Signer\Hmac\Sha256;
 
@@ -177,6 +179,32 @@ class AppController extends Controller
         ->getToken(); // Retrieves the generated token
 
         return $token;
+    }
+
+
+    public function add_user_app(Request $request)
+    {
+        $uid = $request->input("uid");
+        $appId = $request->input("appid");
+
+        $userApp = new UserApp();
+        $userApp->uid = $uid;
+        $userApp->appid = $appId;
+        $userApp->save();
+        return $this->json_return(0,"success");
+    }
+    public function del_user_app(Request $request)
+    {
+        $uid = $request->input("uid");
+        $appId = $request->input("appid");
+        $userApp = UserApp::where("uid",$uid)->where('appid',$appId)->first();
+        if (!empty($userApp))
+        {
+            $userApp->delete();
+            return $this->json_return(0,"success");
+        }
+
+        return $this->json_return(-1,"not found");
     }
 
 }

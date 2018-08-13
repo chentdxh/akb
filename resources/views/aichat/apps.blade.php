@@ -1,8 +1,6 @@
-
-
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'AiChat App')
 
 @section("css")
 
@@ -23,7 +21,6 @@
             <h3 class="box-title">AiChat App列表</h3>
 
             <div class="box-tools">
-
                 <a type="button" class="btn   btn-default btn-sm  pull-right" data-toggle="modal" data-target="#addAppDialog">添加</a>
             </div>
 

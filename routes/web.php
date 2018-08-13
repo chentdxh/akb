@@ -71,6 +71,8 @@ Route::any("/test","HomeController@test");
 Route::any("/demo","HomeController@demo");
 
 
+Route::any("/serve/user/app/add","AppController@add_app_user");
+Route::any("/serve/user/app/del","AppController@del_app_user");
 
 
 Route::any("/oss/upload","OssController@upload");
