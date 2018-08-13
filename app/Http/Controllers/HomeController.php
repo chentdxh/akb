@@ -59,7 +59,7 @@ class HomeController extends Controller
         }else
         {
 
-            $apps = AppInfo::where("uid",$user->uid)->orderBy("created_at","desc")->paginate(2);
+            $apps = AppInfo::where("uid",$user->uid)->orderBy("created_at","desc")->paginate(10);
         }
 
         $data['apps'] = $apps;
