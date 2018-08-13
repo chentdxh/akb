@@ -135,8 +135,8 @@ return [
                 ],
 
                 [
-                    'text' => 'Chat Users',
-                    'url'  => '/chat/users',
+                    'text' => 'User Apps',
+                    'url'  => '/system/user/apps',
                     'icon' => 'user'
                 ],
                 ]
