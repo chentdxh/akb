@@ -103,7 +103,7 @@
 
 
 @section("vuejs")
-    <script >
+    <script>
 
         $("#userApps").multiSelect();
 
