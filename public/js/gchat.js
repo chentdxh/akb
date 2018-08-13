@@ -33,7 +33,7 @@ var GChatClient = {
 
     connTimer: null,
     //host: "ws://10.246.60.58:6767",
-    host: "ws://10.246.60.58:9002",
+    host: "ws://127.0.0.1:49009",
     websock: null,
 
     common_proto:null,
@@ -115,14 +115,14 @@ var GChatClient = {
 
                         var pbuf = buffer.slice(4);
 
-                        if (cmdid == 1)
+                        if (cmdid == 3)
                         {
                             self.on_login(pbuf);
-                        }else if (cmdid == 6)
+                        }else if (cmdid == 10)
                         {
                             //self.on_talk(pbuf);
                             self.on_msg_list(pbuf);
-                        }else if (cmdid== 5)
+                        }else if (cmdid== 9)
                         {
                             self.on_msg_info(pbuf);
                         }
@@ -138,6 +138,7 @@ var GChatClient = {
 
                     self.isConnected = false;
                 };
+
             } else {
 
                 // The browser doesn't support WebSocket
@@ -163,7 +164,17 @@ var GChatClient = {
 
         },
 
+        ping:function() {
+            if(!self.isConnected)
+                return;
+            var msgHead = new Buffer(4);
+            msgHead.writeInt16LE(2, 0);
+            var cmdId = 101;
+            msgHead.writeInt16LE(cmdId, 2);
 
+            var  pingMsg = Buffer.concat([msgHead],msgHead.length);
+            this.websock.send(pingMsg);
+        },
 
         login:function(){
 
@@ -172,7 +183,7 @@ var GChatClient = {
 
             var payload = {
                 appid:"123456",
-                token:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjMxMjU2MzI4Nzk3NiwidWlkIjoiMTIzNDU2In0.p3OzVsyaNDOnEmbKV02NDWkM8kVOKHmRKv2DMOnG7mw",
+                token:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBpZCI6IjEyMzQ1NiIsInVpZCI6ImFydGh1ciJ9.NMxMZg6q5hbh9nwp1Ui1l690OwOsj4QslWpEX1-cNFI",
                 uid: this.myid
             };
 
@@ -190,7 +201,7 @@ var GChatClient = {
             console.log(buffer);
 
             msgHead.writeInt16LE(buffer.length + 2, 0);
-            var cmdId = 0;
+            var cmdId = 2;
             msgHead.writeInt16LE(cmdId, 2);
 
             var message = LoginReq.decode(buffer);
@@ -229,7 +240,7 @@ var GChatClient = {
             // return;
 
             msgHead.writeInt16LE(buffer.length + 2, 0);
-            var cmdId = 5;
+            var cmdId = 9;
             msgHead.writeInt16LE(cmdId, 2);
 
 
@@ -262,6 +273,11 @@ var GChatClient = {
             var msg = MsgInfoList.decode(pbuf);
             console.log(msg);
             kMsgList = msg.dataList;
+
+            if(kMsgList.length !== 0)
+            {
+                this.send_msg("chat.client.MsgDataClientAck",5,{uid:this.myid,toType:msg.toType,toId:msg.toId,mid:kMsgList[kMsgList.length - 1].mid});
+            }
         }
         catch(e)
         {
@@ -282,7 +298,7 @@ var GChatClient = {
 
             console.log("mid is "+msg.data.mid)
             var  mid = msg.data.mid;
-            this.send_msg("chat.client.MsgDataClientAck",3,{uid:"arth",toType:msg.toType,toId:msg.toId,mid:mid})
+            this.send_msg("chat.client.MsgDataClientAck",5,{uid:this.myid,toType:msg.toType,toId:msg.toId,mid:mid})
 
         } catch (e) {
 
