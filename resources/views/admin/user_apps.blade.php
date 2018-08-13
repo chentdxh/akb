@@ -21,6 +21,7 @@
         <!-- /.box-header -->
         <div class="box-body ">
 
+            <div style="display: block;margin: 0 auto;">
             <select multiple="multiple" id="appSelect" name="app-select[]" >
 
                 @foreach($all_apps as $appInfo )
@@ -31,6 +32,7 @@
                 @endforeach
 
             </select>
+            </div>
 
         </div>
         <!-- /.box-body -->
