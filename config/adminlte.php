@@ -140,7 +140,7 @@ return [
                     'icon' => 'user'
                 ],
                 ]
-]
+ 
         ],
 
         'APP SETTINGS',
