@@ -91,11 +91,12 @@
 @section('css')
     <link rel="stylesheet" href="/css/custom.css">
 
+    <link rel="stylesheet" href="/libs/multiselect/css/multi-select.css" />
 
 @stop
 
 @section('js')
-
+    <script src="/libs/multiselect/js/jquery.multi-select.js"></script>
 @stop
 
 
