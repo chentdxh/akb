@@ -31,56 +31,11 @@
             </select>
 
 
-            <table class="table table-bordered">
-                <tbody>
 
-                <tr>
-                    <th style="width: 10px">#</th>
-                    <th>用户</th>
-                    <th>角色</th>
-                    <th>创建时间</th>
-                    <th>操作</th>
-                </tr>
-                @foreach($user_apps as $userApp )
-                    <tr>
-                        <td>{{$userApp->id}}.</td>
-
-                        <td>{{$userApp->name}}</td>
-                        <td>
-                            <a href="#"  >{{$userApp->role}}</a>
-                        </td>
-                        <td>{{$userApp->created_at}}</td>
-                        <td>
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Action <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu">
-
-
-                                    <li><a href="#">Permissions</a></li>
-                                    <li role="separator" class="divider"></li>
-                                    <li><a href="#" v-on:click="del_user('{{$userApp->appid}}','{{$userApp->uid}}')">Delete</a></li>
-
-                                </ul>
-                            </div>
-
-                        </td>
-                    </tr>
-                @endforeach
-
-                </tbody></table>
         </div>
         <!-- /.box-body -->
         <div class="box-footer clearfix">
-            {{--<ul class="pagination pagination-sm no-margin pull-right">--}}
-            {{--<li><a href="#">«</a></li>--}}
-            {{--<li><a href="#">1</a></li>--}}
-            {{--<li><a href="#">2</a></li>--}}
-            {{--<li><a href="#">3</a></li>--}}
-            {{--<li><a href="#">»</a></li>--}}
-            {{--</ul>--}}
-            {{$user_apps->links()}}
+ 
         </div>
     </div>
 
