@@ -124,14 +124,25 @@ return [
         'SYSTEM',
         [
             'text' =>'系统用户',
-            'url'  => '/system/users',
-            'icon' => 'users'
+
+            'icon' => 'setting',
+            'submenu'=>[
+
+                [
+                    'text' => 'Chat Users',
+                    'url'  => '/system/users',
+                    'icon' => 'users'
+                ],
+
+                [
+                    'text' => 'Chat Users',
+                    'url'  => '/chat/users',
+                    'icon' => 'user'
+                ],
+                ]
+]
         ],
-        [
-          'text' =>'User Apps',
-          'url'  => '/system/user/apps',
-          'icon' => 'list'
-        ],
+
         'APP SETTINGS',
         [
             'text' => 'App列表',
