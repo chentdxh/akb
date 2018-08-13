@@ -35,19 +35,15 @@
         </div>
         <!-- /.box-body -->
         <div class="box-footer clearfix">
- 
+
         </div>
     </div>
-
-
 
 @stop
 
 @section('css')
     <link rel="stylesheet" href="/css/custom.css">
-
-    <link rel="stylesheet" href="/libs/multiselect/css/multi-select.css" />
-
+    <link rel="stylesheet" href="/libs/multiselect/css/multi-select.css" /> 
 @stop
 
 @section('js')
