@@ -125,7 +125,7 @@ return [
         [
             'text' =>'系统用户',
 
-            'icon' => 'setting',
+            'icon' => 'settings',
             'submenu'=>[
 
                 [
@@ -140,7 +140,7 @@ return [
                     'icon' => 'user'
                 ],
                 ]
- 
+
         ],
 
         'APP SETTINGS',
