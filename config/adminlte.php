@@ -123,9 +123,14 @@ return [
 //        ],
         'SYSTEM',
         [
-          'text' =>'系统用户',
-          'url'  => '/system/users',
-          'icon' => 'users'
+            'text' =>'系统用户',
+            'url'  => '/system/users',
+            'icon' => 'users'
+        ],
+        [
+          'text' =>'User Apps',
+          'url'  => '/system/user/apps',
+          'icon' => 'list'
         ],
         'APP SETTINGS',
         [

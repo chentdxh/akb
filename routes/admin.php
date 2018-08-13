@@ -10,6 +10,7 @@
 
 Route::get("/system/users","AdminController@users");
 
+Route::get("/system/user/apps","AdminController@user_apps");
 
 Route::any("/serve/system/user/add","UserController@add_system_user");
 
