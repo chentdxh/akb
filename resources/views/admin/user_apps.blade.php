@@ -31,15 +31,15 @@
                     <th>创建时间</th>
                     <th>操作</th>
                 </tr>
-                @foreach($users as $user )
+                @foreach($user_apps as $userApp )
                     <tr>
-                        <td>{{$user->id}}.</td>
+                        <td>{{$userApp->id}}.</td>
 
-                        <td>{{$user->name}}</td>
+                        <td>{{$userApp->name}}</td>
                         <td>
-                            <a href="#"  >{{$user->role}}</a>
+                            <a href="#"  >{{$userApp->role}}</a>
                         </td>
-                        <td>{{$user->created_at}}</td>
+                        <td>{{$userApp->created_at}}</td>
                         <td>
                             <div class="btn-group">
                                 <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -50,7 +50,7 @@
 
                                     <li><a href="#">Permissions</a></li>
                                     <li role="separator" class="divider"></li>
-                                    <li><a href="#" v-on:click="del_user('{{$user->appid}}','{{$user->uid}}')">Delete</a></li>
+                                    <li><a href="#" v-on:click="del_user('{{$userApp->appid}}','{{$userApp->uid}}')">Delete</a></li>
 
                                 </ul>
                             </div>
