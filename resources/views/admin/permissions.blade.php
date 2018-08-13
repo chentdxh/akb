@@ -2,17 +2,17 @@
 
 @extends('adminlte::page')
 
-@section('title', 'System Users')
+@section('title', 'User Apps')
 
 @section('content_header')
-    <h1>Users</h1>
+    <h1>User Apps</h1>
 @stop
 
 @section('content')
 
     <div class="box">
         <div class="box-header with-border">
-            <h3 class="box-title">用户列表</h3>
+            <h3 class="box-title">User Apps</h3>
             <div class="box-tools">
                 <a type="button" class="btn   btn-default btn-sm  pull-right" data-toggle="modal" data-target="#addUserDialog">添加</a>
             </div>
