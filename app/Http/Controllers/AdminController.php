@@ -27,8 +27,8 @@ class AdminController extends Controller
         $user = User::where('uid',$uid)->first();
         $data['user'] = empty($uid)?$this->get_user():$user ;
 
- 
-        $data['user_apps'] = UserApp::where("uid",$uid)->all();
+
+        $data['user_apps'] = UserApp::where("uid",$uid)->get();
         $data['all_apps'] = AppInfo::all();
 
 
