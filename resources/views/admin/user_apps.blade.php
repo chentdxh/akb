@@ -21,7 +21,7 @@
         <!-- /.box-header -->
         <div class="box-body ">
 
-            <select multiple="multiple" id="appSelect" name="app-select[]" style="margin: 0 auto;">
+            <select multiple="multiple" id="appSelect" name="app-select[]" >
 
                 @foreach($all_apps as $appInfo )
                     <option value='{{$appInfo->appid}}'>{{$appInfo->name}}</option>
