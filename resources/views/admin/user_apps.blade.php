@@ -21,6 +21,16 @@
         <!-- /.box-header -->
         <div class="box-body">
 
+            <select id='custom-headers' multiple='multiple'>
+                <option value='elem_1'>elem 1</option>
+                <option value='elem_2'>elem 2</option>
+                <option value='elem_3'>elem 3</option>
+                <option value='elem_4'>elem 4</option>
+
+                <option value='elem_100'>elem 100</option>
+            </select>
+
+
             <table class="table table-bordered">
                 <tbody>
 
@@ -80,10 +90,13 @@
 
 @section('css')
     <link rel="stylesheet" href="/css/custom.css">
+
+    <link rel="stylesheet" href="/libs/multiselect/css/multi-select.css">
 @stop
 
 @section('js')
 
+    <script type="text/javascript"  src="/libs/multiselect/js/jquery.multi-select.js" />
 @stop
 
 
