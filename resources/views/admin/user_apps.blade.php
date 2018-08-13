@@ -13,9 +13,9 @@
     <div class="box">
         <div class="box-header with-border">
             <h3 class="box-title">User Apps</h3>
-            <div class="box-tools">
-                <a type="button" class="btn   btn-default btn-sm  pull-right" data-toggle="modal" data-target="#addUserDialog">添加</a>
-            </div>
+            {{--<div class="box-tools">--}}
+                {{--<a type="button" class="btn   btn-default btn-sm  pull-right" data-toggle="modal" data-target="#addUserDialog">添加</a>--}}
+            {{--</div>--}}
 
         </div>
         <!-- /.box-header -->
