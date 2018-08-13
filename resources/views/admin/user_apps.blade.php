@@ -71,7 +71,11 @@
                 } ,
                 del_user_app:function (appid,uid) {
 
-                    show_delete_dialog("/serve/user/app/del",{appid:appid,uid:uid});
+                    post_request("/serve/user/app/del",{appid:appid,uid:uid},function (res) {
+
+                        show_success_dialog("Del User App Success","")
+
+                    })
 
                 }
 
