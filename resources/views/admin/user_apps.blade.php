@@ -86,12 +86,12 @@
 
                 afterSelect: function(values){
                     console.log("Select value: "+values);
-                    app.add_user(values);
+                    app.add_user_app(values);
                 },
                 afterDeselect: function(values){
                     console.log("Deselect value: "+values);
 
-                    app.del_user(values);
+                    app.del_user_app(values);
                 }
 
             })
