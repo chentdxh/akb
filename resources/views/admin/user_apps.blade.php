@@ -19,7 +19,7 @@
 
         </div>
         <!-- /.box-header -->
-        <div class="box-body">
+        <div class="box-body text-center">
 
             <select multiple="multiple" id="my-select" name="my-select[]">
                 <option value='elem_1'>elem 1</option>
@@ -43,7 +43,7 @@
 
 @section('css')
     <link rel="stylesheet" href="/css/custom.css">
-    <link rel="stylesheet" href="/libs/multiselect/css/multi-select.css" /> 
+    <link rel="stylesheet" href="/libs/multiselect/css/multi-select.css" />
 @stop
 
 @section('js')
