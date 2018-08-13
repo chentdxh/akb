@@ -96,14 +96,14 @@
 
 @section('js')
 
-    <script type="text/javascript"  src="/libs/multiselect/js/jquery.multi-select.js" />
+    <script   src="/libs/multiselect/js/jquery.multi-select.js" />
 @stop
 
 
 
 
 @section("vuejs")
-    <script type="text/javascript">
+    <script >
 
         $("#userApps").multiSelect();
 
