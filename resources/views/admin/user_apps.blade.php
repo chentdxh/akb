@@ -95,7 +95,7 @@
 @stop
 
 @section('js')
- 
+
 @stop
 
 
