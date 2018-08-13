@@ -59,9 +59,9 @@
 
         $(document).ready(function(){
             $('#my-select').multiSelect({
-                selectableHeader: "<div class='custom-header'>Selectable items</div>",
-                selectionHeader: "<div class='custom-header'>Selection items</div>",
-               
+                selectableHeader: "<div class='custom-header'>App List</div>",
+                selectionHeader: "<div class='custom-header'>User Apps</div>",
+
             })
         })
 
