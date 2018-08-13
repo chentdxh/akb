@@ -53,7 +53,7 @@
                                 <ul class="dropdown-menu">
 
 
-                                    <li><a href="#">权限管理</a></li>
+                                    <li><a href="#">Permissions</a></li>
                                     <li role="separator" class="divider"></li>
                                     <li><a href="#" v-on:click="del_user('{{$user->appid}}','{{$user->uid}}')">Delete</a></li>
 
