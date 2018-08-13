@@ -25,11 +25,12 @@ class AdminController extends Controller
     {
         $uid = $request->input("uid");
         $user = User::where('uid',$uid)->first();
+        $data['user'] = empty($user)?$this->get_user():$user ;
 
-        $data['user'] = $user ;
         $userApps = UserApp::where("uid",$uid)->paginate();
         $data['user_apps'] = $userApps;
         $data['all_apps'] = AppInfo::all();
+
 
 
         return view("admin.user_apps",$data);
