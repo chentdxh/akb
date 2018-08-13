@@ -65,7 +65,7 @@
 
                     post_request("/serve/user/app/add",{appid:appid,uid:uid},function (res) {
 
-                        show_success_dialog("Add User App Success","reload")
+                        show_success_dialog("Add User App Success","")
 
                     })
                 } ,
