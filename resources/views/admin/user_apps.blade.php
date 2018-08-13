@@ -70,7 +70,7 @@
             {{--<li><a href="#">3</a></li>--}}
             {{--<li><a href="#">»</a></li>--}}
             {{--</ul>--}}
-            {{$users->links()}}
+            {{$user_apps->links()}}
         </div>
     </div>
 
