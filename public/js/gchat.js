@@ -23,6 +23,7 @@ function blob2buffer(blob, cb) {
 };
 
 var ClientProtoId = {
+    C2SHeartBeat: 101,
     C2SLoginReq: 2,
     C2SMsgDataClientAck: 5,
     C2SMsgInfo: 9
@@ -85,7 +86,11 @@ var GChatClient = {
             window.setInterval(function () {
                 self.connect();
             }, 3000)
-
+            window.setInterval(function () {
+                if(self.isConnected) {
+                    self.ping();
+                }
+            }, 60000)
         });
 
     },
@@ -105,6 +110,7 @@ var GChatClient = {
                 console.log("websocket is connected")
                 self.isConnected = true;
                 self.login();
+                self.ping();
             };
 
             this.websock.onmessage = function (evt) {
@@ -159,8 +165,7 @@ var GChatClient = {
             return;
         var msgHead = new Buffer(4);
         msgHead.writeInt16LE(2, 0);
-        var cmdId = 101;
-        msgHead.writeInt16LE(cmdId, 2);
+        msgHead.writeInt16LE(ClientProtoId.C2SHeartBeat, 2);
 
         var pingMsg = Buffer.concat([msgHead], msgHead.length);
         this.websock.send(pingMsg);
