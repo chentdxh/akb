@@ -9,6 +9,7 @@ use App\UserApp;
 use Illuminate\Http\Request;
 use Lcobucci\JWT\Signer\Hmac\Sha256;
 
+use Namshi\JOSE\Signer\OpenSSL\HS256;
 use Tymon\JWTAuth\Facades\JWTFactory;
 use Tymon\JWTAuth\JWTAuth;
 
@@ -120,19 +121,17 @@ class AppController extends Controller
 
         if (!empty($appUser))
         {
-            $token = (new Builder())->setIssuer('http://sdo.com') // Configures the issuer (iss claim)
-            ->setIssuedAt(time()) // Configures the time that the token was issue (iat claim)
-            ->setNotBefore(time() + 60) // Configures the time that the token can be used (nbf claim)
-            ->setExpiration(time() + 3600) // Configures the expiration time of the token (exp claim)
-            ->set('appid', $appid) // Configures a new claim, called "uid"
-            ->set("uid",$uid)
+            $signer = new Sha256();
+            $token = (new Builder())
+                ->set('appid', $appid) // Configures a new claim, called "uid"
+                ->set("uid",$uid)
+                ->sign($signer,"$#@s0,exc1ted!#$@")
                 ->getToken(); // Retrieves the generated token
 
 
             $appUser->token = $token;
             $appUser->save();
             return $this->json_return(0,"success");
-
         }
 
         return $this->json_return(-1,"user not found");
