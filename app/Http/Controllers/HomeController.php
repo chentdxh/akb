@@ -43,7 +43,13 @@ class HomeController extends Controller
     public function talk_with(Request $request)
     {
         $uid = $request->input("uid","a_1");
+        $appid = $request->input("appid", "123456");
+        $token = $request->input("token", "");
+        $tid = $request->input("tid", "");
         $data['uid'] = $uid;
+        $data['appid'] = $appid;
+        $data['token'] = $token;
+        $data['tid'] = $tid;
         return view("chat.talk",$data);
     }
 

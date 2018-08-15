@@ -33,7 +33,7 @@
                         <!-- Conversations are loaded here -->
                         <div class="direct-chat-messages">
                             <!-- Message. Default to the left -->
-                            <div class="direct-chat-msg" v-for="msg in messages"  v-if="msg.fromUid !='a_1'" >
+                            <div class="direct-chat-msg" v-for="msg in messages"  v-if="msg.other" >
                                 <div class="direct-chat-info clearfix">
                                     <span class="direct-chat-name pull-left">@{{ msg.fromUid }}</span>
                                     <span class="direct-chat-timestamp pull-right">@{{ msg.createTime }}</span>
@@ -48,7 +48,7 @@
                             <!-- /.direct-chat-msg -->
 
                             <!-- Message to the right -->
-                            <div class="direct-chat-msg right"  v-for="msg in messages"  v-if="msg.fromUid==='a_1'">
+                            <div class="direct-chat-msg right"  v-for="msg in messages"  v-if="msg.self">
                                 <div class="direct-chat-info clearfix">
                                     <span class="direct-chat-name pull-right">@{{ msg.fromUid }}</span>
                                     <span class="direct-chat-timestamp pull-left">@{{ msg.createTime }}</span>
@@ -151,41 +151,36 @@
 
     <script>
 
-
-
         var  kMsgList = [];
-
         var myId = "{{$uid}}";
+        var appid = "{{$appid}}";
+        var token = "{{$token}}";
+        var tid = "{{$tid}}";
+        GChatClient.init(myId, appid, token);
 
         Vue.prototype.messages = kMsgList;
-
 
         var app = new Vue({
             el: '#app',
 
             data: {
                 messages:kMsgList,
-
             }
-        })
-
-
+        });
 
         console.log(app.data);
         $(function () {
             //Add text editor
             //$('#compose-textarea').wysihtml5()
 
-
             $("#sendBtn").click(function (event) {
 
 
                 var content = $("#message").val();
 
-                GChatClient.talk("",0,"{{$uid}}",content);
-
-                app.messages.push({content:content,fromUid:"{{$uid}}"})
-
+                GChatClient.talk("",0,tid,content);
+                var date = new Date();
+                app.messages.push({content:content,fromUid:GChatClient.myid, createTime:date.toLocaleTimeString(), self: true, other: false});
 
                 event.preventDefault();
             })

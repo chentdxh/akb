@@ -28,7 +28,7 @@
             <!-- /.box-header -->
             <div class="box-body">
                 <dl class="dl-horizontal">
-                    <dt>AppId </dt>
+                    <dt>AppId</dt>
                     <dd>{{$app_info->appid}}</dd>
                     <dt>Name</dt>
                     <dd>{{$app_info->name}}</dd>
@@ -58,7 +58,8 @@
 
             <div class="box-tools">
 
-                <a type="button" class="btn   btn-default btn-sm  pull-right" data-toggle="modal" data-target="#addAppUserDialog">添加</a>
+                <a type="button" class="btn   btn-default btn-sm  pull-right" data-toggle="modal"
+                   data-target="#addAppUserDialog">添加</a>
 
             </div>
 
@@ -74,49 +75,57 @@
                     <th>AppId</th>
                     <th>用户</th>
                     <th>Token</th>
-                    <th  >创建时间</th>
+                    <th>创建时间</th>
                     <th>操作</th>
                 </tr>
                 @foreach($users as $user )
-                <tr>
-                    <td>{{$user->id}}.</td>
-                    <td>{{$user->appid}}</td>
-                    <td>{{$user->name}}</td>
-                    <td>
-                        <a href="#" v-on:click="show_token('{{$user->token}}')">{{substr($user->token,0,8)}}...</a>
-                    </td>
-                    <td>{{$user->created_at}}</td>
-                    <td>
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Action <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu">
+                    <tr>
+                        <td>{{$user->id}}.</td>
+                        <td>{{$user->appid}}</td>
+                        <td>{{$user->name}}</td>
+                        <td>
+                            <a href="#" v-on:click="show_token('{{$user->token}}')">{{substr($user->token,0,8)}}...</a>
+                        </td>
+                        <td>{{$user->created_at}}</td>
+                        <td>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default btn-sm dropdown-toggle"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Action <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
 
 
-                                <li role="separator" class="divider"></li>
-                                <li><a href="#" v-on:click="del_user('{{$user->appid}}','{{$user->uid}}')">Delete</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="#"
+                                           v-on:click="del_user('{{$user->appid}}','{{$user->uid}}')">Delete</a></li>
 
-                                <li><a href="#" v-on:click="update_token('{{$user->appid}}','{{$user->uid}}')">Update Token</a></li>
+                                    <li><a href="#" v-on:click="update_token('{{$user->appid}}','{{$user->uid}}')">Update
+                                            Token</a></li>
 
-                                <li><a href="/chat/talk/?uid={{$user->uid}}" >Start Talk</a></li>
-                            </ul>
-                        </div>
+                                    <li>
+                                        <a data-toggle="modal" data-target="#talkToDialog"
+                                           v-on:click="set_talk_value('{{$user->uid}}', '{{$user->appid}}', '{{$user->token}}')">
+                                            Start Talk</a>
+                                    </li>
+                                </ul>
+                            </div>
 
-                    </td>
-                </tr>
+                        </td>
+                    </tr>
                 @endforeach
 
-                </tbody></table>
+                </tbody>
+            </table>
         </div>
         <!-- /.box-body -->
         <div class="box-footer clearfix">
             {{--<ul class="pagination pagination-sm no-margin pull-right">--}}
-                {{--<li><a href="#">«</a></li>--}}
-                {{--<li><a href="#">1</a></li>--}}
-                {{--<li><a href="#">2</a></li>--}}
-                {{--<li><a href="#">3</a></li>--}}
-                {{--<li><a href="#">»</a></li>--}}
+            {{--<li><a href="#">«</a></li>--}}
+            {{--<li><a href="#">1</a></li>--}}
+            {{--<li><a href="#">2</a></li>--}}
+            {{--<li><a href="#">3</a></li>--}}
+            {{--<li><a href="#">»</a></li>--}}
             {{--</ul>--}}
             {{$users->links()}}
         </div>
@@ -135,7 +144,7 @@
                 <div class="modal-body">
                     <form id="userForm">
                         @if(!empty($app_info))
-                            <input type="hidden" name="appid" value="{{$app_info->appid}}" />
+                            <input type="hidden" name="appid" value="{{$app_info->appid}}"/>
                         @else
 
 
@@ -171,7 +180,35 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" v-on:click="add_user" data-dismiss="modal">Save</button>
+                    <button type="button" class="btn btn-primary" v-on:click="add_user" data-dismiss="modal">Save
+                    </button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+    <div class="modal fade" id="talkToDialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Talk To User</h4>
+                </div>
+                <div class="modal-body">
+
+                    <input type="hidden" id="talk_uid" />
+                    <input type="hidden" id="talk_appid" />
+                    <input type="hidden" id="talk_token"  />
+                    <label for="inputTid">To User</label>
+                    <input type="text" name="talk_tid" class="form-control" id="talk_tid" placeholder="Talk To User ID">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" v-on:click="talk_to" data-dismiss="modal">Talk</button>
                 </div>
             </div>
             <!-- /.modal-content -->
@@ -191,47 +228,55 @@
 @stop
 
 
-
-
-
 @section("vuejs")
-    <script >
-        const app = new Vue({ el: '#app',
-            methods:{
-                show_token:function(token)
-                {
-                    swal({ input: 'textarea',
-                        title:"token 信息",
+    <script>
+        const app = new Vue({
+            el: '#app',
+            methods: {
+                show_token: function (token) {
+                    swal({
+                        input: 'textarea',
+                        title: "token 信息",
 
-                        inputValue:token,
+                        inputValue: token,
                         inputAttributes: {
                             value: token,
                             readonly: true,
-                            rows:10,
+                            rows: 10,
                             resize: "none"
 
-                        }  })
-                },
-                add_user:function()
-                {
-
-                    post_request("/serve/app/user/add",$("#userForm").serialize(),function (res) {
-
-                        show_success_dialog("Add User Success","reload")
-                        
-                    })
-                },update_token:function (appid,uid) {
-
-                    post_request("/serve/app/user/token/update",{appid:appid,uid:uid},function (res) {
-
-                        show_success_dialog("Update User Token Success","reload")
+                        }
                     })
                 },
-                del_user:function (appid,uid) {
+                add_user: function () {
 
-                    show_delete_dialog("/serve/app/user/del",{appid:appid,uid:uid});
+                    post_request("/serve/app/user/add", $("#userForm").serialize(), function (res) {
 
-                    
+                        show_success_dialog("Add User Success", "reload")
+
+                    })
+                }, update_token: function (appid, uid) {
+
+                    post_request("/serve/app/user/token/update", {appid: appid, uid: uid}, function (res) {
+
+                        show_success_dialog("Update User Token Success", "reload")
+                    })
+                },
+                del_user: function (appid, uid) {
+
+                    show_delete_dialog("/serve/app/user/del", {appid: appid, uid: uid});
+
+                },
+                talk_to: function () {
+                    location.href = "/chat/talk/?uid=" + $("#talk_uid").val() +
+                        "&appid=" + $("#talk_appid").val() +
+                        "&token=" + $("#talk_token").val() +
+                        "&tid=" + $("#talk_tid").val();
+                },
+                set_talk_value(uid, appid, token) {
+                    $("#talk_uid").val(uid);
+                    $("#talk_appid").val(appid);
+                    $("#talk_token").val(token);
                 }
 
             }
