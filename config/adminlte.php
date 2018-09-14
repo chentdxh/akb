@@ -129,13 +129,13 @@ return [
             'submenu'=>[
 
                 [
-                    'text' => 'Chat Users',
+                    'text' => '聊天用户',
                     'url'  => '/system/users',
                     'icon' => 'users'
                 ],
 
                 [
-                    'text' => 'User Apps',
+                    'text' => '应用管理',
                     'url'  => '/system/user/apps',
                     'icon' => 'list'
                 ],
@@ -179,12 +179,12 @@ return [
             'icon'    => 'share',
             'submenu' => [
                 [
-                    'text' => 'AiChat Apps',
+                    'text' => 'Ai聊天应用',
                     'url'  => '/aichat/apps'
                 ],
 
                 [
-                    'text' => 'AiChat Complains',
+                    'text' => 'Ai过滤审核',
                     'url'  => '/aichat/complains'
                 ],
             ],
