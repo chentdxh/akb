@@ -46,4 +46,15 @@ class UserController extends Controller
         }
         return $this->json_return(-1,"user not found");
     }
+
+
+    public function user_info(Request $request)
+    {
+        $user = new User();
+        $user->name = "arthur";
+        $user->uid = "u39sa9300dssax";
+
+        return $user;
+
+    }
 }
