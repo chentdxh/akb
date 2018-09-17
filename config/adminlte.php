@@ -129,7 +129,7 @@ return [
             'submenu'=>[
 
                 [
-                    'text' => '聊天用户',
+                    'text' => '系统用户',
                     'url'  => '/system/users',
                     'icon' => 'users'
                 ],
