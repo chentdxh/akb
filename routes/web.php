@@ -21,6 +21,8 @@ require "aichat.php";
 
 Auth::routes();
 
+Route::get("/register","HomeController@register"); 
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 
