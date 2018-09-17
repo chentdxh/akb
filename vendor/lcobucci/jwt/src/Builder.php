@@ -67,7 +67,7 @@ class Builder
     ) {
         $this->encoder = $encoder ?: new Encoder();
         $this->claimFactory = $claimFactory ?: new ClaimFactory();
-        $this->headers = ['alg' => 'none','typ'=> 'JWT' ];
+        $this->headers = ['typ'=> 'JWT', 'alg' => 'none'];
         $this->claims = [];
     }
 

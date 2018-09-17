@@ -50,7 +50,8 @@ class UserController extends Controller
 
     public function user_info(Request $request)
     {
-        $user = new User();
+        //$user = new User();
+        $user = User::first();
         $user->name = "arthur";
         $user->uid = "u39sa9300dssax";
 
