@@ -164,7 +164,7 @@ return [
 //                ],
 
                 [
-                    'text' => 'Chat Users',
+                    'text' => '聊天用户',
                     'url'  => '/chat/users',
                     'icon' => 'user'
                 ],
