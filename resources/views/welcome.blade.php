@@ -8,6 +8,7 @@
         <title>GameMan</title>
 
         <!-- Fonts -->
+        {{--<link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">--}}
 
         <!-- Styles -->
         <style>
@@ -71,7 +72,7 @@
                         <a href="{{ url('/home') }}">Home</a>
                     @else
                         <a href="{{ route('login') }}">Login</a>
-                    
+
                     @endauth
                 </div>
             @endif
