@@ -55,6 +55,7 @@ class UserController extends Controller
         $user->name = "arthur";
         $user->uid = "u39sa9300dssax";
 
+
         return $user;
 
     }

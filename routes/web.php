@@ -21,6 +21,8 @@ require "aichat.php";
 
 Auth::routes();
 
+Route::get("/register","HomeController@register"); 
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 
@@ -78,4 +80,4 @@ Route::any("/serve/user/app/del","AppController@del_user_app");
 Route::any("/oss/upload","OssController@upload");
 
 
-Route::any("/serve/user/info","UserController@user_info"); 
+Route::any("/serve/user/info","UserController@user_info");
