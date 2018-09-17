@@ -13,7 +13,10 @@ class AiChatController extends Controller
     //
 
     private   $base_uri = 'http://116.211.26.84:18888/';
-
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function apps(Request $request)
     {
 

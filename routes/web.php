@@ -78,4 +78,4 @@ Route::any("/serve/user/app/del","AppController@del_user_app");
 Route::any("/oss/upload","OssController@upload");
 
 
-Route::any("/serve/user/info","UserController@user_info"); 
+Route::any("/serve/user/info","UserController@user_info");
