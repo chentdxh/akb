@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\FileInfo;
 use App\Http\Traits\FileTrait;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class FileController extends Controller
 {
@@ -65,5 +66,18 @@ class FileController extends Controller
         }
 
         return $this->json_return(-1,"file not found");
+    }
+
+    public function download(Request $request)
+    {
+        $fid = $request->input("fid");
+        $fileInfo = FileInfo::where("fid",$fid)->first();
+        if (!empty($fileInfo)){
+
+            return response()->download($fileInfo->url);
+        }
+
+        return abort(404);
+
     }
 }

@@ -26,6 +26,7 @@
 
                 <tr>
                     <th style="width: 10px">#</th>
+                    <th>文件Id</th>
                     <th>文件名</th>
                     <th>大小</th>
                     <th>创建时间</th>
@@ -34,6 +35,7 @@
                 @foreach($files as $file )
                     <tr>
                         <td>{{$file->id}}.</td>
+                        <td>{{$file->fid}}</td>
 
                         <td>{{$file->name}}</td>
                         <td>
