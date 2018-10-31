@@ -50,4 +50,20 @@ class FileController extends Controller
             return $this->json_return(-1, "upload file failed");
         }
     }
+
+    public function remove(Request $request)
+    {
+        $fid = $request->input("fid");
+
+        $fileInfo = FileInfo::where("fid",$fid)->first();
+
+
+        if (!empty($fileInfo))
+        {
+            $fileInfo->delete();
+            return $this->json_return(0,"success");
+        }
+
+        return $this->json_return(-1,"file not found");
+    }
 }
