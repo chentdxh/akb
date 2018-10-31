@@ -35,7 +35,7 @@
                 @foreach($files as $file )
                     <tr>
                         <td>{{$file->id}}.</td>
-                        <td>{{$file->fid}}</td>
+                        <td><a href="/file/download?fid={{$file->fid}}">{{$file->fid}}</a></td>
 
                         <td>{{$file->name}}</td>
                         <td>
