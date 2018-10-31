@@ -55,15 +55,13 @@
                         <input type="text" class="form-control" id="fileUrl" name="fileUrl" placeholder="Url地址" readonly>
                     </div>
                 </div>
-
-
             </div>
 
         </form>
             <!-- /.box-body -->
             <div class="box-footer text-center">
                 <a href="#!" class=" "  id="uploadBtn" >上传</a>
-
+                <a href="#!" role="button" class="btn btn-primary  "    v-on:click="upload_tencent_cloud($event)">上传腾讯云</a>
             </div>
             <!-- /.box-footer -->
 
@@ -86,8 +84,8 @@
         $(function () {
 
 
-            this.uploader = WebUploader.create({
 
+            window.uploader = WebUploader.create({
                 auto: true,
                 // 文件接收服务端。
                 server: '/data/file/upload',
@@ -95,20 +93,18 @@
                 // 选择文件的按钮。可选。
                 // 内部根据当前运行是创建，可能是input元素，也可能是flash.
                 pick: {id: "#uploadBtn", multiple: false},
-
-
                 // 不压缩image, 默认如果是jpeg，文件上传前会压缩一把再上传！
                 resize: false,
                 accept: {
-                    title: 'Images',
+                    title: '请选择上传文件',
                     extensions: '*',
                     mimeTypes: '*/*'
                 }
             });
-            this.uploader.on("fileQueued", function (file) {
+            window.uploader.on("fileQueued", function (file) {
 
             })
-            this.uploader.on("uploadProgress", function (file, percentage) {
+            window.uploader.on("uploadProgress", function (file, percentage) {
 
                 console.log("percentage is " + percentage)
                 var value = percentage * 100;
@@ -116,7 +112,7 @@
 
             });
 
-            this.uploader.on('uploadSuccess', function (file, res) {
+            window.uploader.on('uploadSuccess', function (file, res) {
 
                 if (res.code == 0) {
 
@@ -138,13 +134,13 @@
 
             });
 
-            this.uploader.on( 'uploadError', function( file ) {
+            window.uploader.on( 'uploadError', function( file ) {
                 console.log(file);
                 swal("上传失败!", "", "error").then((value) => {
 
                 });
             });
-            this.uploader.on('uploadComplete', function (file) {
+            window.uploader.on('uploadComplete', function (file) {
                 console.log(file);
 
                 self.uploader.reset();
@@ -155,9 +151,28 @@
         });
 
 
+    </script>
+@stop
 
 
 
+@section("vuejs")
+    <script >
+        const app = new Vue({ el: '#app',
+            methods:{
+
+                upload_tencent_cloud:function(event)
+                {
+                    if (event) event.preventDefault();
+
+                    window.uploader.option("server", "/data/file/upload");
+
+                    $("#uploadBtn").click();
+                }
+
+            }
+        });
 
     </script>
 @stop
+
