@@ -48,7 +48,13 @@ class FileController extends Controller
             $cloud = $request->input("cloud");
             if ($cloud == "tencent")
             {
-                $this->upload_tcloud($fileInfo);
+                $rst = $this->upload_tencent_cloud($fileInfo);
+
+                logger(json_encode($rst)); 
+                if (!empty($rst))
+                {
+                    $fileInfo->cloud = $rst->url;
+                }
             }
 
             return $this->json_return(0, "success", $fileInfo);

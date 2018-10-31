@@ -48,7 +48,7 @@ class Controller extends BaseController
 
 
 
-    public function upload_tcloud($fileInfo)
+    public function upload_tencent_cloud($fileInfo)
     {
         logger("upload to tencent cloud ".$fileInfo->fid);
 
@@ -76,8 +76,9 @@ class Controller extends BaseController
                     'Key' => $fileInfo->fid,
                     'Body' =>fopen($fullPath,'rb')));
 
-
                 logger("upload result success");
+                return $result;
+
             } catch (\Exception $e) {
                     logger($e->getMessage());
             }
@@ -86,6 +87,8 @@ class Controller extends BaseController
 
             logger("file not found");
         }
+
+        return null;
     }
 
 
