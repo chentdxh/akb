@@ -233,7 +233,7 @@ trait FileTrait
 
             $result['mime_type'] = $file->getMimeType();
 
-            
+
             //$file->move($diskRoot . $diskPath, $newFileName);
             $file->move($destPath, $newFileName);
             $fullPath =_JOIN_PATH($destPath, $newFileName);
