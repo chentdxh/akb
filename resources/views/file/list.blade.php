@@ -31,15 +31,15 @@
                     <th>创建时间</th>
                     <th>操作</th>
                 </tr>
-                @foreach($users as $user )
+                @foreach($files as $file )
                     <tr>
-                        <td>{{$user->id}}.</td>
+                        <td>{{$file->id}}.</td>
 
-                        <td>{{$user->name}}</td>
+                        <td>{{$file->name}}</td>
                         <td>
-                            <a href="#"  >{{$user->role}}</a>
+                            <a href="#"  >{{$file->role}}</a>
                         </td>
-                        <td>{{$user->created_at}}</td>
+                        <td>{{$file->created_at}}</td>
                         <td>
                             <div class="btn-group">
                                 <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -48,9 +48,9 @@
                                 <ul class="dropdown-menu">
 
 
-                                    <li><a href="/system/user/apps?uid={{$user->uid}}">User Apps</a></li>
+                                    <li><a href="/system/user/apps?uid={{$file->uid}}">User Apps</a></li>
                                     <li role="separator" class="divider"></li>
-                                    <li><a href="#" v-on:click="del_user('{{$user->appid}}','{{$user->uid}}')">Delete</a></li>
+                                    <li><a href="#" v-on:click="del_user('{{$file->appid}}','{{$file->uid}}')">Delete</a></li>
 
                                 </ul>
                             </div>
@@ -70,66 +70,10 @@
             {{--<li><a href="#">3</a></li>--}}
             {{--<li><a href="#">»</a></li>--}}
             {{--</ul>--}}
-            {{$users->links()}}
+            {{$files->links()}}
         </div>
     </div>
 
-
-    <div class="modal fade" id="addUserDialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Add System User</h4>
-                </div>
-                <div class="modal-body">
-                    <form id="userForm">
-
-
-
-
-
-                        <div class="form-group">
-                            <label for="inputName">Name</label>
-                            <input type="text" name="name" class="form-control" id="inputName" placeholder="Name">
-                        </div>
-
-
-                        <div class="form-group">
-                            <label for="inputEmail">Email</label>
-                            <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="inputPassword">pasword</label>
-                            <input type="text" name="password" class="form-control" id="inputPassword" placeholder="Password">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="inputAppId">Role</label>
-                            <select class="form-control" id="inputRole" name="role">
-
-                                <option value="normal">Normal</option>
-
-                                <option value="admin">Admin</option>
-
-                                <option value="super">Super</option>
-
-
-                            </select>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" v-on:click="add_user" data-dismiss="modal">Save</button>
-                </div>
-            </div>
-            <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-    </div>
 
 
 @stop
