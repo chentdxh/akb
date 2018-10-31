@@ -75,9 +75,9 @@ class Controller extends BaseController
                     'Bucket' => $bucket,
                     'Key' => $fileInfo->fid,
                     'Body' =>fopen($fullPath,'rb');
-          
 
-                //logger("upload result ",$result);
+
+                logger("upload result success");
             } catch (\Exception $e) {
                     logger($e->getMessage());
             }
