@@ -17,6 +17,8 @@ class CreateFileInfosTable extends Migration
             $table->increments('id');
             $table->string("fid");
             $table->string("name");
+
+            $table->string("file")->nullable(); 
             $table->string("path",2040);
             $table->string("mime_type")->nullable();
             $table->integer("width")->default(0);
