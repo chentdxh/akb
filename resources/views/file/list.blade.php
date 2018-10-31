@@ -27,7 +27,7 @@
                 <tr>
                     <th style="width: 10px">#</th>
                     <th>文件名</th>
-                    <th>角色</th>
+                    <th>大小</th>
                     <th>创建时间</th>
                     <th>操作</th>
                 </tr>
@@ -37,23 +37,11 @@
 
                         <td>{{$file->name}}</td>
                         <td>
-                            <a href="#"  >{{$file->role}}</a>
+                            {{$file->size}}
                         </td>
                         <td>{{$file->created_at}}</td>
                         <td>
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Action <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu">
-
-
-                                    <li><a href="/system/user/apps?uid={{$file->uid}}">User Apps</a></li>
-                                    <li role="separator" class="divider"></li>
-                                    <li><a href="#" v-on:click="del_user('{{$file->appid}}','{{$file->uid}}')">Delete</a></li>
-
-                                </ul>
-                            </div>
+                             <a href="{{$file->url}}">下载</a>
 
                         </td>
                     </tr>
