@@ -149,7 +149,7 @@ return [
             'url'  => '/file/list',
             'icon' => 'list',
         ],
- 
+
         [
             'text' => '添加文件',
             'url'  => '/file/add',
