@@ -24,7 +24,7 @@ trait FileTrait
 
 
 
-    public static function join_path()
+    public  function join_path()
     {
         $args = func_get_args();
         $paths = array();
@@ -57,7 +57,7 @@ trait FileTrait
 
     public function create_disk_link($diskName)
     {
-        $diskPath = join_path(storage_path($diskName));
+        $diskPath = $this->join_path(storage_path($diskName));
 
         $ret = file_exists($diskPath);
         if (!$ret) {
@@ -90,7 +90,7 @@ trait FileTrait
             mkdir($resRoot);
         }
 
-        $linkPath = public_path(join_path($resDir,$diskName));
+        $linkPath = public_path($this->join_path($resDir,$diskName));
 
         $ret = file_exists($linkPath);
 
@@ -192,7 +192,7 @@ trait FileTrait
     public function get_disk_url($filePath, $diskLabel)
     {
 
-        return "/" . join_path(config("app.res_path") , $diskLabel, $filePath);
+        return "/" . $this->join_path(config("app.res_path") , $diskLabel, $filePath);
         // return "/" . config("app.res_path") . "/" . $diskLabel . "/" . $filePath;
     }
 
@@ -260,7 +260,7 @@ trait FileTrait
             $newFileName = uniqid($prefix) . time().(empty($fileExt)?"":".".strtolower($fileExt));
 
 
-            $destPath = join_path($diskRoot,$fileDir);
+            $destPath = $this->join_path($diskRoot,$fileDir);
             logger("move to dest path :".$destPath);
 
             $result['mime_type'] = $file->getMimeType();
@@ -269,18 +269,18 @@ trait FileTrait
 
             //$file->move($diskRoot . $diskPath, $newFileName);
             $file->move($destPath, $newFileName);
-            $fullPath =join_path($destPath, $newFileName);
+            $fullPath =$this->join_path($destPath, $newFileName);
             logger("full  path is  :".$fullPath);
             //$url = url($diskPrefix.$fileDir . $newFileName);
             //$url = $disk->url($fileDir . $newFileName);
-            $url = $this->get_disk_url(join_path($fileDir , $newFileName), $diskLabel);
+            $url = $this->get_disk_url($this->join_path($fileDir , $newFileName), $diskLabel);
 
 
             $fileUrl= "/";
 
             logger(" disk url is ".$url);
 
-            $url = join_path($fileUrl,$url);
+            $url = $this->join_path($fileUrl,$url);
             logger("file url is " . $url);
 
             $result['title'] = Request::input('file_title');
@@ -338,15 +338,15 @@ trait FileTrait
 
             $newFileName = uniqid($prefix) . $file->getClientOriginalName();
 
-            $destPath = join_path($diskRoot,$fileDir);
+            $destPath = $this->join_path($diskRoot,$fileDir);
             $file->move($destPath, $newFileName);
-            $fullPath =join_path($destPath, $newFileName);
+            $fullPath =$this->join_path($destPath, $newFileName);
             logger("full  path is  :".$fullPath);
 
 
             //$url = url($diskPrefix.$fileDir . $newFileName);
             //$url = $disk->url($fileDir . $newFileName);
-            $url = $this->get_disk_url(join_path($fileDir , $newFileName), $diskLabel);
+            $url = $this->get_disk_url($this->join_path($fileDir , $newFileName), $diskLabel);
 
             logger("url is ".$url);
 
@@ -355,7 +355,7 @@ trait FileTrait
             {
                 $fileUrl = url();
             }
-            $url = join_path($fileUrl,$url);
+            $url = $this->join_path($fileUrl,$url);
             logger("file url is " . $url);
 
 
