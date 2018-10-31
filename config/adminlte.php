@@ -150,7 +150,12 @@ return [
             'icon' => 'list',
         ],
 
-
+        'Files',
+        [
+            'text' => '添加文件',
+            'url'  => '/file/add',
+            'icon' => 'plus',
+        ],
 
     ],
 
