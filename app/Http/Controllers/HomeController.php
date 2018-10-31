@@ -35,6 +35,11 @@ class HomeController extends Controller
         return view("profile");
     }
 
+    public function help(Request $request)
+    {
+        return view("file.help");
+    }
+
 
 
     public function test(Request $request)

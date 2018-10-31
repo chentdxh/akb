@@ -5,7 +5,7 @@
 @section('title', 'System Users')
 
 @section('content_header')
-    <h1>Users</h1>
+    <h1>文件列表</h1>
 @stop
 
 @section('content')

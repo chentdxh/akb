@@ -26,6 +26,14 @@
         <!-- form start -->
         <form class="form-horizontal" id="appForm">
             <div class="box-body">
+
+                <div class="form-group">
+                    <label for="fileId" class="col-sm-2 control-label">文件id</label>
+
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="fileId" name="fileId" placeholder="文件id" readonly>
+                    </div>
+                </div>
                 <div class="form-group">
                     <label for="fileName" class="col-sm-2 control-label">文件名称</label>
 
@@ -115,6 +123,7 @@
                     swal("上传成功!", "", "success").then((value) => {
                       //  window.location.reload();
 
+                        $("#fileId").val(res.data.fid); 
                         $("#fileName").val(res.data.name);
                         $("#fileSize").val(res.data.size);
                         $("#fileUrl").val(res.data.url);
