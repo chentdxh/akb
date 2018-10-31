@@ -50,10 +50,10 @@ class FileController extends Controller
             {
                 $rst = $this->upload_tencent_cloud($fileInfo);
 
- 
+
                 if (!empty($rst))
                 {
-                  //  $fileInfo->cloud = $rst->url;
+                   $fileInfo->cloud_url = $rst->ObjectURL;
                 }
             }
 
