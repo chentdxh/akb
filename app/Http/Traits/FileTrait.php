@@ -233,6 +233,7 @@ trait FileTrait
 
             $result['mime_type'] = $file->getMimeType();
 
+            $result['file_size'] = $file->getClientSize();
 
             //$file->move($diskRoot . $diskPath, $newFileName);
             $file->move($destPath, $newFileName);
