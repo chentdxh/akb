@@ -76,6 +76,9 @@ class Controller extends BaseController
                     'Key' => $fileInfo->fid,
                     'Body' =>fopen($fullPath,'rb')));
 
+              logger( print_r($result,true));
+
+
                 logger("upload result success");
                 return $result;
 
