@@ -14,7 +14,7 @@
         <div class="box-header with-border">
             <h3 class="box-title">文件列表</h3>
             <div class="box-tools">
-                <a type="button" class="btn   btn-default btn-sm  pull-right" data-toggle="modal" data-target="#addUserDialog">添加</a>
+                <a role="button" class="btn   btn-default btn-sm  pull-right"  href="/file/add">添加</a>
             </div>
 
         </div>
@@ -43,6 +43,7 @@
                         <td>
                              <a href="{{"/".$file->url}}" download>下载</a>
 
+                            <a href="#!" v-on:click="del_file($event)">删除</a>
                         </td>
                     </tr>
                 @endforeach
@@ -76,21 +77,16 @@
         const app = new Vue({ el: '#app',
             methods:{
 
-                add_user:function()
+                del_file:function(event)
                 {
 
-                    post_request("/serve/system/user/add",$("#userForm").serialize(),function (res) {
+                    show_delete_dialog("/data/file/del",function(res){
 
-                        show_success_dialog("Add System User Success","reload")
+                        swal("删除成功");
 
                     })
-                } ,
-                del_user:function (appid,uid) {
-
-                    show_delete_dialog("/serve/system/user/del",{uid:uid});
-
-
                 }
+
 
             }
 
