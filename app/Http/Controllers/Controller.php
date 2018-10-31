@@ -44,7 +44,7 @@ class Controller extends BaseController
 
 
 
-    public function join_path()
+    public static function join_path()
     {
         $args = func_get_args();
         $paths = array();
