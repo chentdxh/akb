@@ -73,7 +73,7 @@ class Controller extends BaseController
                     'Bucket' => $bucket,
                     'Key' => $fileInfo->fid,
                  //   'Body' => Storage::get($fileInfo->url)));
-                'Body' => "Helloworld");
+                'Body' => "Helloworld"));
 
                 logger("upload result ",$result);
             } catch (\Exception $e) {
