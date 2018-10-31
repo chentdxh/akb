@@ -95,8 +95,8 @@
 
                 // 选择文件的按钮。可选。
                 // 内部根据当前运行是创建，可能是input元素，也可能是flash.
-                pick: {id: "#uploadBtn", multiple: false},
-                formData: {"file_type": type},
+                pick: {id: "uploadBtn", multiple: false},
+ 
 
                 // 不压缩image, 默认如果是jpeg，文件上传前会压缩一把再上传！
                 resize: false,
@@ -149,8 +149,7 @@
             });
             this.uploader.on('uploadComplete', function (file) {
                 console.log(file);
-                $(barId).hide();
-                $(progressId).css('width', '0%').attr('aria-valuenow', 0);
+
                 self.uploader.reset();
 
             });
