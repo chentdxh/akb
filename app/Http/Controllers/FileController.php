@@ -37,6 +37,7 @@ class FileController extends Controller
 
             $fileInfo->name = $rst['name'];
             $fileInfo->file = $rst['file'];
+            $fileInfo->url  = $rst['url'];
 
             $fileInfo->hash = $fileHash;
 
