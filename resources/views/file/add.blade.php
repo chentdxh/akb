@@ -61,7 +61,7 @@
             <!-- /.box-body -->
             <div class="box-footer text-center">
                 <a href="#!" class=" "  id="uploadBtn" >上传</a>
-                <a href="#!" role="button" class="btn btn-primary  "    v-on:click="upload_tencent_cloud($event)">上传腾讯云</a>
+                <a href="#!" role="button" class="btn btn-primary  "  id="uploadCloudBtn"   >上传腾讯云</a>
             </div>
             <!-- /.box-footer -->
 
@@ -148,6 +148,18 @@
             });
 
 
+            $("#uploadTCloudBtn").click(function (event) {
+
+                if (event) event.preventDefault();
+
+                window.uploader.option("server", "/data/file/upload?cloud=tencent");
+
+
+                $("#uploadBtn").click();
+
+            })
+
+
         });
 
 
@@ -155,24 +167,4 @@
 @stop
 
 
-
-@section("vuejs")
-    <script >
-        const app = new Vue({ el: '#app',
-            methods:{
-
-                upload_tencent_cloud:function(event)
-                {
-                    if (event) event.preventDefault();
-
-                    window.uploader.option("server", "/data/file/upload");
-
-                    $("#uploadBtn").click();
-                }
-
-            }
-        });
-
-    </script>
-@stop
 
