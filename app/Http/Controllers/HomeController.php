@@ -35,85 +35,6 @@ class HomeController extends Controller
     }
 
 
-    public function chat_with(Request $request)
-    {
-        return view("chat.chat");
-    }
-
-    public function talk_with(Request $request)
-    {
-        $uid = $request->input("uid","a_1");
-        $appid = $request->input("appid", "123456");
-        $token = $request->input("token", "");
-        $tid = $request->input("tid", "");
-        $data['uid'] = $uid;
-        $data['appid'] = $appid;
-        $data['token'] = $token;
-        $data['tid'] = $tid;
-        return view("chat.talk",$data);
-    }
-
-
-    public function apps(Request $request)
-    {
-
-        $user = $this->get_user();
-        if ($user->role == "super")
-        {
-            $apps = AppInfo::orderBy("created_at","desc")->paginate(10);
-
-        }else
-        {
-
-            $apps = AppInfo::where("uid",$user->uid)->orderBy("created_at","desc")->paginate(10);
-        }
-
-        $data['apps'] = $apps;
-        return view("app.apps",$data);
-
-    }
-
-    public function app_users(Request $request)
-    {
-
-        $appId = $request->input("appid");
-        $appInfo = AppInfo::where("appid",$appId)->first();
-
-        $data['app_info'] = $appInfo;
-
-        $data['apps'] = AppInfo::get();
-
-        if (empty($appId))
-        {
-            $users = AppUser::paginate(20);
-        }else
-        {
-            $users = AppUser::where("appid",$appId)->paginate(20);
-        }
-
-
-        $data['users'] = $users;
-        return view("app.users",$data);
-    }
-
-    public function app_detail(Request $request)
-    {
-        $appId = $request->input("appid");
-        $appInfo = AppInfo::where("appid",$appId)->first();
-        $data['app_info'] = $appInfo;
-        return view("app.app_detail",$data);
-    }
-
-
-    public function add_app(Request $request)
-    {
-        return view("app.add");
-    }
-
-    public function add_app_user(Request $request)
-    {
-        return view("app.add_user");
-    }
 
     public function test(Request $request)
     {
@@ -127,29 +48,11 @@ class HomeController extends Controller
     }
 
 
-
-    public function chat_users(Request $request)
+    public function files(Request $request)
     {
-
-        $appId = $request->input("appid");
-        $appInfo = AppInfo::where("appid",$appId)->first();
-
-        $data['app_info'] = $appInfo;
-
-        $data['apps'] = AppInfo::get();
-
-        if (empty($appId))
-        {
-            $users = AppUser::paginate(20);
-        }else
-        {
-            $users = AppUser::where("appid",$appId)->paginate(20);
-        }
-
-
-        $data['users'] = $users;
-        return view("chat.users",$data);
+        return view("file.list");
     }
+
 
 
 }

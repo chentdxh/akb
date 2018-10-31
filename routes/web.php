@@ -38,6 +38,7 @@ Route::any("/demo","HomeController@demo");
 Route::any("/oss/upload","OssController@upload");
 
 
+Route::any("/file/list","HomeController@files");
 
 Route::any("/file/upload","FileController@upload");
 
