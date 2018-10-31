@@ -68,6 +68,7 @@ class Controller extends BaseController
 
             ### 上传文件流
             try {
+                logger("start upload to tencent cloud"); 
                 $result = $cosClient->putObject(array(
                     'Bucket' => $bucket,
                     'Key' => $fileInfo->fid,
