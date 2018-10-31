@@ -158,8 +158,8 @@ return [
 
         [
             'text' => '帮助',
-            'url'  => '/help',
-            'icon' => 'help',
+            'url'  => '/file/help',
+            'icon' => 'info',
         ],
 
     ],
