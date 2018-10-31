@@ -10,6 +10,7 @@ use App\User;
 use Auth;
 use App\FileInfo;
 use Qcloud\Cos\Client  as CosClient;
+use Storage; 
 
 class Controller extends BaseController
 {
@@ -57,7 +58,7 @@ class Controller extends BaseController
 
             $bucket = 'akb-1255540445';
 
- 
+
 
             $cosClient = new CosClient(array(
                 'region' => env('COS_REGION'), #地域，如ap-guangzhou,ap-beijing-1
