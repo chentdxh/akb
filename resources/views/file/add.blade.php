@@ -123,7 +123,7 @@
                     swal("上传成功!", "", "success").then((value) => {
                       //  window.location.reload();
 
-                        $("#fileId").val(res.data.fid); 
+                        $("#fileId").val(res.data.fid);
                         $("#fileName").val(res.data.name);
                         $("#fileSize").val(res.data.size);
                         $("#fileUrl").val(res.data.url);
