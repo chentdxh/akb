@@ -74,7 +74,7 @@ class Controller extends BaseController
                 $result = $cosClient->putObject(array(
                     'Bucket' => $bucket,
                     'Key' => $fileInfo->fid,
-                    'Body' =>fopen($fullPath,'rb');
+                    'Body' =>fopen($fullPath,'rb')));
 
 
                 logger("upload result success");
