@@ -45,4 +45,42 @@ class Controller extends BaseController
 
 
 
+    public function upload_tcloud($fid)
+    {
+
+        $fileInfo = FileInfo::where("fid", $fid)->first();
+
+        if (!empty($fileInfo)) {
+
+            $bucket = 'akb-1255540445';
+
+
+            $cosClient = new Qcloud\Cos\Client(array(
+                'region' => env('COS_REGION'), #地域，如ap-guangzhou,ap-beijing-1
+                'credentials' => array(
+                    'secretId' => env("COS_SECRET_ID"),
+                    'secretKey' => env("COS_SECRET_KEY"),
+                ),
+            ));
+
+            ### 上传文件流
+            try {
+                $result = $cosClient->putObject(array(
+                    'Bucket' => $bucket,
+                    'Key' => $fileInfo->fid,
+                    'Body' => Storage::disk("data")->get($fileInfo->url)));
+
+                print_r($result);
+            } catch (\Exception $e) {
+                echo "$e\n";
+            }
+
+
+
+
+        }
+    }
+
+
+
 }

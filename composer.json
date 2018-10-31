@@ -12,6 +12,8 @@
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
         "lcobucci/jwt": "^3.2",
+        "qcloud/cos-sdk-v5": "^1.2",
+        "tencentcloud/tencentcloud-sdk-php": "^3.0",
         "tymon/jwt-auth": "^1.0.0-rc.2"
     },
     "require-dev": {
