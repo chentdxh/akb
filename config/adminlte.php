@@ -143,90 +143,15 @@ return [
 
         ],
 
-        'APP SETTINGS',
+        'Files',
         [
-            'text' => 'App列表',
-            'url'  => '/app/list',
+            'text' => '文件列表',
+            'url'  => '/file/list',
             'icon' => 'list',
         ],
-//        [
-//            'text' => '聊天管理',
-//            'url'  => 'talk',
-//            'icon' => 'lock',
-//        ],
-        [
-            'text'    => '聊天管理',
-            'icon'    => 'comment',
-            'submenu' => [
-//                [
-//                    'text' => 'App列表',
-//                    'url'  => '/app/list',
-//                ],
-
-                [
-                    'text' => '聊天用户',
-                    'url'  => '/chat/users',
-                    'icon' => 'user'
-                ],
 
 
-            ],
-        ],
  
-
-
-
-//        [
-//            'text'    => 'Multilevel',
-//            'icon'    => 'share',
-//            'submenu' => [
-//                [
-//                    'text' => 'Level One',
-//                    'url'  => '#',
-//                ],
-//                [
-//                    'text'    => 'Level One',
-//                    'url'     => '#',
-//                    'submenu' => [
-//                        [
-//                            'text' => 'Level Two',
-//                            'url'  => '#',
-//                        ],
-//                        [
-//                            'text'    => 'Level Two',
-//                            'url'     => '#',
-//                            'submenu' => [
-//                                [
-//                                    'text' => 'Level Three',
-//                                    'url'  => '#',
-//                                ],
-//                                [
-//                                    'text' => 'Level Three',
-//                                    'url'  => '#',
-//                                ],
-//                            ],
-//                        ],
-//                    ],
-//                ],
-//                [
-//                    'text' => 'Level One',
-//                    'url'  => '#',
-//                ],
-//            ],
-//        ],
-//        'LABELS',
-//        [
-//            'text'       => 'Important',
-//            'icon_color' => 'red',
-//        ],
-//        [
-//            'text'       => 'Warning',
-//            'icon_color' => 'yellow',
-//        ],
-//        [
-//            'text'       => 'Information',
-//            'icon_color' => 'aqua',
-//        ],
     ],
 
     /*
