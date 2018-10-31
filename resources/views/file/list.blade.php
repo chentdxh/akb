@@ -43,7 +43,7 @@
                         <td>
                              <a href="{{"/".$file->url}}" download>下载</a>
 
-                            <a href="#!" v-on:click="del_file($event)">删除</a>
+                            <a href="#!" v-on:click="del_file('{{$file->fid}}',$event)">删除</a>
                         </td>
                     </tr>
                 @endforeach
@@ -77,10 +77,10 @@
         const app = new Vue({ el: '#app',
             methods:{
 
-                del_file:function(event)
+                del_file:function(fid,event)
                 {
 
-                    show_delete_dialog("/data/file/del",function(res){
+                    show_delete_dialog("/data/file/del",{fid:fid},function(res){
 
                         swal("删除成功");
 
