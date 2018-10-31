@@ -9,7 +9,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use App\User;
 use Auth;
 use App\FileInfo;
-use Qcloud\Cos\Client;
+use Qcloud\Cos\Client  as CosClient;
 
 class Controller extends BaseController
 {
@@ -56,9 +56,10 @@ class Controller extends BaseController
         if (!empty($fileInfo)) {
 
             $bucket = 'akb-1255540445';
-       
 
-            $cosClient = new Qcloud\Cos\Client(array(
+            $a  = new Client()
+
+            $cosClient = new CosClient(array(
                 'region' => env('COS_REGION'), #地域，如ap-guangzhou,ap-beijing-1
                 'credentials' => array(
                     'secretId' => env("COS_SECRET_ID"),
