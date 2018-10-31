@@ -172,23 +172,7 @@ return [
 
             ],
         ],
-
-
-        [
-            'text'    => 'AiChat',
-            'icon'    => 'share',
-            'submenu' => [
-                [
-                    'text' => 'Ai聊天应用',
-                    'url'  => '/aichat/apps'
-                ],
-
-                [
-                    'text' => 'Ai过滤审核',
-                    'url'  => '/aichat/complains'
-                ],
-            ],
-        ],
+ 
 
 
 
