@@ -72,9 +72,10 @@ class Controller extends BaseController
                 $result = $cosClient->putObject(array(
                     'Bucket' => $bucket,
                     'Key' => $fileInfo->fid,
-                    'Body' => Storage::get($fileInfo->url)));
+                 //   'Body' => Storage::get($fileInfo->url)));
+                'Body' => "Helloworld");
 
-                logger("upload result",$result);
+                logger("upload result ",$result);
             } catch (\Exception $e) {
                     logger($e->getMessage());
             }
