@@ -41,7 +41,7 @@
                         </td>
                         <td>{{$file->created_at}}</td>
                         <td>
-                             <a href="{{$file->url}}">下载</a>
+                             <a href="{{url($file->url)}}">下载</a>
 
                         </td>
                     </tr>
