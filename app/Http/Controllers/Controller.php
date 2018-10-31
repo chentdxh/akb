@@ -56,7 +56,7 @@ class Controller extends BaseController
 
         if (!empty($fileInfo)) {
 
-            $bucket = 'akb-1255540445'; 
+            $bucket = 'akb-1255540445';
 
             $cosClient = new CosClient(array(
                 'region' => env('COS_REGION'), #地域，如ap-guangzhou,ap-beijing-1
@@ -71,7 +71,7 @@ class Controller extends BaseController
                 $result = $cosClient->putObject(array(
                     'Bucket' => $bucket,
                     'Key' => $fileInfo->fid,
-                    'Body' => Storage::disk("data")->get($fileInfo->url)));
+                    'Body' => Storage::get($fileInfo->url)));
 
                 logger("upload result",$result);
             } catch (\Exception $e) {
