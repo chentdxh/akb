@@ -12,6 +12,7 @@ namespace App\Http\Traits;
 use Log;
 use Storage;
 use Request;
+use App\Http\Controllers\Controller;
 
 
 trait FileTrait
