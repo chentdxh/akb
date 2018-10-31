@@ -85,79 +85,190 @@
 
 
 
-            window.uploader = WebUploader.create({
-                auto: true,
-                // 文件接收服务端。
-                server: '/data/file/upload',
 
-                // 选择文件的按钮。可选。
-                // 内部根据当前运行是创建，可能是input元素，也可能是flash.
-                pick: {id: "#uploadBtn", multiple: false},
-                // 不压缩image, 默认如果是jpeg，文件上传前会压缩一把再上传！
-                resize: false,
-                accept: {
-                    title: '请选择上传文件',
-                    extensions: '*',
-                    mimeTypes: '*/*'
-                }
-            });
-            window.uploader.on("fileQueued", function (file) {
+            $("#uploadBtn").click(function (event) {
 
-            })
-            window.uploader.on("uploadProgress", function (file, percentage) {
+                if (event) event.preventDefault();
+                window.uploader = WebUploader.create({
+                    auto: true,
+                    // 文件接收服务端。
+                    server: '/data/file/upload',
 
-                console.log("percentage is " + percentage)
-                var value = percentage * 100;
+                    // 选择文件的按钮。可选。
+                    // 内部根据当前运行是创建，可能是input元素，也可能是flash.
+                    pick: {id: "#uploadBtn", multiple: false},
+                    // 不压缩image, 默认如果是jpeg，文件上传前会压缩一把再上传！
+                    resize: false,
+                    accept: {
+                        title: '请选择上传文件',
+                        extensions: '*',
+                        mimeTypes: '*/*'
+                    }
+                });
 
 
-            });
 
-            window.uploader.on('uploadSuccess', function (file, res) {
 
-                if (res.code == 0) {
+                window.uploader = WebUploader.create({
+                    auto: true,
+                    // 文件接收服务端。
+                    server: '/data/file/upload',
 
-                    swal("上传成功!", "", "success").then((value) => {
-                      //  window.location.reload();
+                    // 选择文件的按钮。可选。
+                    // 内部根据当前运行是创建，可能是input元素，也可能是flash.
+                    pick: {id: "#uploadBtn", multiple: false},
+                    // 不压缩image, 默认如果是jpeg，文件上传前会压缩一把再上传！
+                    resize: false,
+                    accept: {
+                        title: '请选择上传文件',
+                        extensions: '*',
+                        mimeTypes: '*/*'
+                    }
+                });
+                window.uploader.on("fileQueued", function (file) {
 
-                        $("#fileId").val(res.data.fid);
-                        $("#fileName").val(res.data.name);
-                        $("#fileSize").val(res.data.size);
-                        $("#fileUrl").val(res.data.url);
+                })
+                window.uploader.on("uploadProgress", function (file, percentage) {
 
-                    });
-                }else
-                {
-                    swal("上传失败!", res.msg, "error").then((value) => {
+                    console.log("percentage is " + percentage)
+                    var value = percentage * 100;
 
-                    });
-                }
-
-            });
-
-            window.uploader.on( 'uploadError', function( file ) {
-                console.log(file);
-                swal("上传失败!", "", "error").then((value) => {
 
                 });
-            });
-            window.uploader.on('uploadComplete', function (file) {
-                console.log(file);
 
-                self.uploader.reset();
+                window.uploader.on('uploadSuccess', function (file, res) {
 
-            });
+                    if (res.code == 0) {
+
+                        swal("上传成功!", "", "success").then((value) => {
+                            //  window.location.reload();
+
+                            $("#fileId").val(res.data.fid);
+                            $("#fileName").val(res.data.name);
+                            $("#fileSize").val(res.data.size);
+                            $("#fileUrl").val(res.data.url);
+
+                        });
+                    }else
+                    {
+                        swal("上传失败!", res.msg, "error").then((value) => {
+
+                        });
+                    }
+
+                });
+
+                window.uploader.on( 'uploadError', function( file ) {
+                    console.log(file);
+                    swal("上传失败!", "", "error").then((value) => {
+
+                    });
+                });
+                window.uploader.on('uploadComplete', function (file) {
+                    console.log(file);
+
+                    self.uploader.reset();
+
+                });
+
+
+            })
+
 
 
             $("#uploadCloudBtn").click(function (event) {
 
                 if (event) event.preventDefault();
 
-                window.uploader.option("server", "/data/file/upload?cloud=tencent");
+
+                window.uploader = WebUploader.create({
+                    auto: true,
+                    // 文件接收服务端。
+                    server: '/data/file/upload?cloud=tencent',
+
+                    // 选择文件的按钮。可选。
+                    // 内部根据当前运行是创建，可能是input元素，也可能是flash.
+                    pick: {id: "#uploadBtn", multiple: false},
+                    // 不压缩image, 默认如果是jpeg，文件上传前会压缩一把再上传！
+                    resize: false,
+                    accept: {
+                        title: '请选择上传文件',
+                        extensions: '*',
+                        mimeTypes: '*/*'
+                    }
+                });
 
 
-                $("#uploadBtn").click();
+
+
+
+                window.uploader = WebUploader.create({
+                    auto: true,
+                    // 文件接收服务端。
+                    server: '/data/file/upload',
+
+                    // 选择文件的按钮。可选。
+                    // 内部根据当前运行是创建，可能是input元素，也可能是flash.
+                    pick: {id: "#uploadBtn", multiple: false},
+                    // 不压缩image, 默认如果是jpeg，文件上传前会压缩一把再上传！
+                    resize: false,
+                    accept: {
+                        title: '请选择上传文件',
+                        extensions: '*',
+                        mimeTypes: '*/*'
+                    }
+                });
+                window.uploader.on("fileQueued", function (file) {
+
+                })
+                window.uploader.on("uploadProgress", function (file, percentage) {
+
+                    console.log("percentage is " + percentage)
+                    var value = percentage * 100;
+
+
+                });
+
+                window.uploader.on('uploadSuccess', function (file, res) {
+
+                    if (res.code == 0) {
+
+                        swal("上传成功!", "", "success").then((value) => {
+                            //  window.location.reload();
+
+                            $("#fileId").val(res.data.fid);
+                            $("#fileName").val(res.data.name);
+                            $("#fileSize").val(res.data.size);
+                            $("#fileUrl").val(res.data.url);
+
+                        });
+                    }else
+                    {
+                        swal("上传失败!", res.msg, "error").then((value) => {
+
+                        });
+                    }
+
+                });
+
+                window.uploader.on( 'uploadError', function( file ) {
+                    console.log(file);
+                    swal("上传失败!", "", "error").then((value) => {
+
+                    });
+                });
+                window.uploader.on('uploadComplete', function (file) {
+                    console.log(file);
+
+                    self.uploader.reset();
+
+                });
+
 
             })
+
+
+
 
 
         });
