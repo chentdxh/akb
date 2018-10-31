@@ -29,6 +29,7 @@
                     <th>文件Id</th>
                     <th>文件名</th>
                     <th>大小</th>
+                    <th>访问次数</th>
                     <th>创建时间</th>
                     <th>操作</th>
                 </tr>
@@ -41,6 +42,7 @@
                         <td>
                             {{$file->size}}
                         </td>
+                        <td>{{$file->visits}}</td>
                         <td>{{$file->created_at}}</td>
                         <td>
                              {{--<a href="{{"/".$file->url}}" download>下载</a>--}}
