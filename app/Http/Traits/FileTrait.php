@@ -12,7 +12,7 @@ namespace App\Http\Traits;
 use Log;
 use Storage;
 use Request;
-use App\Http\Controllers\Controller;
+
 
 
 trait FileTrait
@@ -24,9 +24,40 @@ trait FileTrait
 
 
 
+    public static function join_path()
+    {
+        $args = func_get_args();
+        $paths = array();
+        $i = 0;
+        foreach ($args as $arg) {
+
+
+            if ($i > 0 )
+            {
+                $arg = trim($arg,"/");
+            }
+
+            if (!empty($arg))
+            {
+                $paths = array_merge($paths, (array)$arg);
+            }
+
+            $i ++;
+        }
+        $paths = array_map(function($p){
+            return rtrim($p, "/");
+        },$paths);
+
+        // $paths = array_map(create_function('$p', 'return rtrim($p, "/");'), $paths);
+        $paths = array_filter($paths);
+        return join('/', $paths);
+    }
+
+
+
     public function create_disk_link($diskName)
     {
-        $diskPath = Controller::join_path(storage_path($diskName));
+        $diskPath = join_path(storage_path($diskName));
 
         $ret = file_exists($diskPath);
         if (!$ret) {
@@ -59,7 +90,7 @@ trait FileTrait
             mkdir($resRoot);
         }
 
-        $linkPath = public_path(Controller::join_path($resDir,$diskName));
+        $linkPath = public_path(join_path($resDir,$diskName));
 
         $ret = file_exists($linkPath);
 
@@ -161,7 +192,7 @@ trait FileTrait
     public function get_disk_url($filePath, $diskLabel)
     {
 
-        return "/" . Controller::join_path(config("app.res_path") , $diskLabel, $filePath);
+        return "/" . join_path(config("app.res_path") , $diskLabel, $filePath);
         // return "/" . config("app.res_path") . "/" . $diskLabel . "/" . $filePath;
     }
 
@@ -229,7 +260,7 @@ trait FileTrait
             $newFileName = uniqid($prefix) . time().(empty($fileExt)?"":".".strtolower($fileExt));
 
 
-            $destPath = Controller::join_path($diskRoot,$fileDir);
+            $destPath = join_path($diskRoot,$fileDir);
             logger("move to dest path :".$destPath);
 
             $result['mime_type'] = $file->getMimeType();
@@ -238,18 +269,18 @@ trait FileTrait
 
             //$file->move($diskRoot . $diskPath, $newFileName);
             $file->move($destPath, $newFileName);
-            $fullPath =Controller::join_path($destPath, $newFileName);
+            $fullPath =join_path($destPath, $newFileName);
             logger("full  path is  :".$fullPath);
             //$url = url($diskPrefix.$fileDir . $newFileName);
             //$url = $disk->url($fileDir . $newFileName);
-            $url = $this->get_disk_url(Controller::join_path($fileDir , $newFileName), $diskLabel);
+            $url = $this->get_disk_url(join_path($fileDir , $newFileName), $diskLabel);
 
 
             $fileUrl= "/";
 
             logger(" disk url is ".$url);
 
-            $url = Controller::join_path($fileUrl,$url);
+            $url = join_path($fileUrl,$url);
             logger("file url is " . $url);
 
             $result['title'] = Request::input('file_title');
@@ -307,15 +338,15 @@ trait FileTrait
 
             $newFileName = uniqid($prefix) . $file->getClientOriginalName();
 
-            $destPath = Controller::join_path($diskRoot,$fileDir);
+            $destPath = join_path($diskRoot,$fileDir);
             $file->move($destPath, $newFileName);
-            $fullPath =Controller::join_path($destPath, $newFileName);
+            $fullPath =join_path($destPath, $newFileName);
             logger("full  path is  :".$fullPath);
 
 
             //$url = url($diskPrefix.$fileDir . $newFileName);
             //$url = $disk->url($fileDir . $newFileName);
-            $url = $this->get_disk_url(Controller::join_path($fileDir , $newFileName), $diskLabel);
+            $url = $this->get_disk_url(join_path($fileDir , $newFileName), $diskLabel);
 
             logger("url is ".$url);
 
@@ -324,7 +355,7 @@ trait FileTrait
             {
                 $fileUrl = url();
             }
-            $url = Controller::join_path($fileUrl,$url);
+            $url = join_path($fileUrl,$url);
             logger("file url is " . $url);
 
 
