@@ -31,7 +31,7 @@ class FileController extends Controller
 
             $fileInfo->fid = uniqid("f");
 
-            //$fileInfo->mime_type = $rst['mime_type'];
+            $fileInfo->mime_type = $rst['mime_type'];
 
             $fileInfo->path = $rst['path'];
 
