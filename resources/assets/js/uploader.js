@@ -3,10 +3,10 @@
 if (WebUploader != undefined)
 {
 
-    window.create_uploader = function (type,eid) {
+    window.create_uploader = function (type) {
 
         var btnId = "#" + type + "Btn";
-        var imgId = "#" + type + "Img";
+
         var barId = "#" + type + "Bar";
         var progressId = "#" + type + "Progress";
         var self = this;
@@ -15,20 +15,20 @@ if (WebUploader != undefined)
 
             auto: true,
             // 文件接收服务端。
-            server: '/serve/estate/upload/file',
+            server: '/serve/file/upload',
 
             // 选择文件的按钮。可选。
             // 内部根据当前运行是创建，可能是input元素，也可能是flash.
             pick: {id: btnId, multiple: false},
             //pick:{id:"#invoiceBox",label:"",innerHTML:""},
-            formData: {"file_type": type, "eid": eid},
+            formData: {"file_type": type},
 
             // 不压缩image, 默认如果是jpeg，文件上传前会压缩一把再上传！
             resize: false,
             accept: {
                 title: 'Images',
-                extensions: 'gif,jpg,jpeg,bmp,png,pdf',
-                mimeTypes: 'image/*,application/pdf'
+                extensions: '*',
+                mimeTypes: '*/*'
             }
         });
         this.uploader.on("fileQueued", function (file) {
@@ -46,8 +46,7 @@ if (WebUploader != undefined)
         this.uploader.on('uploadSuccess', function (file, res) {
 
             if (res.code == 0) {
-                //    $(imgId).attr("src",response.data.url) ;
-                // swal("上传成功！");
+ 
 
                 swal("上传成功!", "", "success").then((value) => {
                     window.location.reload();
