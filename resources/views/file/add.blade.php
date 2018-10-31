@@ -95,7 +95,7 @@
 
                 // 选择文件的按钮。可选。
                 // 内部根据当前运行是创建，可能是input元素，也可能是flash.
-                pick: {id: "uploadBtn", multiple: false},
+                pick: {id: "#uploadBtn", multiple: false},
                 formData: {"file_type": type},
 
                 // 不压缩image, 默认如果是jpeg，文件上传前会压缩一把再上传！
@@ -129,7 +129,7 @@
 
                         $("#fileName").val(res.data.name);
                         $("#fileSize").val(res.data.size);
-                        $("#fileUrl").val(res.data.url); 
+                        $("#fileUrl").val(res.data.url);
 
                     });
                 }else
