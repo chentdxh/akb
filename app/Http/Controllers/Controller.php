@@ -69,12 +69,10 @@ class Controller extends BaseController
             $fileExt = pathinfo($fileInfo->name, PATHINFO_EXTENSION);
             $fullPath  = storage_path($fileInfo->url);
 
-            if (empty($fileExt))
+            $fileKey = $fileInfo->fid;
+            if (!empty($fileExt))
             {
-                $fileKey = $fileInfo->fid;
-            }else
-            {
-                $fileKey = $fileInfo->fid.".".$fileExt;
+            //    $fileKey = $fileInfo->fid.".".$fileExt;
             }
 
             ### 上传文件流
