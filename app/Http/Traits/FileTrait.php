@@ -257,6 +257,7 @@ trait FileTrait
             $result['path'] = $fileDir;
             $result['name'] = $file->getClientOriginalName();
             $result['size'] = $file->getClientSize();
+            $result['mime_type'] = $file->getMimeType(); 
             //   $result['disk_root'] = $diskRoot;
             logger("upload file",$result);
 
