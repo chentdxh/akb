@@ -20,7 +20,6 @@ class ComposerStaticInit8c5eca5ddc9ac5c092d6407366ce48ab
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
-        '95bb9befbe337f368ccf54677c7a7f8a' => __DIR__ . '/../..' . '/app/libs/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
