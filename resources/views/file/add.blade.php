@@ -151,7 +151,7 @@
 
                 create_uploader("#uploadBtn","/data/file/upload");
 
-                create_uploader("#uploadBtn","/data/file/upload?cloud=tencent");
+                create_uploader("#uploadCloudBtn","/data/file/upload?cloud=tencent");
 
         });
 
