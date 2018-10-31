@@ -66,14 +66,16 @@ class Controller extends BaseController
                 ),
             ));
 
+            $fullPath  = storage_path($fileInfo->url);
+
             ### 上传文件流
             try {
                 logger("start upload to tencent cloud ".$fileInfo->url);
                 $result = $cosClient->putObject(array(
                     'Bucket' => $bucket,
                     'Key' => $fileInfo->fid,
-                 //   'Body' => Storage::get($fileInfo->url)));
-                'Body' => "Helloworld"));
+                    'Body' =>fopen($fullPath,'rb');
+          
 
                 //logger("upload result ",$result);
             } catch (\Exception $e) {
