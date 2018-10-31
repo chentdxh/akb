@@ -46,15 +46,15 @@ class Controller extends BaseController
 
 
 
-    public function upload_tcloud($fid)
+    public function upload_tcloud($fileInfo)
     {
+        logger("upload to tencent cloud ".$fileInfo->fid);
 
-        $fileInfo = FileInfo::where("fid", $fid)->first();
+//        $fileInfo = FileInfo::where("fid", $fid)->first();
 
         if (!empty($fileInfo)) {
 
             $bucket = 'akb-1255540445';
-
 
             $cosClient = new Qcloud\Cos\Client(array(
                 'region' => env('COS_REGION'), #地域，如ap-guangzhou,ap-beijing-1
@@ -73,11 +73,8 @@ class Controller extends BaseController
 
                 print_r($result);
             } catch (\Exception $e) {
-                echo "$e\n";
+               dd($e);
             }
-
-
-
 
         }
     }
