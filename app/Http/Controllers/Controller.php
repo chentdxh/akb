@@ -56,8 +56,7 @@ class Controller extends BaseController
 
         if (!empty($fileInfo)) {
 
-            $bucket = 'akb-1255540445';
-
+            $bucket = 'akb-1255540445'; 
 
             $cosClient = new CosClient(array(
                 'region' => env('COS_REGION'), #地域，如ap-guangzhou,ap-beijing-1
@@ -81,7 +80,7 @@ class Controller extends BaseController
 
         }else{
 
-            logger("file not found"); 
+            logger("file not found");
         }
     }
 
