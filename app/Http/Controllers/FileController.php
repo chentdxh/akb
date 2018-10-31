@@ -74,6 +74,8 @@ class FileController extends Controller
         $fileInfo = FileInfo::where("fid",$fid)->first();
         if (!empty($fileInfo)){
 
+            $fileInfo->increment("visits");
+
             return response()->download($fileInfo->url);
         }
 

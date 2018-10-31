@@ -43,7 +43,8 @@
                         </td>
                         <td>{{$file->created_at}}</td>
                         <td>
-                             <a href="{{"/".$file->url}}" download>下载</a>
+                             {{--<a href="{{"/".$file->url}}" download>下载</a>--}}
+                            <a href="/data/file/download?fid={{$file->fid}}">下载</a>
 
                             <a href="#!" v-on:click="del_file('{{$file->fid}}',$event)">删除</a>
                         </td>
