@@ -20,7 +20,7 @@
 @section('content')
     <div class="box box-info">
         <div class="box-header with-border">
-            <h3 class="box-title" id="uploadBtn">上传文件</h3>
+            <h3 class="box-title" >上传文件</h3>
         </div>
         <!-- /.box-header -->
         <!-- form start -->
@@ -63,7 +63,7 @@
         </form>
             <!-- /.box-body -->
             <div class="box-footer">
-                <button type="button" class="btn btn-default">取消</button>
+                <button type="button" id="uploadBtn" class="btn btn-primary pull-right">上传</button>
 
             </div>
             <!-- /.box-footer -->
