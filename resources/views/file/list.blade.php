@@ -80,7 +80,7 @@
                 del_file:function(fid,event)
                 {
 
-                    show_delete_dialog("/data/file/del",{fid:fid},function(res){
+                    show_delete_dialog("/data/file/remove",{fid:fid},function(res){
 
                         swal("删除成功");
 
