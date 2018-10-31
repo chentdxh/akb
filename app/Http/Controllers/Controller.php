@@ -59,7 +59,6 @@ class Controller extends BaseController
             $bucket = 'akb-1255540445';
 
 
-
             $cosClient = new CosClient(array(
                 'region' => env('COS_REGION'), #地域，如ap-guangzhou,ap-beijing-1
                 'credentials' => array(
@@ -77,9 +76,12 @@ class Controller extends BaseController
 
                 logger("upload result",$result);
             } catch (\Exception $e) {
-                    logger($e->getMessage()); 
+                    logger($e->getMessage());
             }
 
+        }else{
+
+            logger("file not found"); 
         }
     }
 
