@@ -43,5 +43,7 @@ Route::any("/file/list","HomeController@files");
 
 Route::any("/data/file/upload","FileController@upload");
 
+Route::any("/data/file/remove","FileController@remove");
+
 
 Route::any("/data/file/download","FileController@download");
