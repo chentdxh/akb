@@ -231,6 +231,9 @@ trait FileTrait
             $destPath = _JOIN_PATH($diskRoot,$fileDir);
             logger("move to dest path :".$destPath);
 
+            $result['mime_type'] = $file->getMimeType();
+
+            
             //$file->move($diskRoot . $diskPath, $newFileName);
             $file->move($destPath, $newFileName);
             $fullPath =_JOIN_PATH($destPath, $newFileName);
@@ -257,7 +260,7 @@ trait FileTrait
             $result['path'] = $fileDir;
             $result['name'] = $file->getClientOriginalName();
             $result['size'] = $file->getClientSize();
-            $result['mime_type'] = $file->getMimeType(); 
+
             //   $result['disk_root'] = $diskRoot;
             logger("upload file",$result);
 
