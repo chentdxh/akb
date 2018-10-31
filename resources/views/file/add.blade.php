@@ -63,7 +63,7 @@
         </form>
             <!-- /.box-body -->
             <div class="box-footer">
-                <button type="button" id="uploadBtn" class="btn btn-primary pull-right">上传</button>
+                <button   id="uploadBtn" >上传</button>
 
             </div>
             <!-- /.box-footer -->
