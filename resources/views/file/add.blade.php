@@ -107,15 +107,14 @@
                 }
             });
             this.uploader.on("fileQueued", function (file) {
-                $(progressId).css('width', '0%').attr('aria-valuenow', 0);
-                $(barId).show();
+
             })
             this.uploader.on("uploadProgress", function (file, percentage) {
 
                 console.log("percentage is " + percentage)
                 var value = percentage * 100;
 
-                $(progressId).css('width', value + '%').attr('aria-valuenow', value);
+                
             });
 
             this.uploader.on('uploadSuccess', function (file, res) {
