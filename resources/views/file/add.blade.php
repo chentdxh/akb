@@ -55,6 +55,16 @@
                                readonly>
                     </div>
                 </div>
+
+
+                <div class="form-group">
+                    <label for="fileUrl" class="col-sm-2 control-label">云地址</label>
+
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="fileCloudUrl" name="fileCloudUrl" placeholder="云服务Url"
+                               readonly>
+                    </div>
+                </div>
             </div>
 
         </form>
@@ -121,6 +131,7 @@
                         $("#fileName").val(res.data.name);
                         $("#fileSize").val(res.data.size);
                         $("#fileUrl").val(res.data.url);
+                        $("#fileCloudUrl").val(res.data.cloud_url);
                     });
                 } else {
                     swal("上传失败!", res.msg, "error").then((value) => {
