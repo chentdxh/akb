@@ -41,7 +41,7 @@
                         </td>
                         <td>{{$file->created_at}}</td>
                         <td>
-                             <a href="{{"/".$file->url}}">下载</a>
+                             <a href="{{"/".$file->url}}" download>下载</a>
 
                         </td>
                     </tr>
@@ -51,7 +51,7 @@
         </div>
         <!-- /.box-body -->
         <div class="box-footer clearfix">
-    
+
             {{$files->links()}}
         </div>
     </div>
