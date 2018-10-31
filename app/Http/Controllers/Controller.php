@@ -57,7 +57,7 @@ class Controller extends BaseController
 
             $bucket = 'akb-1255540445';
 
-            $a  = new Client()
+ 
 
             $cosClient = new CosClient(array(
                 'region' => env('COS_REGION'), #地域，如ap-guangzhou,ap-beijing-1
