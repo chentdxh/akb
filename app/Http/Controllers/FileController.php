@@ -24,7 +24,7 @@ class FileController extends Controller
         $rst = $this->save_to_disk($disk);
 
 
-        if (!empty($result)) {
+        if (!empty($rst)) {
 
 
             $fileInfo = new FileInfo();
