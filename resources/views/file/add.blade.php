@@ -61,7 +61,7 @@
             <!-- /.box-body -->
             <div class="box-footer text-center">
                 <a href="#!" class=" "  id="uploadBtn" >上传</a>
-                <a href="#!" role="button" class="btn btn-primary  "  id="uploadCloudBtn"   >上传腾讯云</a>
+                <a href="#!" type="button" class="btn btn-primary  "  id="uploadCloudBtn"   >上传腾讯云</a>
             </div>
             <!-- /.box-footer -->
 
@@ -148,7 +148,7 @@
             });
 
 
-            $("#uploadTCloudBtn").click(function (event) {
+            $("#uploadCloudBtn").click(function (event) {
 
                 if (event) event.preventDefault();
 
