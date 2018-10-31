@@ -41,7 +41,7 @@ Route::any("/oss/upload","OssController@upload");
 Route::any("/file/add","HomeController@add_file");
 Route::any("/file/list","HomeController@files");
 
-Route::any("/file/upload","FileController@upload");
+Route::any("/data/file/upload","FileController@upload");
 
 
-Route::any("/file/download","FileController@download");
+Route::any("/data/file/download","FileController@download");
