@@ -145,20 +145,11 @@ return [
 
         'Files',
         [
-            [
-                'text' => '文件列表',
-                'url'  => '/file/list',
-                'icon' => 'list',
-            ],
-
-            [
-                'text' => '添加文件',
-                'url'  => '/file/add',
-                'icon' => 'plus',
-            ]
+            'text' => '文件列表',
+            'url'  => '/file/list',
+            'icon' => 'list',
         ],
-
-        'Files',
+ 
         [
             'text' => '添加文件',
             'url'  => '/file/add',
