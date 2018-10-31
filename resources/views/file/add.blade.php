@@ -62,7 +62,7 @@
 
         </form>
             <!-- /.box-body -->
-            <div class="box-footer">
+            <div class="box-footer text-center">
                 <a href="#!" class="pull-right"  id="uploadBtn" >上传</a>
 
             </div>
