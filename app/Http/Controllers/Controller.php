@@ -10,7 +10,7 @@ use App\User;
 use Auth;
 use App\FileInfo;
 use Qcloud\Cos\Client  as CosClient;
-use Storage; 
+use Storage;
 
 class Controller extends BaseController
 {
@@ -75,9 +75,9 @@ class Controller extends BaseController
                     'Key' => $fileInfo->fid,
                     'Body' => Storage::disk("data")->get($fileInfo->url)));
 
-                print_r($result);
+                logger("upload result",$result);
             } catch (\Exception $e) {
-               dd($e);
+                    logger($e->getMessage()); 
             }
 
         }
