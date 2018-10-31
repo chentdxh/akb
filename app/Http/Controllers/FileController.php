@@ -33,7 +33,7 @@ class FileController extends Controller
 
             $fileInfo->mime_type = $rst['mime_type'];
 
-            $fileInfo->size = $rst['file_size']; 
+            $fileInfo->size = $rst['file_size'];
             $fileInfo->path = $rst['path'];
 
             $fileInfo->name = $rst['name'];
