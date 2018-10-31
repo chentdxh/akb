@@ -27,6 +27,7 @@ class CreateFileInfosTable extends Migration
             $table->integer("height")->default(0);
             $table->integer("size")->default(0);
             $table->string("hash",127)->nullable();
+            $table->integer("visits")->default(0);
 
             $table->timestamps();
         });
