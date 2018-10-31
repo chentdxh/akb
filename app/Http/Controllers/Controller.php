@@ -66,14 +66,23 @@ class Controller extends BaseController
                 ),
             ));
 
+            $fileExt = pathinfo($fileInfo->name, PATHINFO_EXTENSION);
             $fullPath  = storage_path($fileInfo->url);
+
+            if (empty($fileExt))
+            {
+                $fileKey = $fileInfo->fid;
+            }else
+            {
+                $fileKey = $fileInfo->fid.".".$fileExt;
+            }
 
             ### 上传文件流
             try {
                 logger("start upload to tencent cloud ".$fileInfo->url);
                 $result = $cosClient->putObject(array(
                     'Bucket' => $bucket,
-                    'Key' => $fileInfo->fid,
+                    'Key' => $fileKey,
                     'Body' =>fopen($fullPath,'rb')));
 
               logger( print_r($result,true));
