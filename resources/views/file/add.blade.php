@@ -114,17 +114,15 @@
                 console.log("percentage is " + percentage)
                 var value = percentage * 100;
 
-                
+
             });
 
             this.uploader.on('uploadSuccess', function (file, res) {
 
                 if (res.code == 0) {
 
-
                     swal("上传成功!", "", "success").then((value) => {
                       //  window.location.reload();
-
 
                         $("#fileName").val(res.data.name);
                         $("#fileSize").val(res.data.size);
