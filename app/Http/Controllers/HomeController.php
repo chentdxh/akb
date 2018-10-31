@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\AppInfo;
 use App\AppUser;
+use App\FileInfo;
 use App\UserApp;
 use Illuminate\Http\Request;
 
@@ -50,7 +51,9 @@ class HomeController extends Controller
 
     public function files(Request $request)
     {
-        return view("file.list");
+        $files = FileInfo::paginate(20);
+        $data['files'] = $files;
+        return view("file.list",$data);
     }
 
 
