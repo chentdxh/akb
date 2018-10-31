@@ -42,4 +42,35 @@ class Controller extends BaseController
         return Auth::user();
     }
 
+
+
+    public function join_path()
+    {
+        $args = func_get_args();
+        $paths = array();
+        $i = 0;
+        foreach ($args as $arg) {
+
+
+            if ($i > 0 )
+            {
+                $arg = trim($arg,"/");
+            }
+
+            if (!empty($arg))
+            {
+                $paths = array_merge($paths, (array)$arg);
+            }
+
+            $i ++;
+        }
+        $paths = array_map(function($p){
+            return rtrim($p, "/");
+        },$paths);
+
+        // $paths = array_map(create_function('$p', 'return rtrim($p, "/");'), $paths);
+        $paths = array_filter($paths);
+        return join('/', $paths);
+    }
+
 }
