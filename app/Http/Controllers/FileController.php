@@ -53,7 +53,7 @@ class FileController extends Controller
 
                 if (!empty($rst))
                 {
-                   $fileInfo->cloud_url = $rst->ObjectURL;
+                   $fileInfo->cloud_url = $rst['ObjectURL'];
                 }
             }
 
