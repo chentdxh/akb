@@ -62,6 +62,7 @@ class Controller extends BaseController
             $fullPath  = storage_path($fileInfo->url);
 
 
+            logger("full path is :".$fullPath); 
             //$content = fopen($fullPath,'rb'); // Content of the uploaded file
 
             $content = Storage::get($fullPath);
