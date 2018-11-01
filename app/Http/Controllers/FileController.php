@@ -60,7 +60,7 @@ class FileController extends Controller
                 $rst = $this->upload_aliyun_cloud($fileInfo);
                 if (!empty($rst))
                 {
-                    $fileInfo->cloud_url = $rst['url'];
+                    $fileInfo->cloud_url = $rst['oss-request-url'];
                 }
             }
 
