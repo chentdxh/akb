@@ -55,6 +55,13 @@ class FileController extends Controller
                 {
                    $fileInfo->cloud_url = $rst['ObjectURL'];
                 }
+            }else if ($cloud == "aliyun")
+            {
+                $rst = $this->upload_aliyun_cloud($fileInfo);
+                if (!empty($rst))
+                {
+                    $fileInfo->cloud_url = $rst['url'];
+                }
             }
 
             return $this->json_return(0, "success", $fileInfo);

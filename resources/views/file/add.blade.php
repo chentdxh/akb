@@ -71,7 +71,8 @@
         <!-- /.box-body -->
         <div class="box-footer text-center">
             <a href="#!" class=" " id="uploadBtn">上传</a>
-            <a href="#!"   id="uploadCloudBtn">上传腾讯云</a>
+            <a href="#!"   id="uploadTencentBtn">上传腾讯云</a>
+            <a href="#!"   id="uploadAliyunBtn">上传阿里云</a>
         </div>
         <!-- /.box-footer -->
 
@@ -162,7 +163,9 @@
 
                 create_uploader("#uploadBtn","/data/file/upload");
 
-                create_uploader("#uploadCloudBtn","/data/file/upload?cloud=tencent");
+                create_uploader("#uploadTencentBtn","/data/file/upload?cloud=tencent"); 
+
+                  create_uploader("#uploadAliyunBtn","/data/file/upload?cloud=aliyun");
 
         });
 

@@ -11,6 +11,8 @@ use Auth;
 use App\FileInfo;
 use Qcloud\Cos\Client  as CosClient;
 use Storage;
+use OSS\OssClient;
+
 
 class Controller extends BaseController
 {
@@ -45,7 +47,42 @@ class Controller extends BaseController
         return Auth::user();
     }
 
+    public function upload_aliyun_cloud($fileInfo)
+    {
 
+        $accessKeyId = "LTAItvTh9k4gtApw";
+        $accessKeySecret = "AFQBZQIdBZPuZp4Rapg8S7hOG28G4l";
+        $endpoint = "oss-cn-beijing-internal.aliyuncs.com";
+        try {
+            $ossClient = new OssClient($accessKeyId, $accessKeySecret, $endpoint);
+
+            $bucket= "uoozu";
+            $object = $fileInfo->fid;
+            $fileExt = pathinfo($fileInfo->name, PATHINFO_EXTENSION);
+            $fullPath  = storage_path($fileInfo->url);
+
+
+            $content = fopen($fullPath,'rb'); // Content of the uploaded file
+
+            $rst = $ossClient->putObject($bucket, $object, $content);
+
+
+            logger("result is ");
+            logger(json_encode($rst));
+
+            logger("upload success");
+
+            return $rst;
+
+
+        } catch (OssException $e) {
+
+            logger("upload error");
+            print $e->getMessage();
+        }
+
+        return null;
+    }
 
 
     public function upload_tencent_cloud($fileInfo)
