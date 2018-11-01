@@ -66,7 +66,7 @@ class Controller extends BaseController
             logger("full path is :".$fullPath);
             //$content = fopen($fullPath,'rb'); // Content of the uploaded file
 
-            $content = Storage::dist("data")->get($diskPath);
+            $content = Storage::disk("data")->get($diskPath);
 
             $rst = $ossClient->putObject($bucket, $object, $content);
 
