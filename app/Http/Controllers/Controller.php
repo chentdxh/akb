@@ -50,10 +50,10 @@ class Controller extends BaseController
     public function upload_aliyun_cloud($fileInfo)
     {
 
-        $accessKeyId = "LTAItvTh9k4gtApw";
-        $accessKeySecret = "AFQBZQIdBZPuZp4Rapg8S7hOG28G4l";
-       // $endpoint = "oss-cn-beijing-internal.aliyuncs.com";
-        $endpoint = "oss-cn-beijing.aliyuncs.com";
+        $accessKeyId = env("ALIYUN_ACCESS_ID");
+        $accessKeySecret = env("ALIYUN_ACCESS_SECRET");
+        $endpoint = env("ALIYUN_ENDPOINT");
+        
         try {
             $ossClient = new OssClient($accessKeyId, $accessKeySecret, $endpoint);
 
