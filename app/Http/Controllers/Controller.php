@@ -52,7 +52,8 @@ class Controller extends BaseController
 
         $accessKeyId = "LTAItvTh9k4gtApw";
         $accessKeySecret = "AFQBZQIdBZPuZp4Rapg8S7hOG28G4l";
-        $endpoint = "oss-cn-beijing-internal.aliyuncs.com";
+       // $endpoint = "oss-cn-beijing-internal.aliyuncs.com";
+        $endpoint = "oss-cn-beijing.aliyuncs.com";
         try {
             $ossClient = new OssClient($accessKeyId, $accessKeySecret, $endpoint);
 
