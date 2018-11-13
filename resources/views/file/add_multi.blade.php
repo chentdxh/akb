@@ -181,8 +181,13 @@
 
     <script type="text/javascript" src="/libs/fine-uploader/fine-uploader.min.js"></script>
     <script>
-        window.create_uploader = function (btnId, url) {
-            var self = this;
+
+
+
+
+
+
+        $(function () {
 
 
             this.uploader = new qq.FineUploader({
@@ -193,8 +198,8 @@
                 },
                 thumbnails: {
                     placeholders: {
-                        waitingPath: '/source/placeholders/waiting-generic.png',
-                        notAvailablePath: '/source/placeholders/not_available-generic.png'
+                        waitingPath: '/libs/fine-uploader/placeholders/waiting-generic.png',
+                        notAvailablePath: '/libs/fine-uploader/placeholders/not_available-generic.png'
                     }
                 },
                 validation: {
@@ -203,14 +208,9 @@
             });
 
 
-        };
 
 
-
-
-        $(function () {
-
-            create_uploader("fine-uploader","/data/file/upload");
+            //create_uploader("fine-uploader","/data/file/upload?idtype=file");
 
             // create_uploader("uploadFileBtn", "/data/file/upload");
             //
