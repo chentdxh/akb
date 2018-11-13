@@ -52,6 +52,9 @@ Route::any("/file/list","HomeController@files");
 
 //Route::any("/data/file/upload/tcloud","FileController@upload_tcloud");
 
+Route::any("/data/file/upload/one","FileController@upload_one");
+
+
 Route::any("/data/file/upload","FileController@upload");
 
 Route::any("/data/file/remove","FileController@remove");

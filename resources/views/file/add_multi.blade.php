@@ -186,8 +186,6 @@
 
 
 
-
-
         $(function () {
 
 
@@ -195,7 +193,7 @@
                 element: document.getElementById("fine-uploader"),
                 template: 'qq-template-gallery',
                 request: {
-                    endpoint: "/data/file/upload?idtype=file",
+                    endpoint: "/data/file/upload/one?idtype=file",
                     inputName:"file",
                 },
 

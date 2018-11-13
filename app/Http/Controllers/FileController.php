@@ -93,6 +93,93 @@ class FileController extends Controller
         }
     }
 
+
+
+
+    public function upload_one(Request $request)
+    {
+
+        $disk = "data";
+
+        $file = $request->file('file');
+
+        $fileHash = hash_file('md5', $file->path());
+
+        $rst = $this->save_to_disk($disk);
+
+
+        $idtype = $request->input("idtype");
+
+
+
+        if (!empty($rst)) {
+
+            if (!empty($idtype))
+            {
+
+                logger("file name is ".$file->getClientOriginalName());
+                $fileInfo = FileInfo::where("fid",$file->getClientOriginalName())->first();
+                if (empty($fileInfo))
+                {
+                    $fileInfo = new FileInfo();
+
+                }
+
+                $fileInfo->fid = $file->getClientOriginalName();
+
+
+            }else {
+
+                $fileInfo = new FileInfo();
+                $fileInfo->fid = uniqid("f");
+            }
+
+
+
+
+
+            $fileInfo->mime_type = $rst['mime_type'];
+
+            $fileInfo->size = $rst['file_size'];
+            $fileInfo->path = $rst['path'];
+
+            $fileInfo->name = $rst['name'];
+            $fileInfo->file = $rst['file'];
+            $fileInfo->url  = $rst['url'];
+
+            $fileInfo->hash = $fileHash;
+
+            $fileInfo->save();
+
+            $cloud = $request->input("cloud");
+            if ($cloud == "tencent")
+            {
+                $rst = $this->upload_tencent_cloud($fileInfo);
+
+
+                if (!empty($rst))
+                {
+                    $fileInfo->cloud_url = $rst['ObjectURL'];
+                }
+            }else if ($cloud == "aliyun")
+            {
+                $rst = $this->upload_aliyun_cloud($fileInfo);
+                if (!empty($rst))
+                {
+                    $fileInfo->cloud_url = $rst['oss-request-url'];
+                }
+            }
+
+
+            return "{\"success\":true}";
+
+        } else {
+            return "{\"success\": false}";
+        }
+    }
+
+
+
     public function remove(Request $request)
     {
         $fid = $request->input("fid");
