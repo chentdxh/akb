@@ -71,20 +71,21 @@
         </form>
 
 
-        <div id="fine-uploader">
 
-        </div>
 
 
 
 
         <!-- /.box-body -->
         <div class="box-footer text-center">
-            <a href="#!" class=" " id="uploadFileBtn">上传</a>
+            <div id="fine-uploader">
 
-            <a href="#!" class=" " id="uploadBtn">上传Id</a>
-            <a href="#!" id="uploadTencentBtn">上传腾讯云</a>
-            <a href="#!" id="uploadAliyunBtn">上传阿里云</a>
+            </div>
+            {{--<a href="#!" class=" " id="uploadFileBtn">上传</a>--}}
+
+            {{--<a href="#!" class=" " id="uploadBtn">上传Id</a>--}}
+            {{--<a href="#!" id="uploadTencentBtn">上传腾讯云</a>--}}
+            {{--<a href="#!" id="uploadAliyunBtn">上传阿里云</a>--}}
         </div>
         <!-- /.box-footer -->
 
