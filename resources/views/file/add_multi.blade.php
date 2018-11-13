@@ -135,8 +135,7 @@
     <script type="text/javascript" src="/libs/fine-uploader/fine-uploader.min.js"></script>
     <script>
 
-
-
+ 
 
         $(function () {
 

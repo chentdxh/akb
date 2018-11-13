@@ -22,10 +22,21 @@ class FileController extends Controller
 
         $fileHash = hash_file('md5', $file->path());
 
-        $rst = $this->save_to_disk($disk);
-
 
         $idtype = $request->input("idtype");
+
+        if ($idtype == "file")
+        {
+
+            $rst = $this->save_to_disk($disk,"akbfile");
+        }else {
+
+
+            $rst = $this->save_to_disk($disk);
+        }
+
+
+
 
 
         if (!empty($rst)) {
@@ -105,11 +116,19 @@ class FileController extends Controller
 
         $fileHash = hash_file('md5', $file->path());
 
-        $rst = $this->save_to_disk($disk);
-
+     
 
         $idtype = $request->input("idtype");
 
+        if ($idtype == "file")
+        {
+
+            $rst = $this->save_to_disk($disk,"akbfile");
+        }else {
+
+
+            $rst = $this->save_to_disk($disk);
+        }
 
 
         if (!empty($rst)) {
