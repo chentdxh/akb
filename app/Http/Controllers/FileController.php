@@ -32,7 +32,9 @@ class FileController extends Controller
 
             if (!empty($idtype))
             {
-                $fileInfo = FileInfo::where("fid",$file->getClientOriginalName)->first();
+
+                logger("file name is ".$file->getClientOriginalName()); 
+                $fileInfo = FileInfo::where("fid",$file->getClientOriginalName())->first();
                 if (empty($fileInfo))
                 {
                     $fileInfo = new FileInfo();
