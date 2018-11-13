@@ -41,7 +41,7 @@ class FileController extends Controller
 
                 }
 
-                $fileInfo->fid = $fileInfo->getClientOriginalName();
+                $fileInfo->fid = $file->getClientOriginalName();
 
 
             }else {
