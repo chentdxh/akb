@@ -113,7 +113,7 @@
                     extensions: '*',
                     mimeTypes: '*/*'
                 },
-                fileNumLimit:10
+                fileNumLimit:'10'
             });
             this.uploader.on("fileQueued", function (file) {
 
