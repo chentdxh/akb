@@ -194,7 +194,7 @@
                 element: document.getElementById("fine-uploader"),
                 template: 'qq-template-gallery',
                 request: {
-                    endpoint: url
+                    endpoint: "/data/file/upload?idtype=file"
                 },
                 thumbnails: {
                     placeholders: {
