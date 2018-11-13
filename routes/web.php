@@ -43,6 +43,10 @@ Route::any("/oss/upload","OssController@upload");
 Route::any("/file/help","HomeController@help");
 
 Route::any("/file/add","HomeController@add_file");
+
+Route::any("/file/add/multi","HomeController@add_files");
+
+
 Route::any("/file/list","HomeController@files");
 
 

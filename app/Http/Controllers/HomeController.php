@@ -66,5 +66,10 @@ class HomeController extends Controller
         return view("file.add");
     }
 
+    public function add_files(Request $request)
+    {
+        return view("file.add_multi");
+    }
+
 
 }

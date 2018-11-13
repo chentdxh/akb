@@ -156,6 +156,12 @@ return [
             'icon' => 'plus',
         ],
 
+
+        [
+            'text' => '批量添加文件',
+            'url'  => '/file/add/multi',
+            'icon' => 'plus',
+        ],
         [
             'text' => '帮助',
             'url'  => '/file/help',
