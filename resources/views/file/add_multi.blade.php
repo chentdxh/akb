@@ -72,7 +72,7 @@
 
 
         <div id="fine-uploader">
-            点点滴滴
+
         </div>
 
 
@@ -191,7 +191,7 @@
 
 
             this.uploader = new qq.FineUploader({
-                element: document.getElementById(btnId),
+                element: document.getElementById("fine-uploader"),
                 template: 'qq-template-gallery',
                 request: {
                     endpoint: url
