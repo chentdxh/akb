@@ -69,6 +69,14 @@
             </div>
 
         </form>
+
+
+        <div id="fine-uploader">
+        </div>
+
+
+
+
         <!-- /.box-body -->
         <div class="box-footer text-center">
             <a href="#!" class=" " id="uploadFileBtn">上传</a>
@@ -97,7 +105,11 @@
 
             this.uploader =   new qq.FineUploaderBasic({
 
-                element: document.getElementById(btnId)
+                debug: true,
+                element: document.getElementById(btnId),
+                request: {
+                    endpoint: url
+                }
             })
         };
 
@@ -105,13 +117,15 @@
 
         $(function () {
 
-            create_uploader("uploadFileBtn", "/data/file/upload");
+            create_uploader("fine-uploader");
 
-            create_uploader("uploadBtn", "/data/file/upload?idtype=file");
-
-            create_uploader("uploadTencentBtn", "/data/file/upload?cloud=tencent");
-
-            create_uploader("uploadAliyunBtn", "/data/file/upload?cloud=aliyun");
+            // create_uploader("uploadFileBtn", "/data/file/upload");
+            //
+            // create_uploader("uploadBtn", "/data/file/upload?idtype=file");
+            //
+            // create_uploader("uploadTencentBtn", "/data/file/upload?cloud=tencent");
+            //
+            // create_uploader("uploadAliyunBtn", "/data/file/upload?cloud=aliyun");
 
         });
 
