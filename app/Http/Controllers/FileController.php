@@ -33,21 +33,26 @@ class FileController extends Controller
             if (!empty($idtype))
             {
 
-                logger("file name is ".$file->getClientOriginalName()); 
+                logger("file name is ".$file->getClientOriginalName());
                 $fileInfo = FileInfo::where("fid",$file->getClientOriginalName())->first();
                 if (empty($fileInfo))
                 {
                     $fileInfo = new FileInfo();
+
                 }
+
+                $fileInfo->fid = $fileInfo->getClientOriginalName();
+
 
             }else {
 
                 $fileInfo = new FileInfo();
+                $fileInfo->fid = uniqid("f");
             }
 
 
 
-            $fileInfo->fid = uniqid("f");
+
 
             $fileInfo->mime_type = $rst['mime_type'];
 
