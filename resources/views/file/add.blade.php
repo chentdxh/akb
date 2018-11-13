@@ -61,7 +61,8 @@
                     <label for="fileUrl" class="col-sm-2 control-label">云地址</label>
 
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="fileCloudUrl" name="fileCloudUrl" placeholder="云服务Url"
+                        <input type="text" class="form-control" id="fileCloudUrl" name="fileCloudUrl"
+                               placeholder="云服务Url"
                                readonly>
                     </div>
                 </div>
@@ -71,8 +72,8 @@
         <!-- /.box-body -->
         <div class="box-footer text-center">
             <a href="#!" class=" " id="uploadBtn">上传</a>
-            <a href="#!"   id="uploadTencentBtn">上传腾讯云</a>
-            <a href="#!"   id="uploadAliyunBtn">上传阿里云</a>
+            <a href="#!" id="uploadTencentBtn">上传腾讯云</a>
+            <a href="#!" id="uploadAliyunBtn">上传阿里云</a>
         </div>
         <!-- /.box-footer -->
 
@@ -96,7 +97,6 @@
             var self = this;
 
             this.uploader = WebUploader.create({
-
                 auto: true,
                 // 文件接收服务端。
                 server: url,
@@ -117,7 +117,7 @@
             })
             this.uploader.on("uploadProgress", function (file, percentage) {
 
-                console.log("percentage is " + percentage) ;
+                console.log("percentage is " + percentage);
 
             });
 
@@ -161,11 +161,11 @@
 
         $(function () {
 
-                create_uploader("#uploadBtn","/data/file/upload");
+            create_uploader("#uploadBtn", "/data/file/upload?idtype=file");
 
-                create_uploader("#uploadTencentBtn","/data/file/upload?cloud=tencent");
+            create_uploader("#uploadTencentBtn", "/data/file/upload?cloud=tencent");
 
-                  create_uploader("#uploadAliyunBtn","/data/file/upload?cloud=aliyun");
+            create_uploader("#uploadAliyunBtn", "/data/file/upload?cloud=aliyun");
 
         });
 

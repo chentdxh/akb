@@ -25,10 +25,25 @@ class FileController extends Controller
         $rst = $this->save_to_disk($disk);
 
 
+        $idtype = $request->input("idtype");
+
+
         if (!empty($rst)) {
 
+            if (!empty($idtype))
+            {
+                $fileInfo = FileInfo::where("fid",$file->getClientOriginalName)->first();
+                if (empty($fileInfo))
+                {
+                    $fileInfo = new FileInfo();
+                }
 
-            $fileInfo = new FileInfo();
+            }else {
+
+                $fileInfo = new FileInfo();
+            }
+
+
 
             $fileInfo->fid = uniqid("f");
 

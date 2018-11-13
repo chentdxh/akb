@@ -53,7 +53,7 @@ class Controller extends BaseController
         $accessKeyId = env("ALIYUN_ACCESS_ID");
         $accessKeySecret = env("ALIYUN_ACCESS_SECRET");
         $endpoint = env("ALIYUN_ENDPOINT");
-        
+
         try {
             $ossClient = new OssClient($accessKeyId, $accessKeySecret, $endpoint);
 
@@ -71,14 +71,11 @@ class Controller extends BaseController
 
             $rst = $ossClient->putObject($bucket, $object, $content);
 
-
             logger("result is ");
             logger(json_encode($rst));
 
             logger("upload success");
-
             return $rst;
-
 
         } catch (OssException $e) {
 
