@@ -105,13 +105,13 @@
 
         $(function () {
 
-            create_uploader("#uploadFileBtn", "/data/file/upload");
+            create_uploader("uploadFileBtn", "/data/file/upload");
 
-            create_uploader("#uploadBtn", "/data/file/upload?idtype=file");
+            create_uploader("uploadBtn", "/data/file/upload?idtype=file");
 
-            create_uploader("#uploadTencentBtn", "/data/file/upload?cloud=tencent");
+            create_uploader("uploadTencentBtn", "/data/file/upload?cloud=tencent");
 
-            create_uploader("#uploadAliyunBtn", "/data/file/upload?cloud=aliyun");
+            create_uploader("uploadAliyunBtn", "/data/file/upload?cloud=aliyun");
 
         });
 
