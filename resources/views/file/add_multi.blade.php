@@ -150,7 +150,7 @@
     </script>
 
 
-    
+
 @stop
 
 @section('css')
@@ -178,9 +178,10 @@
 
 
 
+
         $(function () {
 
-            create_uploader("fine-uploader");
+            create_uploader("fine-uploader","/data/file/upload");
 
             // create_uploader("uploadFileBtn", "/data/file/upload");
             //
