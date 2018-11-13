@@ -71,7 +71,9 @@
         </form>
         <!-- /.box-body -->
         <div class="box-footer text-center">
-            <a href="#!" class=" " id="uploadBtn">上传</a>
+            <a href="#!" class=" " id="uploadFileBtn">上传</a>
+
+            <a href="#!" class=" " id="uploadBtn">上传(文件名id)</a>
             <a href="#!" id="uploadTencentBtn">上传腾讯云</a>
             <a href="#!" id="uploadAliyunBtn">上传阿里云</a>
         </div>
@@ -160,6 +162,11 @@
 
 
         $(function () {
+
+
+            create_uploader("#uploadFileBtn", "/data/file/upload?idtype=file");
+
+            create_uploader("#uploadBtn", "/data/file/upload");
 
             create_uploader("#uploadBtn", "/data/file/upload?idtype=file");
 
