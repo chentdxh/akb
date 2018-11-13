@@ -197,7 +197,7 @@
                 request: {
                     endpoint: "/data/file/upload?idtype=file"
                 },
-                inputName"file",
+                inputName:"file",
                 thumbnails: {
                     placeholders: {
                         waitingPath: '/libs/fine-uploader/placeholders/waiting-generic.png',
