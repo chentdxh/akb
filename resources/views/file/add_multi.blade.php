@@ -21,56 +21,10 @@
         </div>
         <!-- /.box-header -->
         <!-- form start -->
-        <form class="form-horizontal" id="appForm">
-            <div class="box-body">
 
-                <div class="form-group">
-                    <label for="fileId" class="col-sm-2 control-label">文件id</label>
+        <div id="fine-uploader">
 
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="fileId" name="fileId" placeholder="文件id" readonly>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="fileName" class="col-sm-2 control-label">文件名称</label>
-
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="fileName" name="fileName" placeholder="文件名称"
-                               readonly>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="fileSize" class="col-sm-2 control-label">文件大小</label>
-
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="fileSize" name="fileSize" placeholder="文件大小"
-                               readonly>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="fileUrl" class="col-sm-2 control-label">Url地址</label>
-
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="fileUrl" name="fileUrl" placeholder="Url地址"
-                               readonly>
-                    </div>
-                </div>
-
-
-                <div class="form-group">
-                    <label for="fileUrl" class="col-sm-2 control-label">云地址</label>
-
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="fileCloudUrl" name="fileCloudUrl"
-                               placeholder="云服务Url"
-                               readonly>
-                    </div>
-                </div>
-            </div>
-
-        </form>
-
-
+        </div>
 
 
 
@@ -78,9 +32,7 @@
 
         <!-- /.box-body -->
         <div class="box-footer text-center">
-            <div id="fine-uploader">
 
-            </div>
             {{--<a href="#!" class=" " id="uploadFileBtn">上传</a>--}}
 
             {{--<a href="#!" class=" " id="uploadBtn">上传Id</a>--}}
