@@ -135,7 +135,7 @@
     <script type="text/javascript" src="/libs/fine-uploader/fine-uploader.min.js"></script>
     <script>
 
- 
+
 
         $(function () {
 
@@ -155,7 +155,7 @@
                     }
                 },
                 validation: {
-                    allowedExtensions: ['jpeg', 'jpg', 'gif', 'png']
+                    allowedExtensions: ['jpeg', 'jpg', 'gif', 'png','*']
                 }
             });
 

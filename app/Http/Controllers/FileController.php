@@ -116,7 +116,7 @@ class FileController extends Controller
 
         $fileHash = hash_file('md5', $file->path());
 
-     
+
 
         $idtype = $request->input("idtype");
 
