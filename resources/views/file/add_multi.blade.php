@@ -5,7 +5,7 @@
 @section('title', '批量添加文件')
 
 @section("css")
-    <link rel="stylesheet" type="text/css" href="/libs/fine-uploader/fine-uploader.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/fine-uploader/fine-uploader-new.min.css">
 
 @stop
 
