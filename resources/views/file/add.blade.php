@@ -73,7 +73,7 @@
         <div class="box-footer text-center">
             <a href="#!" class=" " id="uploadFileBtn">上传</a>
 
-            <a href="#!" class=" " id="uploadBtn">上传</a>
+            <a href="#!" class=" " id="uploadBtn">上传Id</a>
             <a href="#!" id="uploadTencentBtn">上传腾讯云</a>
             <a href="#!" id="uploadAliyunBtn">上传阿里云</a>
         </div>
@@ -112,7 +112,8 @@
                     title: 'Images',
                     extensions: '*',
                     mimeTypes: '*/*'
-                }
+                },
+                fileNumLimit:10
             });
             this.uploader.on("fileQueued", function (file) {
 
@@ -163,9 +164,7 @@
 
         $(function () {
 
-
             create_uploader("#uploadFileBtn", "/data/file/upload");
-
 
             create_uploader("#uploadBtn", "/data/file/upload?idtype=file");
 
